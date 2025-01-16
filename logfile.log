@@ -1,0 +1,19 @@
+2024/12/28 11:04:18 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2024/12/28 11:32:44 2024/12/28 11:32:44 HTTP/1.1 [GET]	localhost:8080/api/posts/General?limit=20&offset=100 - 204 - No Content
+2024/12/28 11:32:44 no posts found for category: General
+2024/12/28 11:32:44 http: superfluous response.WriteHeader call from forum/internal/controller/http.(*Handler).errorHandler (errorHandler.go:24)
+2024/12/28 11:35:21 2024/12/28 11:35:21 HTTP/1.1 [POST]	localhost:8080/api/signin - 400 - Bad Request
+2024/12/28 11:35:21 invalid email or password
+2024/12/28 11:38:09 2024/12/28 11:38:09 HTTP/1.1 [GET]	localhost:8080/api/posts/Software%20Engineering?limit=20&offset=0 - 204 - No Content
+2024/12/28 11:38:09 no posts found for category: Software Engineering
+2024/12/28 11:38:09 http: superfluous response.WriteHeader call from forum/internal/controller/http.(*Handler).errorHandler (errorHandler.go:24)
+2024/12/28 11:38:09 2024/12/28 11:38:09 HTTP/1.1 [GET]	localhost:8080/api/posts/Software%20Engineering?limit=20&offset=0 - 204 - No Content
+2024/12/28 11:38:09 no posts found for category: Software Engineering
+2024/12/28 11:38:09 http: superfluous response.WriteHeader call from forum/internal/controller/http.(*Handler).errorHandler (errorHandler.go:24)
+2024/12/28 11:44:27 2024/12/28 11:44:27 HTTP/1.1 [POST]	localhost:8080/api/post/vote - 401 - Unauthorized
+2024/12/28 11:44:27 no token cookie
+2024/12/28 11:44:27 2024/12/28 11:44:27 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2024/12/28 11:44:27 no token cookie
+2024/12/28 17:41:13 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080

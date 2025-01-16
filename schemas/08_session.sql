@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS sessions(
+    token TEXT NOT NULL,
+    user_id INTEGER UNIQUE NOT NULL,
+    FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
+);
