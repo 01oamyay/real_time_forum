@@ -49,7 +49,7 @@ const newPostElement = (post) => {
   const headerContent = document.createElement("div");
   const authorName = document.createElement("div");
   authorName.classList.add("post-author-name");
-  authorName.textContent = post.username;
+  authorName.textContent = post.nickname;
 
   headerContent.appendChild(authorName);
   postCardHeader.appendChild(headerContent);
@@ -437,7 +437,7 @@ export default class extends AbstractView {
     document.addEventListener("category-selected", async (e) => {
       const category_choosed = e.detail.category;
 
-      offset = 0; 
+      offset = 0;
       const postsDoc = document.querySelector(".posts-grid");
       postsDoc.textContent = ""; // Clear previous posts
 

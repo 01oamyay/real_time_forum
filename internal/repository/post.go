@@ -27,7 +27,7 @@ SELECT
     p.user_id,
     p.title,
     p.data,
-    u.username,	
+    u.nickname,	
     (SELECT COUNT(*) FROM post_vote WHERE post_id = p.id AND vote = 1) as likes,
     (SELECT COUNT(*) FROM post_vote WHERE post_id = p.id AND vote = 0) as dislikes,
     (SELECT COUNT(*) FROM comment WHERE post_id = p.id) as comments_count,
@@ -68,7 +68,7 @@ LIMIT $3 OFFSET $4;
 			&post.UserID,
 			&post.Title,
 			&post.Data,
-			&post.UserName,
+			&post.NickName,
 			&post.Likes,
 			&post.Dislikes,
 			&post.CommentsCount,
@@ -106,7 +106,7 @@ func (r *PostRepository) GetAllByUserID(ctx context.Context, userID uint, limit,
 		p.user_id,
 		p.title,
 		p.data,
-		u.username,
+		u.nickname,
 	    (SELECT COUNT(*) FROM post_vote WHERE post_id = p.id AND vote = 1) as likes,
     	(SELECT COUNT(*) FROM post_vote WHERE post_id = p.id AND vote = 0) as dislikes,
     	(SELECT COUNT(*) FROM comment WHERE post_id = p.id) as comments_count,
@@ -133,7 +133,7 @@ func (r *PostRepository) GetAllByUserID(ctx context.Context, userID uint, limit,
 	}
 	for rows.Next() {
 		post := entity.Post{}
-		if err := rows.Scan(&post.PostID, &post.UserID, &post.Title, &post.Data, &post.UserName, &post.Likes, &post.Dislikes, &post.CommentsCount, &post.VoteStatus); err != nil {
+		if err := rows.Scan(&post.PostID, &post.UserID, &post.Title, &post.Data, &post.NickName, &post.Likes, &post.Dislikes, &post.CommentsCount, &post.VoteStatus); err != nil {
 			return nil, http.StatusInternalServerError, err
 		}
 		categorys, status, err := r.getCategorysByPostID(ctx, post.PostID)
@@ -154,7 +154,7 @@ func (r *PostRepository) GetAllLikedPostsByUserID(ctx context.Context, userID ui
 		p.user_id,
 		p.title,
 		p.data,
-		u.username,
+		u.nickname,
 		(SELECT COUNT(*) FROM post_vote WHERE post_id = p.id AND vote = 1) as likes,
     	(SELECT COUNT(*) FROM post_vote WHERE post_id = p.id AND vote = 0) as dislikes,
     	(SELECT COUNT(*) FROM comment WHERE post_id = p.id) as comments_count
@@ -181,7 +181,7 @@ func (r *PostRepository) GetAllLikedPostsByUserID(ctx context.Context, userID ui
 	}
 	for rows.Next() {
 		post := entity.Post{}
-		if err := rows.Scan(&post.PostID, &post.UserID, &post.Title, &post.Data, &post.UserName, &post.Likes, &post.Dislikes, &post.CommentsCount); err != nil {
+		if err := rows.Scan(&post.PostID, &post.UserID, &post.Title, &post.Data, &post.NickName, &post.Likes, &post.Dislikes, &post.CommentsCount); err != nil {
 			return nil, http.StatusInternalServerError, err
 		}
 		categorys, status, err := r.getCategorysByPostID(ctx, post.PostID)
@@ -207,7 +207,7 @@ func (r *PostRepository) GetPostByID(ctx context.Context, postID uint) (entity.P
 		p.user_id,
 		p.title,
 		p.data,
-		u.username,
+		u.nickname,
 		COALESCE(COUNT(CASE WHEN pv.vote = 1 THEN 1 END), 0) AS voting,
 		COALESCE(COUNT(CASE WHEN pv.vote = 0 THEN 1 END), 0) AS voting1,
 	CASE 
@@ -230,7 +230,7 @@ func (r *PostRepository) GetPostByID(ctx context.Context, postID uint) (entity.P
 
 	userId := ctx.Value(r.keys.IDKey).(int)
 
-	if err := prep.QueryRowContext(ctx, userId, postID).Scan(&post.PostID, &post.UserID, &post.Title, &post.Data, &post.UserName, &post.Likes, &post.Dislikes, &post.VoteStatus); err != nil {
+	if err := prep.QueryRowContext(ctx, userId, postID).Scan(&post.PostID, &post.UserID, &post.Title, &post.Data, &post.NickName, &post.Likes, &post.Dislikes, &post.VoteStatus); err != nil {
 		return post, http.StatusNotFound, err
 	}
 
@@ -254,7 +254,7 @@ func (r *PostRepository) getCommentsByPostID(ctx context.Context, postID uint) (
 		c.id,
 		c.user_id,
 		c.data,
-		u.username,
+		u.nickname,
 		COALESCE(COUNT(CASE WHEN cv.vote = 1 THEN 1 END), 0) AS voting,
 		COALESCE(COUNT(CASE WHEN cv.vote = 0 THEN 1 END), 0) AS voting1,
 	CASE 
@@ -270,7 +270,7 @@ func (r *PostRepository) getCommentsByPostID(ctx context.Context, postID uint) (
 	WHERE 
 		c.post_id = $2
 	GROUP BY
-		c.id, c.user_id, c.data, u.username;
+		c.id, c.user_id, c.data, u.nickname;
 	`
 	prep, err := r.db.PrepareContext(ctx, query)
 	if err != nil {
@@ -290,7 +290,7 @@ func (r *PostRepository) getCommentsByPostID(ctx context.Context, postID uint) (
 	comments := []entity.Comment{}
 	for rows.Next() {
 		comment := entity.Comment{}
-		if err := rows.Scan(&comment.CommentID, &comment.UserID, &comment.Data, &comment.UserName, &comment.Likes, &comment.Dislikes, &comment.VoteStatus); err != nil {
+		if err := rows.Scan(&comment.CommentID, &comment.UserID, &comment.Data, &comment.NickName, &comment.Likes, &comment.Dislikes, &comment.VoteStatus); err != nil {
 			return nil, http.StatusInternalServerError, err
 		}
 		comment.PostID = postID

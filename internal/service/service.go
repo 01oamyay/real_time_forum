@@ -36,12 +36,20 @@ type Comment interface {
 	UpsertCommentVote(ctx context.Context, input entity.CommentVote) (int, error)
 }
 
+type Message interface {
+	GetMessagesByChat(ctx context.Context, chatId uint, limit, offset int) ([]entity.Message, int, error)
+	GetAllUserChats(ctx context.Context) ([]entity.Chat, int, error)
+	CreateChat(ctx context.Context, second_user uint) (entity.Chat, int, error)
+	CreateMessage(ctx context.Context, chatId uint, text string) (entity.Message, int, error)
+}
+
 type Service struct {
 	User
 	Session
 	Post
 	Comment
 	Category
+	Message
 	repository.Keys
 }
 
@@ -52,6 +60,7 @@ func NewService(repo *repository.Repository, secret string) *Service {
 		Post:     newPostService(repo.Post, repo.Category),
 		Comment:  newCommentService(repo.Comment),
 		Category: newCategoryService(repo.Category),
+		Message:  newMessagesService(repo.Message),
 		Keys:     repo.Keys,
 	}
 }

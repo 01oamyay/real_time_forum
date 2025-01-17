@@ -17,7 +17,7 @@ const getPost = async (postID) => {
   if (post) {
     document.getElementById("post-title").innerText = post.title;
     const userEl = document.getElementById("post-user-id");
-    userEl.innerText = "Author: " + post.username;
+    userEl.innerText = "Author: " + post.nickname;
 
     const formattedCategories = post?.categories?.map((cat) => " #" + cat);
     document.getElementById("post-tags").innerText =
@@ -107,7 +107,7 @@ const drawComments = (comment) => {
 
   const authorEl = document.createElement("p");
   authorEl.classList.add("card-header");
-  authorEl.innerText = "Author: " + comment.username;
+  authorEl.innerText = "Author: " + comment.nickname;
 
   const body = document.createElement("div");
   body.classList.add("card-body");

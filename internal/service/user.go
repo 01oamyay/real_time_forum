@@ -36,8 +36,8 @@ func (s *UserService) Create(ctx context.Context, user entity.User) (int, error)
 		switch err.Error() {
 		case "UNIQUE constraint failed: users.email":
 			return status, errors.New("already email is using")
-		case "UNIQUE constraint failed: users.username":
-			return status, errors.New("already username is using")
+		case "UNIQUE constraint failed: users.nickname":
+			return status, errors.New("already nickname is using")
 		}
 	}
 	return status, err

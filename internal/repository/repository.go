@@ -42,6 +42,13 @@ type Comment interface {
 	UpsertCommentVote(ctx context.Context, input entity.CommentVote) (int, error)
 }
 
+type Message interface {
+	GetMessagesByChat(ctx context.Context, chatId uint, limit, offset int) ([]entity.Message, int, error)
+	GetAllUserChats(ctx context.Context) ([]entity.Chat, int, error)
+	CreateChat(ctx context.Context, second_user uint) (entity.Chat, int, error)
+	CreateMessage(ctx context.Context, chatId uint, text string) (entity.Message, int, error)
+}
+
 type key string
 
 type Keys struct {
@@ -55,6 +62,7 @@ type Repository struct {
 	Session
 	Category
 	Comment
+	Message
 	Keys
 }
 
@@ -69,6 +77,7 @@ func NewRepository(db *sql.DB) *Repository {
 		Post:     newPostRepository(db, Keys),
 		Category: newCategoryRepository(db),
 		Comment:  newCommentRepository(db),
+		Message:  newMessagesRepo(db, Keys),
 		Keys:     Keys,
 	}
 }

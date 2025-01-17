@@ -2,10 +2,10 @@ import AbstractView from "./AbstractView.js";
 import redirect from "../index.js";
 import fetcher from "../pkg/fetcher.js";
 
-const signup = async (email, username, password, rePassword) => {
+const signup = async (email, nickname, password, rePassword) => {
   let body = {
     email: email,
-    username: username,
+    nickname: nickname,
     password: password,
     cfmpsw: rePassword,
   };
@@ -44,17 +44,17 @@ export default class extends AbstractView {
                     </div>
 
                     <div class="form-group">
-                        <label for="username">Username</label>
+                        <label for="nickname">Nickname</label>
                         <input 
                             type="text" 
-                            id="username" 
+                            id="nickname" 
                             class="form-control" 
-                            placeholder="Choose a username" 
+                            placeholder="Choose a nickname" 
                             required
                             minlength="3"
                             maxlength="20"
                         >
-                        <div class="validation-message" id="username-error"></div>
+                        <div class="validation-message" id="nickname-error"></div>
                     </div>
 
                     <div class="form-group">
@@ -105,13 +105,13 @@ export default class extends AbstractView {
 
     // Input elements
     const emailInput = document.getElementById("email");
-    const usernameInput = document.getElementById("username");
+    const nicknameInput = document.getElementById("nickname");
     const passwordInput = document.getElementById("password");
     const rePasswordInput = document.getElementById("rePassword");
 
     // Error message elements
     const emailError = document.getElementById("email-error");
-    const usernameError = document.getElementById("username-error");
+    const nicknameError = document.getElementById("nickname-error");
     const passwordError = document.getElementById("password-error");
     const rePasswordError = document.getElementById("rePassword-error");
 
@@ -130,23 +130,23 @@ export default class extends AbstractView {
       return true;
     };
 
-    // Username validation
-    const validateUsername = (username) => {
-      if (!username) {
-        usernameError.textContent = "Username is required";
+    // nickname validation
+    const validatenickname = (nickname) => {
+      if (!nickname) {
+        nicknameError.textContent = "nickname is required";
         return false;
       }
-      
-      if (username.length < 3) {
-        usernameError.textContent =
-          "Username must be at least 3 characters long";
+
+      if (nickname.length < 3) {
+        nicknameError.textContent =
+          "nickname must be at least 3 characters long";
         return false;
       }
-      if (username.length > 20) {
-        usernameError.textContent = "Username must be less than 20 characters";
+      if (nickname.length > 20) {
+        nicknameError.textContent = "nickname must be less than 20 characters";
         return false;
       }
-      usernameError.textContent = "";
+      nicknameError.textContent = "";
       return true;
     };
 
@@ -181,8 +181,8 @@ export default class extends AbstractView {
 
     // Real-time validation
     emailInput.addEventListener("input", () => validateEmail(emailInput.value));
-    usernameInput.addEventListener("input", () =>
-      validateUsername(usernameInput.value)
+    nicknameInput.addEventListener("input", () =>
+      validatenickname(nicknameInput.value)
     );
     passwordInput.addEventListener("input", () =>
       validatePassword(passwordInput.value)
@@ -197,7 +197,7 @@ export default class extends AbstractView {
 
       // Validate all fields
       const isEmailValid = validateEmail(emailInput.value);
-      const isUsernameValid = validateUsername(usernameInput.value);
+      const isnicknameValid = validatenickname(nicknameInput.value);
       const isPasswordValid = validatePassword(passwordInput.value);
       const isConfirmPasswordValid = validateConfirmPassword(
         passwordInput.value,
@@ -207,13 +207,13 @@ export default class extends AbstractView {
       // Only proceed if all validations pass
       if (
         isEmailValid &&
-        isUsernameValid &&
+        isnicknameValid &&
         isPasswordValid &&
         isConfirmPasswordValid
       ) {
         await signup(
           emailInput.value,
-          usernameInput.value,
+          nicknameInput.value,
           passwordInput.value,
           rePasswordInput.value
         );

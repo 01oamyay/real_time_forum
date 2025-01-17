@@ -1,1 +1,1 @@
-INSERT OR IGNORE INTO users (username, email, hashPass) VALUES ('test', 'test@test.com', 'test');
+INSERT OR IGNORE INTO users (nickname, email, hashPass) VALUES ('test', 'test@test.com', 'test');

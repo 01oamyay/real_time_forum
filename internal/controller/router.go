@@ -15,8 +15,9 @@ import (
 )
 
 type Handler struct {
-	service *service.Service
-	secret  string
+	service   *service.Service
+	secret    string
+	webSocket *WebSocket
 	*RateLimiter
 }
 
@@ -30,6 +31,7 @@ func NewHandler(service *service.Service, secret string) *Handler {
 	return &Handler{
 		service:     service,
 		secret:      secret,
+		webSocket:   newWS(),
 		RateLimiter: NewRateLimiter(60, time.Minute),
 	}
 }

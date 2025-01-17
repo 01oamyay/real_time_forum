@@ -3,7 +3,7 @@ package entity
 type Comment struct {
 	CommentID  uint   `json:"comment_id"`
 	UserID     uint   `json:"user_id"`
-	UserName   string `json:"username"`
+	NickName   string `json:"nickname"`
 	PostID     uint   `json:"post_id"`
 	Data       string `json:"data"`
 	Likes      uint   `json:"likes"`

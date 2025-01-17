@@ -48,8 +48,8 @@ func isValidEmail(user *entity.User) error {
 }
 
 func isValidUser(user *entity.User) error {
-	if ok, _ := regexp.MatchString("^[a-zA-Z0-9]{4,16}$", user.Username); !ok {
-		return errors.New("invalid username")
+	if ok, _ := regexp.MatchString("^[a-zA-Z0-9]{4,16}$", user.NickName); !ok {
+		return errors.New("invalid nickname")
 	}
 	return nil
 }
