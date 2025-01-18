@@ -37,10 +37,11 @@ type Comment interface {
 }
 
 type Message interface {
-	GetMessagesByChat(ctx context.Context, chatId uint, limit, offset int) ([]entity.Message, int, error)
+	GetMessagesByChat(ctx context.Context, second_user uint, limit, offset int) ([]entity.Message, int, error)
 	GetAllUserChats(ctx context.Context) ([]entity.Chat, int, error)
 	CreateChat(ctx context.Context, second_user uint) (entity.Chat, int, error)
-	CreateMessage(ctx context.Context, chatId uint, text string) (entity.Message, int, error)
+	CreateMessage(ctx context.Context, msg entity.Message) (entity.Message, int, error)
+	GetChatById(ctx context.Context, chat_id uint) (entity.Chat, error)
 }
 
 type Service struct {
@@ -60,7 +61,7 @@ func NewService(repo *repository.Repository, secret string) *Service {
 		Post:     newPostService(repo.Post, repo.Category),
 		Comment:  newCommentService(repo.Comment),
 		Category: newCategoryService(repo.Category),
-		Message:  newMessagesService(repo.Message),
+		Message:  newMessagesService(repo.Message, repo.User),
 		Keys:     repo.Keys,
 	}
 }

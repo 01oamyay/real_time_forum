@@ -3,6 +3,7 @@ package repository
 import (
 	"context"
 	"database/sql"
+	"errors"
 	"net/http"
 
 	"rlf/internal/entity"
@@ -49,6 +50,10 @@ func (r *MessagesRepository) GetMessagesByChat(ctx context.Context, chatId uint,
 			return nil, http.StatusInternalServerError, err
 		}
 		messages = append(messages, msg)
+	}
+
+	if len(messages) == 0 {
+		return messages, http.StatusNoContent, errors.New("no messages")
 	}
 
 	if err = rows.Err(); err != nil {
@@ -110,6 +115,51 @@ func (r *MessagesRepository) CreateChat(ctx context.Context, second_user uint) (
 	return chat, http.StatusOK, nil
 }
 
+func (r *MessagesRepository) ChatExist(ctx context.Context, second_user uint) (int, int, error) {
+	userId := ctx.Value(r.Keys.IDKey)
+	query := `
+		SELECT id FROM chat
+		WHERE (user_id = ? AND user_id_1 = ?) OR (user_id = ? AND user_id_1 = ?)
+	`
+
+	prep, err := r.db.PrepareContext(ctx, query)
+	if err != nil {
+		return 0, http.StatusInternalServerError, err
+	}
+	defer prep.Close()
+
+	chatId := 0
+	row := prep.QueryRowContext(ctx, userId, second_user, second_user, userId)
+	if err = row.Scan(&chatId); err != nil {
+		if err == sql.ErrNoRows {
+			return 0, http.StatusNotFound, err
+		}
+		return 0, http.StatusInternalServerError, err
+	}
+
+	return chatId, http.StatusOK, nil
+}
+
+func (r *MessagesRepository) ChatExistsById(ctx context.Context, chat_id uint) (bool, int, error) {
+	exists := false
+	query := `
+	SELECT EXISTS (
+    	SELECT 1 FROM chat 
+    	WHERE id = ?
+	)
+	`
+	prep, err := r.db.PrepareContext(ctx, query)
+	if err != nil {
+		return exists, http.StatusInternalServerError, err
+	}
+	defer prep.Close()
+
+	if err = prep.QueryRowContext(ctx, chat_id).Scan(&exists); err != nil {
+		return exists, http.StatusInternalServerError, err
+	}
+	return exists, http.StatusOK, nil
+}
+
 func (r *MessagesRepository) CreateMessage(ctx context.Context, chatId uint, text string) (entity.Message, int, error) {
 	senderId := ctx.Value(r.Keys.IDKey).(int)
 
@@ -132,4 +182,24 @@ func (r *MessagesRepository) CreateMessage(ctx context.Context, chatId uint, tex
 	}
 
 	return msg, http.StatusOK, nil
+}
+
+func (r *MessagesRepository) GetChatById(ctx context.Context, chat_id uint) (entity.Chat, error) {
+	query := `SELECT (id, user_id, user_id_1) FROM chat WHERE id = ?`
+
+	chat := entity.Chat{}
+	prep, err := r.db.PrepareContext(ctx, query)
+	if err != nil {
+		return chat, err
+	}
+	defer prep.Close()
+
+	if err = prep.QueryRowContext(ctx, chat_id).Scan(&chat.ID, &chat.UserID, chat.UserId1); err != nil {
+		return chat, err
+	}
+
+	if chat.ID == 0 {
+		return chat, errors.New("chat not found")
+	}
+	return chat, nil
 }

@@ -5,7 +5,7 @@ import "time"
 type Message struct {
 	ID        uint      `json:"id"`
 	ChatId    uint      `json:"chat_id"`
-	SenderId      uint      `json:"sender_id"`
+	SenderId  uint      `json:"sender_id"`
 	Content   string    `json:"content"`
 	CreatedAt time.Time `json:"created_at"`
 }

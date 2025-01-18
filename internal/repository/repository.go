@@ -10,6 +10,7 @@ import (
 type User interface {
 	Create(ctx context.Context, user entity.User) (int, error)
 	GetUserIDByEmail(ctx context.Context, email string) (entity.User, int, error)
+	Exists(ctx context.Context, userId uint) (bool, int, error)
 }
 
 type Session interface {
@@ -46,7 +47,11 @@ type Message interface {
 	GetMessagesByChat(ctx context.Context, chatId uint, limit, offset int) ([]entity.Message, int, error)
 	GetAllUserChats(ctx context.Context) ([]entity.Chat, int, error)
 	CreateChat(ctx context.Context, second_user uint) (entity.Chat, int, error)
+	ChatExist(ctx context.Context, second_user uint) (int, int, error)
+	ChatExistsById(ctx context.Context, chat_id uint) (bool, int, error)
 	CreateMessage(ctx context.Context, chatId uint, text string) (entity.Message, int, error)
+	GetChatById(ctx context.Context, chat_id uint) (entity.Chat, error)
+
 }
 
 type key string

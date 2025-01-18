@@ -4,6 +4,8 @@ import (
 	"net/http"
 	"sync"
 
+	"rlf/internal/entity"
+
 	"github.com/gorilla/websocket"
 )
 
@@ -56,34 +58,72 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 					"data":  userId,
 				})
 				if err != nil {
-					h.errorHandler(w, r, http.StatusInternalServerError, err.Error())
+					conn.WriteJSON(map[string]interface{}{
+						"event": "error",
+						"error": err.Error(),
+					})
 					return
 				}
+				return
 			}
 		}
 
 		// second: wait for messages
 		for {
-			_, message, err := conn.ReadMessage()
+			msg := entity.Message{}
+			err := conn.ReadJSON(&msg)
 			if err != nil {
-				h.errorHandler(w, r, http.StatusInternalServerError, err.Error())
+				conn.WriteJSON(map[string]interface{}{
+					"event": "error",
+					"error": err.Error(),
+				})
 				return
 			}
-			// TODO save to db
 
-			// broadcast to all other connections
+			chat, err := h.service.Message.GetChatById(r.Context(), msg.ChatId)
+			if err != nil {
+				conn.WriteJSON(map[string]interface{}{
+					"event": "error",
+					"error": err.Error(),
+				})
+				return
+			}
 
-			for id, conn := range h.webSocket.connections {
-				if id != userId {
-					err := conn.WriteJSON(map[string]interface{}{
-						"event": "message",
-						"data":  message,
-					})
-					if err != nil {
-						h.errorHandler(w, r, http.StatusInternalServerError, err.Error())
-						return
-					}
-				}
+			var receiver_id uint
+			if chat.UserID == uint(userId) {
+				receiver_id = chat.UserId1
+			} else {
+				receiver_id = chat.UserID
+			}
+
+			receiverConn, ok := h.webSocket.connections[id(receiver_id)]
+			if !ok {
+				conn.WriteJSON(map[string]interface{}{
+					"event": "error",
+					"error": "you cannot send a message to offline users",
+				})
+				return
+			}
+
+			msg, _, err = h.service.CreateMessage(r.Context(), msg)
+			if err != nil {
+				conn.WriteJSON(map[string]interface{}{
+					"event": "error",
+					"error": err.Error(),
+				})
+				return
+			}
+
+			err = receiverConn.WriteJSON(map[string]interface{}{
+				"event": "msg",
+				"data":  msg,
+			})
+			if err != nil {
+				conn.WriteJSON(map[string]interface{}{
+					"event": "error",
+					"error": err.Error(),
+				})
+				return
 			}
 		}
 	}()

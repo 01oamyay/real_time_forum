@@ -44,3 +44,23 @@ func (r *UserRepository) GetUserIDByEmail(ctx context.Context, email string) (en
 	}
 	return user, http.StatusOK, nil
 }
+
+func (r *UserRepository) Exists(ctx context.Context, userId uint) (bool, int, error) {
+	exists := false
+	query := `
+	SELECT EXISTS (
+    	SELECT 1 FROM users 
+    	WHERE id = ?
+	)
+	`
+	prep, err := r.db.PrepareContext(ctx, query)
+	if err != nil {
+		return exists, http.StatusInternalServerError, err
+	}
+	defer prep.Close()
+
+	if err = prep.QueryRowContext(ctx, userId).Scan(&exists); err != nil {
+		return exists, http.StatusInternalServerError, err
+	}
+	return exists, http.StatusOK, nil
+}
