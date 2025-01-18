@@ -9,7 +9,7 @@ import (
 
 type User interface {
 	Create(ctx context.Context, user entity.User) (int, error)
-	SignIn(ctx context.Context, user entity.User) (string, int, error)
+	SignIn(ctx context.Context, user entity.UserInput) (string, int, error)
 }
 
 type Session interface {
@@ -42,6 +42,7 @@ type Message interface {
 	CreateChat(ctx context.Context, second_user uint) (entity.Chat, int, error)
 	CreateMessage(ctx context.Context, msg entity.Message) (entity.Message, int, error)
 	GetChatById(ctx context.Context, chat_id uint) (entity.Chat, error)
+	GetContacts(ctx context.Context) ([]entity.Contact, int, error)
 }
 
 type Service struct {

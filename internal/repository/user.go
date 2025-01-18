@@ -17,21 +17,21 @@ func newUserRepository(db *sql.DB) *UserRepository {
 }
 
 func (r *UserRepository) Create(ctx context.Context, user entity.User) (int, error) {
-	query := `INSERT INTO users(nickname, email, hashPass)
-	VALUES($1, $2, $3) RETURNING id;`
+	query := `INSERT INTO users(nickname, email, age, gender, firstName, lastName, password)
+	VALUES(?, ?, ?, ?, ?, ?, ?) RETURNING id;`
 	prep, err := r.db.PrepareContext(ctx, query)
 	if err != nil {
 		return http.StatusInternalServerError, err
 	}
 	defer prep.Close()
-	if _, err = prep.ExecContext(ctx, user.NickName, user.Email, user.Password); err != nil {
+	if _, err = prep.ExecContext(ctx, user.NickName, user.Email, user.Age, user.Gender, user.FirstName, user.LastName, user.Password); err != nil {
 		return http.StatusBadRequest, err
 	}
 	return http.StatusCreated, nil
 }
 
-func (r *UserRepository) GetUserIDByEmail(ctx context.Context, email string) (entity.User, int, error) {
-	query := `SELECT id, hashPass FROM users WHERE email = $1 LIMIT 1;`
+func (r *UserRepository) GetUserIDByLogin(ctx context.Context, login string) (entity.User, int, error) {
+	query := `SELECT id, password FROM users WHERE email = ? OR nickname = ? LIMIT 1;`
 	prep, err := r.db.PrepareContext(ctx, query)
 	user := entity.User{}
 	if err != nil {
@@ -39,7 +39,7 @@ func (r *UserRepository) GetUserIDByEmail(ctx context.Context, email string) (en
 	}
 	defer prep.Close()
 
-	if err = prep.QueryRowContext(ctx, email).Scan(&user.ID, &user.Password); err != nil {
+	if err = prep.QueryRowContext(ctx, login, login).Scan(&user.ID, &user.Password); err != nil {
 		return user, http.StatusBadRequest, err
 	}
 	return user, http.StatusOK, nil

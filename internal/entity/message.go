@@ -15,3 +15,11 @@ type Chat struct {
 	UserID  uint `json:"user_id"`
 	UserId1 uint `json:"user_id_1"`
 }
+
+type Contact struct {
+	UserID    uint   `json:"user_id"`
+	FirstName string `json:"firstName"`
+	LastName  string `json:"lastName"`
+	Nickname  string `json:"nickname"`
+	IsOnline  bool   `json:"isOnline"`
+}

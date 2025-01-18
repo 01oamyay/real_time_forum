@@ -61,7 +61,6 @@ LIMIT $3 OFFSET $4;
 	defer rows.Close()
 
 	for rows.Next() {
-
 		post := entity.Post{}
 		if err := rows.Scan(
 			&post.PostID,

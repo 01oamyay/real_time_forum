@@ -17,3 +17,1082 @@ Link: 🌐 http://localhost:8080
 2024/12/28 11:44:27 no token cookie
 2024/12/28 17:41:13 [32mServer is running...🚀
 Link: 🌐 http://localhost:8080
+2025/01/18 12:54:45 error occured while connecting database: near "gender": syntax error
+2025/01/18 12:55:18 error occured while connecting database: table users has no column named nickname
+2025/01/18 12:55:35 error occured while connecting database: table users has no column named hashPass
+2025/01/18 12:55:53 error occured while connecting database: table "chat" has more than one primary key
+2025/01/18 12:56:15 error occured while connecting database: near ")": syntax error
+2025/01/18 12:56:24 error occured while connecting database: near "FOREIGN": syntax error
+2025/01/18 12:57:02 error occured while connecting database: near "FOREIGN": syntax error
+2025/01/18 12:57:22 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 12:57:25 2025/01/18 12:57:25 HTTP/1.1 [GET]	localhost:8080/api/posts/General?limit=20&offset=0 - 204 - No Content
+2025/01/18 12:57:25 no posts found for category: General
+2025/01/18 12:57:25 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/18 13:16:45 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 13:16:47 2025/01/18 13:16:47 HTTP/1.1 [GET]	localhost:8080/api/posts/General?limit=20&offset=0 - 204 - No Content
+2025/01/18 13:16:47 no posts found for category: General
+2025/01/18 13:16:47 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/18 13:32:47 2025/01/18 13:32:47 HTTP/1.1 [GET]	localhost:8080/api/posts/General?limit=20&offset=0 - 204 - No Content
+2025/01/18 13:32:47 no posts found for category: General
+2025/01/18 13:32:47 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/18 13:33:46 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 13:33:49 2025/01/18 13:33:49 HTTP/1.1 [GET]	localhost:8080/api/posts/General?limit=20&offset=0 - 204 - No Content
+2025/01/18 13:33:49 no posts found for category: General
+2025/01/18 13:33:49 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/18 13:37:00 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 13:37:05 2025/01/18 13:37:05 HTTP/1.1 [GET]	localhost:8080/api/posts/General?limit=20&offset=0 - 204 - No Content
+2025/01/18 13:37:05 no posts found for category: General
+2025/01/18 13:37:05 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/18 13:37:51 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 13:37:53 2025/01/18 13:37:53 HTTP/1.1 [GET]	localhost:8080/api/posts/General?limit=20&offset=0 - 204 - No Content
+2025/01/18 13:37:53 no posts found for category: General
+2025/01/18 13:37:53 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/18 13:38:07 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 13:38:09 2025/01/18 13:38:09 HTTP/1.1 [GET]	localhost:8080/api/posts/General?limit=20&offset=0 - 204 - No Content
+2025/01/18 13:38:09 no posts found for category: General
+2025/01/18 13:38:09 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/18 13:39:04 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 13:39:06 2025/01/18 13:39:06 HTTP/1.1 [GET]	localhost:8080/api/posts/General?limit=20&offset=0 - 204 - No Content
+2025/01/18 13:39:06 no posts found for category: General
+2025/01/18 13:39:06 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/18 13:40:30 2025/01/18 13:40:30 HTTP/1.1 [POST]	localhost:8080/api/signup - 400 - Bad Request
+2025/01/18 13:40:30 invalid json input: json: cannot unmarshal string into Go struct field User.age of type int
+2025/01/18 13:41:21 2025/01/18 13:41:21 HTTP/1.1 [POST]	localhost:8080/api/signup - 400 - Bad Request
+2025/01/18 13:41:21 invalid json input: json: cannot unmarshal string into Go struct field User.age of type int
+2025/01/18 13:41:57 2025/01/18 13:41:57 HTTP/1.1 [POST]	localhost:8080/api/signup - 400 - Bad Request
+2025/01/18 13:41:57 invalid json input: json: cannot unmarshal string into Go struct field User.age of type int
+2025/01/18 13:42:42 2025/01/18 13:42:42 HTTP/1.1 [POST]	localhost:8080/api/signup - 400 - Bad Request
+2025/01/18 13:42:42 invalid json input: json: cannot unmarshal string into Go struct field User.age of type int
+2025/01/18 13:43:00 2025/01/18 13:43:00 HTTP/1.1 [GET]	localhost:8080/api/posts/General?limit=20&offset=0 - 204 - No Content
+2025/01/18 13:43:00 no posts found for category: General
+2025/01/18 13:43:00 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/18 13:43:15 2025/01/18 13:43:15 HTTP/1.1 [POST]	localhost:8080/api/signup - 500 - Internal Server Error
+2025/01/18 13:43:15 bad request: 3 values for 7 columns
+2025/01/18 13:44:20 2025/01/18 13:44:20 HTTP/1.1 [GET]	localhost:8080/api/posts/General?limit=20&offset=0 - 204 - No Content
+2025/01/18 13:44:20 no posts found for category: General
+2025/01/18 13:44:20 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/18 13:44:26 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 13:45:06 2025/01/18 13:45:06 HTTP/1.1 [GET]	localhost:8080/api/posts/General?limit=20&offset=0 - 204 - No Content
+2025/01/18 13:45:06 no posts found for category: General
+2025/01/18 13:45:06 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/18 13:48:29 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 13:48:37 2025/01/18 13:48:37 HTTP/1.1 [GET]	localhost:8080/api/posts/General?limit=20&offset=0 - 204 - No Content
+2025/01/18 13:48:37 no posts found for category: General
+2025/01/18 13:48:37 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/18 13:48:39 2025/01/18 13:48:39 HTTP/1.1 [GET]	localhost:8080/api/posts/General?limit=20&offset=0 - 204 - No Content
+2025/01/18 13:48:39 no posts found for category: General
+2025/01/18 13:48:39 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/18 13:49:57 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 13:59:33 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 16:25:44 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 16:25:49 2025/01/18 16:25:49 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 16:25:49 no token cookie
+2025/01/18 16:25:49 2025/01/18 16:25:49 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 16:25:49 no token cookie
+2025/01/18 16:25:49 2025/01/18 16:25:49 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 16:25:49 no token cookie
+2025/01/18 16:25:49 2025/01/18 16:25:49 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 16:25:49 no token cookie
+2025/01/18 16:26:07 2025/01/18 16:26:07 HTTP/1.1 [GET]	localhost:8080/api/contacts - 500 - Internal Server Error
+2025/01/18 16:26:07 row value misused
+2025/01/18 16:28:50 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 16:32:19 2025/01/18 16:32:19 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 16:32:19 no token cookie
+2025/01/18 16:32:19 2025/01/18 16:32:19 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 16:32:19 no token cookie
+2025/01/18 16:32:19 2025/01/18 16:32:19 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 16:32:19 no token cookie
+2025/01/18 16:32:19 2025/01/18 16:32:19 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 16:32:19 no token cookie
+2025/01/18 16:32:38 2025/01/18 16:32:38 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 16:32:38 invalid token
+2025/01/18 16:32:38 2025/01/18 16:32:38 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 16:32:38 invalid token
+2025/01/18 16:32:38 2025/01/18 16:32:38 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 16:32:38 invalid token
+2025/01/18 16:33:16 2025/01/18 16:33:16 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 16:33:16 no token cookie
+2025/01/18 16:33:16 2025/01/18 16:33:16 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 16:33:16 no token cookie
+2025/01/18 16:33:16 2025/01/18 16:33:16 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 16:33:16 no token cookie
+2025/01/18 16:33:16 2025/01/18 16:33:16 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 16:33:16 no token cookie
+2025/01/18 16:39:02 2025/01/18 16:39:02 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 16:39:02 invalid token
+2025/01/18 16:39:02 2025/01/18 16:39:02 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 16:39:02 invalid token
+2025/01/18 16:39:02 2025/01/18 16:39:02 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 16:39:02 invalid token
+2025/01/18 16:39:02 2025/01/18 16:39:02 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 16:39:02 invalid token
+2025/01/18 16:40:01 2025/01/18 16:40:01 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 16:40:01 no token cookie
+2025/01/18 16:40:02 2025/01/18 16:40:02 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 16:40:02 no token cookie
+2025/01/18 16:40:02 2025/01/18 16:40:02 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 16:40:02 no token cookie
+2025/01/18 16:40:02 2025/01/18 16:40:02 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 16:40:02 no token cookie
+2025/01/18 16:46:32 http: panic serving [::1]:39558: interface conversion: interface {} is int, not controller.id
+goroutine 2431 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x8b0ca0?, 0xc00037ae40?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+rlf/internal/controller.(*Handler).WebSocketHandler(0xc000184270, {0x9b41b8, 0xc00020e380}, 0xc000203440)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:40 +0x21a
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b41b8, 0xc00020e380}, 0xc000202fc0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc00037ac30?, {0x9b41b8?, 0xc00020e380?}, 0x917967?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b41b8, 0xc00020e380}, 0xc000202fc0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a8ce0?, {0x9b41b8?, 0xc00020e380?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b41b8, 0xc00020e380}, 0xc000202fc0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000196000?, {0x9b41b8?, 0xc00020e380?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b41b8, 0xc00020e380}, 0xc000202fc0)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc00037aba0?}, {0x9b41b8?, 0xc00020e380?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc0002f33b0, {0x9b4918, 0xc000184930})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/18 16:47:04 http: panic serving [::1]:50914: interface conversion: interface {} is int, not controller.id
+goroutine 2417 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x8b0ca0?, 0xc000200ed0?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+rlf/internal/controller.(*Handler).WebSocketHandler(0xc000184270, {0x9b41b8, 0xc0001f8380}, 0xc000202d80)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:40 +0x21a
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b41b8, 0xc0001f8380}, 0xc000202900)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc000200cc0?, {0x9b41b8?, 0xc0001f8380?}, 0x917967?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b41b8, 0xc0001f8380}, 0xc000202900)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a8ce0?, {0x9b41b8?, 0xc0001f8380?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b41b8, 0xc0001f8380}, 0xc000202900)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000196000?, {0x9b41b8?, 0xc0001f8380?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b41b8, 0xc0001f8380}, 0xc000202900)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000200bd0?}, {0x9b41b8?, 0xc0001f8380?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc0002f2990, {0x9b4918, 0xc000184930})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/18 16:47:33 http: panic serving [::1]:38872: interface conversion: interface {} is int, not controller.id
+goroutine 2597 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x8b0ca0?, 0xc00028dc50?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+rlf/internal/controller.(*Handler).WebSocketHandler(0xc000184270, {0x9b41b8, 0xc0001f88c0}, 0xc000316120)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:40 +0x21a
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b41b8, 0xc0001f88c0}, 0xc00015e7e0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc00028d980?, {0x9b41b8?, 0xc0001f88c0?}, 0x917967?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b41b8, 0xc0001f88c0}, 0xc00015e7e0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a8ce0?, {0x9b41b8?, 0xc0001f88c0?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b41b8, 0xc0001f88c0}, 0xc00015e7e0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000196000?, {0x9b41b8?, 0xc0001f88c0?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b41b8, 0xc0001f88c0}, 0xc00015e7e0)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc00037b8f0?}, {0x9b41b8?, 0xc0001f88c0?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc00025b9e0, {0x9b4918, 0xc000184930})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/18 16:47:55 http: panic serving 127.0.0.1:51884: interface conversion: interface {} is int, not controller.id
+goroutine 2857 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x8b0ca0?, 0xc0000bd650?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+rlf/internal/controller.(*Handler).WebSocketHandler(0xc000184270, {0x9b41b8, 0xc0001f9500}, 0xc000378b40)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:40 +0x21a
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b41b8, 0xc0001f9500}, 0xc0003786c0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc0000bcde0?, {0x9b41b8?, 0xc0001f9500?}, 0x917967?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b41b8, 0xc0001f9500}, 0xc0003786c0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a8ce0?, {0x9b41b8?, 0xc0001f9500?}, 0xf?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b41b8, 0xc0001f9500}, 0xc0003786c0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000196000?, {0x9b41b8?, 0xc0001f9500?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b41b8, 0xc0001f9500}, 0xc0003786c0)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0000bcd20?}, {0x9b41b8?, 0xc0001f9500?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc0004f4ab0, {0x9b4918, 0xc000184930})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/18 16:48:08 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 16:48:11 http: panic serving [::1]:51122: interface conversion: interface {} is int, not controller.id
+goroutine 88 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x8b0ca0?, 0xc00038a4b0?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+rlf/internal/controller.(*Handler).WebSocketHandler(0xc0000b42d0, {0x9b41b8, 0xc00017c460}, 0xc000125b00)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:40 +0x21a
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b41b8, 0xc00017c460}, 0xc000125680)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc00038a240?, {0x9b41b8?, 0xc00017c460?}, 0x917967?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b41b8, 0xc00017c460}, 0xc000125680)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a8ce0?, {0x9b41b8?, 0xc00017c460?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b41b8, 0xc00017c460}, 0xc000125680)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc0000bc0d0?, {0x9b41b8?, 0xc00017c460?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b41b8, 0xc00017c460}, 0xc000125680)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc00038a1b0?}, {0x9b41b8?, 0xc00017c460?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc000155200, {0x9b4918, 0xc0000b4990})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/18 16:48:22 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 16:48:24 http: panic serving 127.0.0.1:54056: interface conversion: interface {} is int, not controller.id
+goroutine 162 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x8b0ca0?, 0xc000294390?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+rlf/internal/controller.(*Handler).WebSocketHandler(0xc0000b42d0, {0x9b41b8, 0xc0002b6000}, 0xc0002a2480)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:40 +0x21a
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b41b8, 0xc0002b6000}, 0xc0002a2000)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc000294150?, {0x9b41b8?, 0xc0002b6000?}, 0x917967?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b41b8, 0xc0002b6000}, 0xc0002a2000)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a8ce0?, {0x9b41b8?, 0xc0002b6000?}, 0xf?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b41b8, 0xc0002b6000}, 0xc0002a2000)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc0000c8000?, {0x9b41b8?, 0xc0002b6000?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b41b8, 0xc0002b6000}, 0xc0002a2000)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000294090?}, {0x9b41b8?, 0xc0002b6000?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc000298000, {0x9b4918, 0xc0000b4990})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/18 16:48:25 http: panic serving [::1]:35524: interface conversion: interface {} is int, not controller.id
+goroutine 213 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x8b0ca0?, 0xc000456060?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+rlf/internal/controller.(*Handler).WebSocketHandler(0xc0000b42d0, {0x9b41b8, 0xc0002b6700}, 0xc0004546c0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:40 +0x21a
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b41b8, 0xc0002b6700}, 0xc0001979e0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc000435dd0?, {0x9b41b8?, 0xc0002b6700?}, 0x917967?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b41b8, 0xc0002b6700}, 0xc0001979e0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a8ce0?, {0x9b41b8?, 0xc0002b6700?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b41b8, 0xc0002b6700}, 0xc0001979e0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc0000c8000?, {0x9b41b8?, 0xc0002b6700?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b41b8, 0xc0002b6700}, 0xc0001979e0)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc00018af30?}, {0x9b41b8?, 0xc0002b6700?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc000155950, {0x9b4918, 0xc0000b4990})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/18 16:52:31 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 16:52:35 http: panic serving [::1]:53756: interface conversion: interface {} is int, not uint
+goroutine 30 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x8b0ca0?, 0xc0002849c0?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+rlf/internal/controller.(*Handler).WebSocketHandler(0xc0000b6270, {0x9b41b8, 0xc0002be2a0}, 0xc0002a8fc0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:40 +0x21a
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b41b8, 0xc0002be2a0}, 0xc0000fd0e0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc000284750?, {0x9b41b8?, 0xc0002be2a0?}, 0x917967?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b41b8, 0xc0002be2a0}, 0xc0000fd0e0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a8ce0?, {0x9b41b8?, 0xc0002be2a0?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b41b8, 0xc0002be2a0}, 0xc0000fd0e0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc0000c8000?, {0x9b41b8?, 0xc0002be2a0?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b41b8, 0xc0002be2a0}, 0xc0000fd0e0)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0000b74d0?}, {0x9b41b8?, 0xc0002be2a0?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc0000baab0, {0x9b4918, 0xc0000b6930})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/18 16:53:24 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 17:22:48 2025/01/18 17:22:48 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:22:48 no token cookie
+2025/01/18 17:22:48 2025/01/18 17:22:48 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 17:22:48 no token cookie
+2025/01/18 17:22:48 2025/01/18 17:22:48 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 17:22:48 no token cookie
+2025/01/18 17:22:48 2025/01/18 17:22:48 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 17:22:48 no token cookie
+2025/01/18 17:22:49 2025/01/18 17:22:49 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 17:22:49 no token cookie
+2025/01/18 17:22:50 2025/01/18 17:22:50 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:22:50 no token cookie
+2025/01/18 17:25:09 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 17:27:02 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 17:28:29 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 17:29:31 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 17:29:32 http: panic serving [::1]:40770: runtime error: invalid memory address or nil pointer dereference
+goroutine 20 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x8ad7c0?, 0xc291a0?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+github.com/gorilla/websocket.(*Conn).RemoteAddr(...)
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:355
+rlf/internal/controller.(*Handler).GetContacts(0xc0000bd710, {0x9b4218, 0xc0001b4460}, 0xc0002df200)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:145 +0x16e
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b4218, 0xc0001b4460}, 0xc000199440)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc00018af60?, {0x9b4218?, 0xc0001b4460?}, 0x917967?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b4218, 0xc0001b4460}, 0xc000199440)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a8ce0?, {0x9b4218?, 0xc0001b4460?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b4218, 0xc0001b4460}, 0xc000199440)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000132410?, {0x9b4218?, 0xc0001b4460?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b4218, 0xc0001b4460}, 0xc000199440)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc00018a030?}, {0x9b4218?, 0xc0001b4460?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc00011ebd0, {0x9b4978, 0xc0000bddd0})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/18 17:29:32 http: panic serving [::1]:40832: runtime error: invalid memory address or nil pointer dereference
+goroutine 53 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x8ad7c0?, 0xc291a0?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+github.com/gorilla/websocket.(*Conn).RemoteAddr(...)
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:355
+rlf/internal/controller.(*Handler).GetContacts(0xc0000bd710, {0x9b4218, 0xc00020e2a0}, 0xc0002df7a0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:145 +0x16e
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b4218, 0xc00020e2a0}, 0xc0002df320)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc0002e11a0?, {0x9b4218?, 0xc00020e2a0?}, 0x917967?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b4218, 0xc00020e2a0}, 0xc0002df320)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a8ce0?, {0x9b4218?, 0xc00020e2a0?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b4218, 0xc00020e2a0}, 0xc0002df320)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000132410?, {0x9b4218?, 0xc00020e2a0?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b4218, 0xc00020e2a0}, 0xc0002df320)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000304330?}, {0x9b4218?, 0xc00020e2a0?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc000308240, {0x9b4978, 0xc0000bddd0})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/18 17:29:32 http: panic serving [::1]:40808: runtime error: invalid memory address or nil pointer dereference
+goroutine 52 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x8ad7c0?, 0xc291a0?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+github.com/gorilla/websocket.(*Conn).RemoteAddr(...)
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:355
+rlf/internal/controller.(*Handler).GetContacts(0xc0000bd710, {0x9b4218, 0xc00020e380}, 0xc0002dfd40)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:145 +0x16e
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b4218, 0xc00020e380}, 0xc0002df8c0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc0002e1560?, {0x9b4218?, 0xc00020e380?}, 0x917967?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b4218, 0xc00020e380}, 0xc0002df8c0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a8ce0?, {0x9b4218?, 0xc00020e380?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b4218, 0xc00020e380}, 0xc0002df8c0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000132410?, {0x9b4218?, 0xc00020e380?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b4218, 0xc00020e380}, 0xc0002df8c0)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000304270?}, {0x9b4218?, 0xc00020e380?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc0003081b0, {0x9b4978, 0xc0000bddd0})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/18 17:29:32 http: panic serving [::1]:40816: runtime error: invalid memory address or nil pointer dereference
+goroutine 23 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x8ad7c0?, 0xc291a0?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+github.com/gorilla/websocket.(*Conn).RemoteAddr(...)
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:355
+rlf/internal/controller.(*Handler).GetContacts(0xc0000bd710, {0x9b4218, 0xc00020e460}, 0xc000428360)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:145 +0x16e
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b4218, 0xc00020e460}, 0xc0002dfe60)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc0002e18c0?, {0x9b4218?, 0xc00020e460?}, 0x917967?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b4218, 0xc00020e460}, 0xc0002dfe60)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a8ce0?, {0x9b4218?, 0xc00020e460?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b4218, 0xc00020e460}, 0xc0002dfe60)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000132410?, {0x9b4218?, 0xc00020e460?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b4218, 0xc00020e460}, 0xc0002dfe60)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000174150?}, {0x9b4218?, 0xc00020e460?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc00011ee10, {0x9b4978, 0xc0000bddd0})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/18 17:29:32 http: panic serving [::1]:40784: runtime error: invalid memory address or nil pointer dereference
+goroutine 5 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x8ad7c0?, 0xc291a0?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+github.com/gorilla/websocket.(*Conn).RemoteAddr(...)
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:355
+rlf/internal/controller.(*Handler).GetContacts(0xc0000bd710, {0x9b4218, 0xc0001b4540}, 0xc0001999e0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:145 +0x16e
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b4218, 0xc0001b4540}, 0xc000199560)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc00018afc0?, {0x9b4218?, 0xc0001b4540?}, 0x917967?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b4218, 0xc0001b4540}, 0xc000199560)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a8ce0?, {0x9b4218?, 0xc0001b4540?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b4218, 0xc0001b4540}, 0xc000199560)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000132410?, {0x9b4218?, 0xc0001b4540?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b4218, 0xc0001b4540}, 0xc000199560)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000202090?}, {0x9b4218?, 0xc0001b4540?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc000204000, {0x9b4978, 0xc0000bddd0})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/18 17:29:32 http: panic serving [::1]:40800: runtime error: invalid memory address or nil pointer dereference
+goroutine 50 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x8ad7c0?, 0xc291a0?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+github.com/gorilla/websocket.(*Conn).RemoteAddr(...)
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:355
+rlf/internal/controller.(*Handler).GetContacts(0xc0000bd710, {0x9b4218, 0xc0001b4620}, 0xc0001f8000)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:145 +0x16e
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b4218, 0xc0001b4620}, 0xc000199b00)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc00018b320?, {0x9b4218?, 0xc0001b4620?}, 0x917967?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b4218, 0xc0001b4620}, 0xc000199b00)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a8ce0?, {0x9b4218?, 0xc0001b4620?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b4218, 0xc0001b4620}, 0xc000199b00)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000132410?, {0x9b4218?, 0xc0001b4620?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b4218, 0xc0001b4620}, 0xc000199b00)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000304090?}, {0x9b4218?, 0xc0001b4620?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc000308000, {0x9b4978, 0xc0000bddd0})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/18 17:29:32 http: panic serving [::1]:40850: runtime error: invalid memory address or nil pointer dereference
+goroutine 130 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x8ad7c0?, 0xc291a0?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+github.com/gorilla/websocket.(*Conn).RemoteAddr(...)
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:355
+rlf/internal/controller.(*Handler).GetContacts(0xc0000bd710, {0x9b4218, 0xc0001b4700}, 0xc0001f85a0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:145 +0x16e
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b4218, 0xc0001b4700}, 0xc0001f8120)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc00018b7d0?, {0x9b4218?, 0xc0001b4700?}, 0x917967?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b4218, 0xc0001b4700}, 0xc0001f8120)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a8ce0?, {0x9b4218?, 0xc0001b4700?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b4218, 0xc0001b4700}, 0xc0001f8120)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000132410?, {0x9b4218?, 0xc0001b4700?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b4218, 0xc0001b4700}, 0xc0001f8120)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc00018b740?}, {0x9b4218?, 0xc0001b4700?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc00019b290, {0x9b4978, 0xc0000bddd0})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/18 17:29:57 http: panic serving [::1]:52724: runtime error: invalid memory address or nil pointer dereference
+goroutine 140 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x8ad7c0?, 0xc291a0?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+github.com/gorilla/websocket.(*Conn).RemoteAddr(...)
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:355
+rlf/internal/controller.(*Handler).GetContacts(0xc0000bd710, {0x9b4218, 0xc000332b60}, 0xc000378b40)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:145 +0x16e
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b4218, 0xc000332b60}, 0xc0003786c0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc000305890?, {0x9b4218?, 0xc000332b60?}, 0x917967?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b4218, 0xc000332b60}, 0xc0003786c0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a8ce0?, {0x9b4218?, 0xc000332b60?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b4218, 0xc000332b60}, 0xc0003786c0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000132410?, {0x9b4218?, 0xc000332b60?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b4218, 0xc000332b60}, 0xc0003786c0)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc00018bd10?}, {0x9b4218?, 0xc000332b60?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc00019b950, {0x9b4978, 0xc0000bddd0})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/18 17:29:57 http: panic serving [::1]:52712: runtime error: invalid memory address or nil pointer dereference
+goroutine 80 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x8ad7c0?, 0xc291a0?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+github.com/gorilla/websocket.(*Conn).RemoteAddr(...)
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:355
+rlf/internal/controller.(*Handler).GetContacts(0xc0000bd710, {0x9b4218, 0xc0001b4ee0}, 0xc0001f9e60)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:145 +0x16e
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b4218, 0xc0001b4ee0}, 0xc000584000)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc0001fe810?, {0x9b4218?, 0xc0001b4ee0?}, 0x917967?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b4218, 0xc0001b4ee0}, 0xc000584000)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a8ce0?, {0x9b4218?, 0xc0001b4ee0?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b4218, 0xc0001b4ee0}, 0xc000584000)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000132410?, {0x9b4218?, 0xc0001b4ee0?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b4218, 0xc0001b4ee0}, 0xc000584000)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000386bd0?}, {0x9b4218?, 0xc0001b4ee0?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc000384b40, {0x9b4978, 0xc0000bddd0})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/18 17:29:57 http: panic serving [::1]:52700: runtime error: invalid memory address or nil pointer dereference
+goroutine 139 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x8ad7c0?, 0xc291a0?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+github.com/gorilla/websocket.(*Conn).RemoteAddr(...)
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:355
+rlf/internal/controller.(*Handler).GetContacts(0xc0000bd710, {0x9b4218, 0xc0001b4000}, 0xc0000e6c60)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:145 +0x16e
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b4218, 0xc0001b4000}, 0xc0000e66c0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc000386150?, {0x9b4218?, 0xc0001b4000?}, 0x917967?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b4218, 0xc0001b4000}, 0xc0000e66c0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a8ce0?, {0x9b4218?, 0xc0001b4000?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b4218, 0xc0001b4000}, 0xc0000e66c0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000132410?, {0x9b4218?, 0xc0001b4000?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b4218, 0xc0001b4000}, 0xc0000e66c0)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0003869f0?}, {0x9b4218?, 0xc0001b4000?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc00019b8c0, {0x9b4978, 0xc0000bddd0})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/18 17:29:57 http: panic serving [::1]:52692: runtime error: invalid memory address or nil pointer dereference
+goroutine 120 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x8ad7c0?, 0xc291a0?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+github.com/gorilla/websocket.(*Conn).RemoteAddr(...)
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:355
+rlf/internal/controller.(*Handler).GetContacts(0xc0000bd710, {0x9b4218, 0xc0001b40e0}, 0xc0000e7200)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:145 +0x16e
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b4218, 0xc0001b40e0}, 0xc0000e6d80)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc000386570?, {0x9b4218?, 0xc0001b40e0?}, 0x917967?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b4218, 0xc0001b40e0}, 0xc0000e6d80)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a8ce0?, {0x9b4218?, 0xc0001b40e0?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b4218, 0xc0001b40e0}, 0xc0000e6d80)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000132410?, {0x9b4218?, 0xc0001b40e0?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b4218, 0xc0001b40e0}, 0xc0000e6d80)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000444180?}, {0x9b4218?, 0xc0001b40e0?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc0002053b0, {0x9b4978, 0xc0000bddd0})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/18 17:29:57 http: panic serving [::1]:52702: runtime error: invalid memory address or nil pointer dereference
+goroutine 121 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x8ad7c0?, 0xc291a0?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+github.com/gorilla/websocket.(*Conn).RemoteAddr(...)
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:355
+rlf/internal/controller.(*Handler).GetContacts(0xc0000bd710, {0x9b4218, 0xc0001b41c0}, 0xc0000e77a0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:145 +0x16e
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b4218, 0xc0001b41c0}, 0xc0000e7320)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc0003868d0?, {0x9b4218?, 0xc0001b41c0?}, 0x917967?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b4218, 0xc0001b41c0}, 0xc0000e7320)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a8ce0?, {0x9b4218?, 0xc0001b41c0?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b4218, 0xc0001b41c0}, 0xc0000e7320)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000132410?, {0x9b4218?, 0xc0001b41c0?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b4218, 0xc0001b41c0}, 0xc0000e7320)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000386b10?}, {0x9b4218?, 0xc0001b41c0?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc000205440, {0x9b4978, 0xc0000bddd0})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/18 17:29:57 http: panic serving [::1]:52690: runtime error: invalid memory address or nil pointer dereference
+goroutine 117 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x8ad7c0?, 0xc291a0?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+github.com/gorilla/websocket.(*Conn).RemoteAddr(...)
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:355
+rlf/internal/controller.(*Handler).GetContacts(0xc0000bd710, {0x9b4218, 0xc0001b42a0}, 0xc0000e7d40)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:145 +0x16e
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b4218, 0xc0001b42a0}, 0xc0000e78c0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc000386db0?, {0x9b4218?, 0xc0001b42a0?}, 0x917967?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b4218, 0xc0001b42a0}, 0xc0000e78c0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a8ce0?, {0x9b4218?, 0xc0001b42a0?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b4218, 0xc0001b42a0}, 0xc0000e78c0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000132410?, {0x9b4218?, 0xc0001b42a0?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b4218, 0xc0001b42a0}, 0xc0000e78c0)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0002e1c80?}, {0x9b4218?, 0xc0001b42a0?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc000205170, {0x9b4978, 0xc0000bddd0})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/18 17:29:57 http: panic serving [::1]:52740: runtime error: invalid memory address or nil pointer dereference
+goroutine 232 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x8ad7c0?, 0xc291a0?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+github.com/gorilla/websocket.(*Conn).RemoteAddr(...)
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:355
+rlf/internal/controller.(*Handler).GetContacts(0xc0000bd710, {0x9b4218, 0xc0001b4380}, 0xc0001f8360)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:145 +0x16e
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b4218, 0xc0001b4380}, 0xc0000e7e60)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc000387200?, {0x9b4218?, 0xc0001b4380?}, 0x917967?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b4218, 0xc0001b4380}, 0xc0000e7e60)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a8ce0?, {0x9b4218?, 0xc0001b4380?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b4218, 0xc0001b4380}, 0xc0000e7e60)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000132410?, {0x9b4218?, 0xc0001b4380?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b4218, 0xc0001b4380}, 0xc0000e7e60)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000387170?}, {0x9b4218?, 0xc0001b4380?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc000385170, {0x9b4978, 0xc0000bddd0})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/18 17:30:09 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 17:31:06 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 17:32:27 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 17:32:53 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 17:33:42 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 17:34:02 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 17:35:00 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 17:38:32 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 17:39:22 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 17:40:10 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 17:41:38 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 17:43:49 2025/01/18 17:43:49 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:43:49 no token cookie
+2025/01/18 17:43:49 2025/01/18 17:43:49 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 17:43:49 no token cookie
+2025/01/18 17:43:49 2025/01/18 17:43:49 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 17:43:49 no token cookie
+2025/01/18 17:43:49 2025/01/18 17:43:49 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 17:43:49 no token cookie
+2025/01/18 17:43:49 2025/01/18 17:43:49 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:43:49 no token cookie
+2025/01/18 17:43:50 2025/01/18 17:43:50 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 17:43:50 no token cookie
+2025/01/18 17:43:51 2025/01/18 17:43:51 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:43:51 no token cookie
+2025/01/18 17:43:51 2025/01/18 17:43:51 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:43:51 no token cookie
+2025/01/18 17:43:52 2025/01/18 17:43:52 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 17:43:52 no token cookie
+2025/01/18 17:43:52 2025/01/18 17:43:52 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 17:43:52 no token cookie
+2025/01/18 17:43:52 2025/01/18 17:43:52 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 17:43:52 no token cookie
+2025/01/18 17:43:53 2025/01/18 17:43:53 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:43:53 no token cookie
+2025/01/18 17:43:53 2025/01/18 17:43:53 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 17:43:53 no token cookie
+2025/01/18 17:43:54 2025/01/18 17:43:54 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:43:54 no token cookie
+2025/01/18 17:43:55 2025/01/18 17:43:55 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:43:55 no token cookie
+2025/01/18 17:43:56 2025/01/18 17:43:56 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:43:56 no token cookie
+2025/01/18 17:44:50 2025/01/18 17:44:50 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:44:50 no token cookie
+2025/01/18 17:44:51 2025/01/18 17:44:51 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:44:51 no token cookie
+2025/01/18 17:44:51 2025/01/18 17:44:51 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 17:44:51 no token cookie
+2025/01/18 17:44:51 2025/01/18 17:44:51 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 17:44:51 no token cookie
+2025/01/18 17:44:51 2025/01/18 17:44:51 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 17:44:51 no token cookie
+2025/01/18 17:44:51 2025/01/18 17:44:51 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 17:44:51 no token cookie
+2025/01/18 17:44:53 2025/01/18 17:44:53 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:44:53 no token cookie
+2025/01/18 17:44:54 2025/01/18 17:44:54 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:44:54 no token cookie
+2025/01/18 17:46:46 2025/01/18 17:46:46 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:46:46 no token cookie
+2025/01/18 17:46:47 2025/01/18 17:46:47 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 17:46:47 no token cookie
+2025/01/18 17:46:47 2025/01/18 17:46:47 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:46:47 no token cookie
+2025/01/18 17:46:47 2025/01/18 17:46:47 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 17:46:47 no token cookie
+2025/01/18 17:46:47 2025/01/18 17:46:47 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 17:46:47 no token cookie
+2025/01/18 17:46:48 2025/01/18 17:46:48 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 17:46:48 no token cookie
+2025/01/18 17:46:49 2025/01/18 17:46:49 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 17:46:49 no token cookie
+2025/01/18 17:46:49 2025/01/18 17:46:49 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:46:49 no token cookie
+2025/01/18 17:46:49 2025/01/18 17:46:49 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 17:46:49 no token cookie
+2025/01/18 17:46:49 2025/01/18 17:46:49 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 17:46:49 no token cookie
+2025/01/18 17:46:49 2025/01/18 17:46:49 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:46:49 no token cookie
+2025/01/18 17:46:50 2025/01/18 17:46:50 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 17:46:50 no token cookie
+2025/01/18 17:46:50 2025/01/18 17:46:50 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:46:50 no token cookie
+2025/01/18 17:46:51 2025/01/18 17:46:51 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:46:51 no token cookie
+2025/01/18 17:47:54 2025/01/18 17:47:54 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 17:47:54 no token cookie
+2025/01/18 17:47:56 2025/01/18 17:47:56 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 17:47:56 no token cookie
+2025/01/18 17:47:56 2025/01/18 17:47:56 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 17:47:56 no token cookie
+2025/01/18 17:47:58 2025/01/18 17:47:58 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:47:58 no token cookie
+2025/01/18 17:48:04 2025/01/18 17:48:04 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 17:48:04 no token cookie
+2025/01/18 17:48:10 2025/01/18 17:48:10 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 17:48:10 no token cookie
+2025/01/18 17:48:11 2025/01/18 17:48:11 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 17:48:11 no token cookie
+2025/01/18 17:48:13 2025/01/18 17:48:13 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:48:13 no token cookie
+2025/01/18 17:48:14 2025/01/18 17:48:14 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 17:48:14 no token cookie
+2025/01/18 17:48:24 2025/01/18 17:48:24 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 17:48:24 invalid token
+2025/01/18 17:48:26 2025/01/18 17:48:26 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:48:26 invalid token
+2025/01/18 17:49:03 2025/01/18 17:49:03 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 17:49:03 no token cookie
+2025/01/18 17:49:04 2025/01/18 17:49:04 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 17:49:04 no token cookie
+2025/01/18 17:49:04 2025/01/18 17:49:04 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 17:49:04 no token cookie
+2025/01/18 17:49:05 2025/01/18 17:49:05 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 17:49:05 no token cookie
+2025/01/18 17:49:06 2025/01/18 17:49:06 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:49:06 no token cookie
+2025/01/18 17:51:33 2025/01/18 17:51:33 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 17:51:33 no token cookie
+2025/01/18 17:51:33 2025/01/18 17:51:33 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 17:51:33 no token cookie
+2025/01/18 17:51:33 2025/01/18 17:51:33 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 17:51:33 no token cookie
+2025/01/18 17:51:33 2025/01/18 17:51:33 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:51:33 no token cookie
+2025/01/18 17:51:33 2025/01/18 17:51:33 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 17:51:33 no token cookie
+2025/01/18 17:51:50 2025/01/18 17:51:50 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 17:51:50 no token cookie
+2025/01/18 17:51:50 2025/01/18 17:51:50 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 17:51:50 no token cookie
+2025/01/18 17:51:50 2025/01/18 17:51:50 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 17:51:50 no token cookie
+2025/01/18 17:51:50 2025/01/18 17:51:50 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 17:51:50 no token cookie
+2025/01/18 17:51:50 2025/01/18 17:51:50 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 17:51:50 no token cookie
+2025/01/18 17:53:32 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 18:00:10 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 18:00:33 2025/01/18 18:00:33 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 18:00:33 no token cookie
+2025/01/18 18:00:33 2025/01/18 18:00:33 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 18:00:33 no token cookie
+2025/01/18 18:00:33 2025/01/18 18:00:33 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 18:00:33 no token cookie
+2025/01/18 18:00:34 2025/01/18 18:00:34 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 18:00:34 no token cookie
+2025/01/18 18:00:34 2025/01/18 18:00:34 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 18:00:34 no token cookie
+2025/01/18 18:08:34 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 18:09:25 2025/01/18 18:09:25 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 18:09:25 no token cookie
+2025/01/18 18:09:25 2025/01/18 18:09:25 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 18:09:25 no token cookie
+2025/01/18 18:09:25 2025/01/18 18:09:25 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 18:09:25 no token cookie
+2025/01/18 18:09:26 2025/01/18 18:09:26 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 18:09:26 no token cookie
+2025/01/18 18:09:26 2025/01/18 18:09:26 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 18:09:26 no token cookie
+2025/01/18 18:10:02 2025/01/18 18:10:02 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 18:10:02 no token cookie
+2025/01/18 18:10:02 2025/01/18 18:10:02 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 18:10:02 no token cookie
+2025/01/18 18:10:02 2025/01/18 18:10:02 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 18:10:02 no token cookie
+2025/01/18 18:10:03 2025/01/18 18:10:03 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 18:10:03 no token cookie
+2025/01/18 18:10:03 2025/01/18 18:10:03 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 18:10:03 no token cookie
+2025/01/18 18:12:33 2025/01/18 18:12:33 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 18:12:33 no token cookie
+2025/01/18 18:12:34 2025/01/18 18:12:34 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 18:12:34 no token cookie
+2025/01/18 18:12:34 2025/01/18 18:12:34 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 18:12:34 no token cookie
+2025/01/18 18:12:35 2025/01/18 18:12:35 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 18:12:35 no token cookie
+2025/01/18 18:12:35 2025/01/18 18:12:35 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 18:12:35 no token cookie
+2025/01/18 18:17:34 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 18:21:24 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 18:22:54 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 18:22:57 2025/01/18 18:22:57 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 18:22:57 invalid token
+2025/01/18 18:22:57 2025/01/18 18:22:57 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 18:22:57 invalid token
+2025/01/18 18:22:57 2025/01/18 18:22:57 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 18:22:57 invalid token
+2025/01/18 18:22:57 2025/01/18 18:22:57 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 18:22:57 invalid token
+2025/01/18 18:27:40 2025/01/18 18:27:40 HTTP/1.1 [GET]	localhost:8080/api/posts/General?limit=20&offset=100 - 204 - No Content
+2025/01/18 18:27:40 no posts found for category: General
+2025/01/18 18:27:40 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/18 18:29:56 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 18:31:24 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 18:37:48 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 18:40:54 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 18:43:35 2025/01/18 18:43:35 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 18:43:35 no token cookie
+2025/01/18 18:43:35 2025/01/18 18:43:35 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 18:43:35 no token cookie
+2025/01/18 18:43:35 2025/01/18 18:43:35 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 18:43:35 no token cookie
+2025/01/18 18:43:35 2025/01/18 18:43:35 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 18:43:35 no token cookie
+2025/01/18 18:43:35 2025/01/18 18:43:35 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 18:43:35 no token cookie
+2025/01/18 18:46:22 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 18:47:33 2025/01/18 18:47:33 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 18:47:33 no token cookie
+2025/01/18 18:47:33 2025/01/18 18:47:33 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 18:47:33 no token cookie
+2025/01/18 18:47:33 2025/01/18 18:47:33 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 18:47:33 no token cookie
+2025/01/18 18:47:34 2025/01/18 18:47:34 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 18:47:34 no token cookie
+2025/01/18 18:47:34 2025/01/18 18:47:34 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 18:47:34 no token cookie
+2025/01/18 18:48:10 2025/01/18 18:48:10 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 18:48:10 no token cookie
+2025/01/18 18:48:10 2025/01/18 18:48:10 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 18:48:10 no token cookie
+2025/01/18 18:48:10 2025/01/18 18:48:10 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 18:48:10 no token cookie
+2025/01/18 18:48:11 2025/01/18 18:48:11 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 18:48:11 no token cookie
+2025/01/18 18:48:11 2025/01/18 18:48:11 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 18:48:11 no token cookie
+2025/01/18 18:48:42 2025/01/18 18:48:42 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 18:48:42 no token cookie
+2025/01/18 18:48:42 2025/01/18 18:48:42 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 18:48:42 no token cookie
+2025/01/18 18:48:42 2025/01/18 18:48:42 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 18:48:42 no token cookie
+2025/01/18 18:48:42 2025/01/18 18:48:42 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 18:48:42 no token cookie
+2025/01/18 18:48:42 2025/01/18 18:48:42 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 18:48:42 no token cookie
+2025/01/18 18:49:14 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 18:49:34 2025/01/18 18:49:34 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 18:49:34 no token cookie
+2025/01/18 18:49:34 2025/01/18 18:49:34 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 18:49:34 no token cookie
+2025/01/18 18:49:34 2025/01/18 18:49:34 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 18:49:34 no token cookie
+2025/01/18 18:49:34 2025/01/18 18:49:34 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 18:49:34 no token cookie
+2025/01/18 18:49:35 2025/01/18 18:49:35 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 18:49:35 no token cookie
+2025/01/18 18:50:13 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080

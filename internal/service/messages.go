@@ -69,3 +69,7 @@ func (s *MessagesService) CreateMessage(ctx context.Context, msg entity.Message)
 func (s *MessagesService) GetChatById(ctx context.Context, chat_id uint) (entity.Chat, error) {
 	return s.messagesRepo.GetChatById(ctx, chat_id)
 }
+
+func (s *MessagesService) GetContacts(ctx context.Context) ([]entity.Contact, int, error) {
+	return s.messagesRepo.GetContacts(ctx)
+}

@@ -43,13 +43,14 @@ func (s *UserService) Create(ctx context.Context, user entity.User) (int, error)
 	return status, err
 }
 
-func (s *UserService) SignIn(ctx context.Context, user entity.User) (string, int, error) {
-	if user.Email == "" {
-		return "", http.StatusBadRequest, errors.New("invalid email")
+func (s *UserService) SignIn(ctx context.Context, user entity.UserInput) (string, int, error) {
+	if user.Login == "" {
+		return "", http.StatusBadRequest, errors.New("invalid credentials")
 	} else if user.Password == "" {
 		return "", http.StatusBadRequest, errors.New("invalid password")
 	}
-	repoUserStruct, status, err := s.userRepo.GetUserIDByEmail(ctx, user.Email)
+	
+	repoUserStruct, status, err := s.userRepo.GetUserIDByLogin(ctx, user.Login)
 	if err != nil {
 		if status == http.StatusBadRequest {
 			return "", status, errors.New("invalid email or password")

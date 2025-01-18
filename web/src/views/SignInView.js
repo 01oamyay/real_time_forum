@@ -3,9 +3,9 @@ import redirect from "../index.js";
 import fetcher from "../pkg/fetcher.js";
 import Utils from "../pkg/Utils.js";
 
-const signIn = async (email, password) => {
+const signIn = async (login, password) => {
   let body = {
-    email: email,
+    login: login,
     password: password,
   };
 
@@ -35,12 +35,12 @@ export default class extends AbstractView {
                     <h2 class="form-title">Sign In</h2>
                     
                     <div class="form-group">
-                        <label for="email">Email Address</label>
+                        <label for="login">Email / Nickname</label>
                         <input 
-                            type="email" 
-                            id="email" 
+                            type="text" 
+                            id="login" 
                             class="form-control" 
-                            placeholder="Enter your email" 
+                            placeholder="Enter your email / nickname" 
                             required
                         >
                     </div>
@@ -80,28 +80,27 @@ export default class extends AbstractView {
     signInForm.addEventListener("submit", async (e) => {
       e.preventDefault(); // Prevent default form submission
 
-      const email = document.getElementById("email")?.value;
+      const login = document.getElementById("login")?.value;
       const password = document.getElementById("password")?.value;
 
       // Validate inputs
-      if (!email || !password) {
+      if (!login || !password) {
         document.getElementById("showError").innerHTML =
           "Please enter both email and password";
         return;
       }
 
-      await signIn(email, password);
+      await signIn(login, password);
     });
 
-    const emailInput = document.getElementById("email");
+    const loginInput = document.getElementById("login");
     const passwordInput = document.getElementById("password");
     let showErr = document.getElementById("showError");
 
-    emailInput.addEventListener("input", () => {
+    loginInput.addEventListener("input", () => {
       // Basic email validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(emailInput.value)) {
-        showErr.innerHTML = "Please enter a valid email address";
+      if (loginInput.value?.length < 3) {
+        showErr.innerHTML = "Invalid Email / Nickname";
       } else {
         showErr.innerHTML = "";
       }

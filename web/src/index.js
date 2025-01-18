@@ -7,7 +7,8 @@ import NavBar from "./views/NavBarView.js";
 import SideBar from "./views/SideBarView.js";
 import Utils from "./pkg/Utils.js";
 import fetcher from "./pkg/fetcher.js";
-import HomeView from "./views/HomeView.js";
+import UsersListView from "./views/UsersListView.js";
+import WS from "./pkg/WS.js";
 
 const pathToRegex = (path) =>
   new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
@@ -16,6 +17,8 @@ const roles = {
   guest: 0,
   user: 1,
 };
+
+let ws = new WS();
 
 const getParams = (match) => {
   const values = match.result.slice(1);
@@ -34,7 +37,6 @@ const navigateTo = (url) => {
   history.pushState(null, null, url);
   router();
 };
-
 
 const router = async () => {
   const routes = [
@@ -117,19 +119,30 @@ const router = async () => {
     view.addStyle("main-content");
     view.addStyle("post-card");
 
+    let sideBarHTML = "";
+    let userListHTML = "";
     // Load Sidebar
-    let sideBarHtml = "";
     let SideBarView;
+    // Load Userlist
+    let UserListView;
     if (match.route.view === Home) {
       view.addStyle("sidebar");
+      view.addStyle("user_sidebar");
+
+      ws?.init();
 
       SideBarView = new SideBar(null, user);
-      sideBarHtml = await SideBarView.getHtml();
+      sideBarHTML = await SideBarView.getHtml();
+      UserListView = new UsersListView(null, user);
+      userListHTML = await UserListView.getHtml();
     }
 
-    document.querySelector("#app").innerHTML =
-      sideBarHtml + (await view.getHtml());
+    document.querySelector("#app").innerHTML = sideBarHTML;
+    document.querySelector("#app").innerHTML += await view.getHtml();
+    document.querySelector("#app").innerHTML += userListHTML;
+
     SideBarView?.init();
+    UserListView?.init();
   } else {
     // Clear navbar and sidebar if not HomeView
     document.querySelector("#navbar").innerHTML = "";

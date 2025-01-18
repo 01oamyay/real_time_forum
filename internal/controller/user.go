@@ -34,7 +34,7 @@ func (h *Handler) signIn(w http.ResponseWriter, r *http.Request) {
 		h.errorHandler(w, r, http.StatusMethodNotAllowed, "not allowed method")
 		return
 	}
-	var input entity.User
+	var input entity.UserInput
 	decoder := json.NewDecoder(r.Body)
 	if err := decoder.Decode(&input); err != nil {
 		h.errorHandler(w, r, http.StatusBadRequest, fmt.Sprintf("invalid json input: %v", err.Error()))

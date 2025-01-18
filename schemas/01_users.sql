@@ -2,9 +2,9 @@ CREATE TABLE IF NOT EXISTS users(
     id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
     nickname TEXT UNIQUE NOT NULL,
     email TEXT UNIQUE NOT NULL,
-    age INTEGER NOT NULL
-    gender TEXT NOT NULL
-    firstName TEXT NOT NULL
-    lastName TEXT NOT NULL
+    age INTEGER NOT NULL,
+    gender TEXT NOT NULL,
+    firstName TEXT NOT NULL,
+    lastName TEXT NOT NULL,
     password TEXT NOT NULL
 );

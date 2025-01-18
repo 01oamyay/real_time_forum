@@ -113,12 +113,12 @@ func (h *Handler) createRoutes() []Route {
 		{
 			Path:    "/api/posts/",
 			Handler: h.getALLPosts,
-			Role:    entity.Roles.Guest,
+			Role:    entity.Roles.User,
 		},
 		{
 			Path:    "/api/post/",
 			Handler: h.getPostbyID,
-			Role:    entity.Roles.Guest,
+			Role:    entity.Roles.User,
 		},
 		{
 			Path:    "/api/post/vote",
@@ -138,7 +138,17 @@ func (h *Handler) createRoutes() []Route {
 		{
 			Path:    "/api/categories",
 			Handler: h.getAllCategories,
-			Role:    entity.Roles.Guest,
+			Role:    entity.Roles.User,
+		},
+		{
+			Path:    "/api/contacts",
+			Handler: h.GetContacts,
+			Role:    entity.Roles.User,
+		},
+		{
+			Path:    "/ws",
+			Handler: h.WebSocketHandler,
+			Role:    entity.Roles.User,
 		},
 	}
 }

@@ -203,3 +203,38 @@ func (r *MessagesRepository) GetChatById(ctx context.Context, chat_id uint) (ent
 	}
 	return chat, nil
 }
+
+func (r *MessagesRepository) GetContacts(ctx context.Context) ([]entity.Contact, int, error) {
+	userId := ctx.Value(r.Keys.IDKey).(int)
+	query := `SELECT id, nickname, firstName, lastName FROM users WHERE id != ?`
+
+	prep, err := r.db.PrepareContext(ctx, query)
+	if err != nil {
+		return nil, http.StatusInternalServerError, err
+	}
+	defer prep.Close()
+
+	rows, err := prep.QueryContext(ctx, userId)
+	if err != nil {
+		return nil, http.StatusInternalServerError, err
+	}
+	defer rows.Close()
+
+	contacts := []entity.Contact{}
+	for rows.Next() {
+		contact := entity.Contact{}
+		if err := rows.Scan(&contact.UserID, &contact.Nickname, &contact.FirstName, &contact.LastName); err != nil {
+			return nil, http.StatusInternalServerError, err
+		}
+		contacts = append(contacts, contact)
+	}
+
+	if err = rows.Err(); err != nil {
+		return nil, http.StatusInternalServerError, err
+	}
+
+	if len(contacts) == 0 {
+		return nil, http.StatusNoContent, errors.New("no contact")
+	}
+	return contacts, http.StatusOK, nil
+}
