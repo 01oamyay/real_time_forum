@@ -40,7 +40,7 @@ const navigateTo = (url) => {
 
 const router = async () => {
   const routes = [
-    { path: "/", view: Home, minRole: roles.guest, style: "main-content" },
+    { path: "/", view: Home, minRole: roles.user, style: "main-content" },
     { path: "/sign-in", view: SignIn, minRole: roles.guest, style: "auth" },
     { path: "/sign-up", view: SignUp, minRole: roles.guest, style: "auth" },
     {
@@ -49,7 +49,7 @@ const router = async () => {
       minRole: roles.user,
       style: "create-post",
     },
-    { path: "/post/:postID", view: Post, minRole: roles.guest, style: "post" },
+    { path: "/post/:postID", view: Post, minRole: roles.user, style: "post" },
   ];
 
   const potentialMatches = routes.map((route) => {
@@ -101,7 +101,7 @@ const router = async () => {
   }
 
   if (user.role < match.route.minRole) {
-    Utils.showError(401, "Please sign in to get access for this page");
+    navigateTo("/sign-in");
     return;
   }
 

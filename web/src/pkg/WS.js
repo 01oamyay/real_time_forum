@@ -1,17 +1,6 @@
 export default class {
   constructor() {
     this.ws = null;
-    window.addEventListener("beforeunload", () => {
-      if (this.ws && this.ws.readyState == WebSocket.OPEN) {
-        this.ws.close(1000, "user leaving");
-      }
-    });
-
-    document.getElementById("logout-btn")?.addEventListener("click", () => {
-      if (this.ws && this.ws.readyState == WebSocket.OPEN) {
-        this.ws.close(1000, "user leaving");
-      }
-    });
   }
 
   init() {
@@ -19,12 +8,14 @@ export default class {
 
     console.log("ws enabled");
 
-    this.ws.onclose = (e) => {
-      console.log("connection closed");
+    // Monitor connection status
+    this.ws.onclose = (event) => {
+      console.log("Connection closed:", event.code, event.reason);
     };
 
-    this.ws.onerror = (e) => {
-      console.log("error in ws", e);
+    // Implement reconnection logic if needed
+    this.ws.onerror = (error) => {
+      console.error("WebSocket error:", error);
     };
 
     this.ws.onmessage = (e) => {
@@ -35,11 +26,9 @@ export default class {
       });
       document.dispatchEvent(onlineEvent);
     };
-
+    // Handle clean disconnection
     window.addEventListener("beforeunload", () => {
-      if (this.ws && this.ws.readyState == WebSocket.OPEN) {
-        this.ws.close(1000, "user leaving");
-      }
+      if (this.ws) ws.close();
     });
   }
 }

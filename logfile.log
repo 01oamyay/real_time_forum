@@ -1118,3 +1118,45 @@ Link: 🌐 http://localhost:8080
 2025/01/19 00:00:48 2025/01/19 00:00:48 HTTP/1.1 [GET]	localhost:8080/api/posts/General?limit=20&offset=100 - 204 - No Content
 2025/01/19 00:00:48 no posts found for category: General
 2025/01/19 00:00:48 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/19 11:05:01 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 11:05:05 2025/01/19 11:05:05 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/19 11:05:05 no token cookie
+2025/01/19 11:05:05 2025/01/19 11:05:05 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/19 11:05:05 no token cookie
+2025/01/19 11:05:05 2025/01/19 11:05:05 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/19 11:05:05 no token cookie
+2025/01/19 11:05:05 2025/01/19 11:05:05 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/19 11:05:05 no token cookie
+2025/01/19 11:05:05 2025/01/19 11:05:05 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/19 11:05:05 no token cookie
+2025/01/19 11:26:32 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 11:26:44 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 11:27:00 2025/01/19 11:27:00 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/19 11:27:00 no token cookie
+2025/01/19 11:28:20 2025/01/19 11:28:20 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/19 11:28:20 no token cookie
+2025/01/19 11:28:48 2025/01/19 11:28:48 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/19 11:28:48 no token cookie
+2025/01/19 11:28:51 2025/01/19 11:28:51 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/19 11:28:51 no token cookie
+2025/01/19 11:28:54 2025/01/19 11:28:54 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/19 11:28:54 no token cookie
+2025/01/19 11:29:04 2025/01/19 11:29:04 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/19 11:29:04 no token cookie
+2025/01/19 11:29:17 2025/01/19 11:29:17 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/19 11:29:17 no token cookie
+2025/01/19 11:29:19 2025/01/19 11:29:19 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/19 11:29:19 no token cookie
+2025/01/19 11:29:21 2025/01/19 11:29:21 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/19 11:29:21 no token cookie
+2025/01/19 11:48:37 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 11:49:06 Connection closed for user 6 with code 1001: 
+2025/01/19 11:49:10 Connection closed for user 6 with code 1001: 
+2025/01/19 11:50:16 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 11:51:02 Connection closed for user 6 with code 1001: 
+2025/01/19 11:51:17 Connection closed for user 49 with code 1001: 

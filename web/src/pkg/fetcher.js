@@ -29,6 +29,9 @@ const fetcher = {
       return;
     }
     if (!response.ok) {
+      if (response.status == 401) {
+        redirect.navigateTo("/login");
+      }
       Utils.showError(response.status, responseBody.msg);
       return responseBody;
     }
@@ -86,6 +89,7 @@ const makeRequest = async (path, body, method) => {
     return responseBody;
   }
   if (!response.ok) {
+    
     Utils.showError(response.status, responseBody.msg);
     return responseBody;
   }

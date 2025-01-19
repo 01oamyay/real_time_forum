@@ -3,6 +3,7 @@ package controller
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 	"sync"
 
@@ -45,30 +46,66 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 	h.webSocket.Unlock()
 
 	conn.SetCloseHandler(func(code int, text string) error {
-		fmt.Printf("Connection closing with code: %d, text: %s\n", code, text)
-
-		h.webSocket.Mutex.Lock()
+		log.Printf("Connection closed for user %v with code %d: %s", userId, code, text)
+		h.webSocket.Lock()
 		delete(h.webSocket.connections, userId)
-		h.webSocket.Mutex.Unlock()
-
-		// Notify all other connected users
+		// Notify others that user is offline
 		for id, conn := range h.webSocket.connections {
 			if id != userId {
-				err := conn.WriteJSON(map[string]interface{}{
+				conn.WriteJSON(map[string]interface{}{
 					"event": "user-offline",
 					"data":  userId,
 				})
-				if err != nil {
-					fmt.Printf("Error notifying user %d: %v\n", id, err)
-					continue
-				}
 			}
 		}
-
+		h.webSocket.Unlock()
 		return nil
 	})
 
-	// first sent to all other connections that the user is online
+	// defer func() {
+	// 	conn.Close()
+	// 	h.webSocket.Lock()
+	// 	delete(h.webSocket.connections, userId)
+	// 	// Notify others that user is offline
+	// 	for id, conn := range h.webSocket.connections {
+	// 		if id != userId {
+	// 			conn.WriteJSON(map[string]interface{}{
+	// 				"event": "user-offline",
+	// 				"data":  userId,
+	// 			})
+	// 		}
+	// 	}
+	// 	h.webSocket.Unlock()
+	// }()
+
+	// const (
+	// 	writeWait  = 10 * time.Second
+	// 	pongWait   = 60 * time.Second
+	// 	pingPeriod = (pongWait * 9) / 10
+	// )
+
+	// conn.SetReadDeadline(time.Now().Add(pongWait))
+	// conn.SetPongHandler(func(appData string) error {
+	// 	conn.SetReadDeadline(time.Now().Add(pongWait))
+	// 	return nil
+	// })
+
+	// ticker := time.NewTicker(pingPeriod)
+	// defer ticker.Stop()
+
+	// go func() {
+	// 	for {
+	// 		select {
+	// 		case <-ticker.C:
+	// 			if err := conn.WriteControl(websocket.PingMessage, []byte{}, time.Now().Add(writeWait)); err != nil {
+	// 				return
+	// 			}
+	// 		}
+	// 	}
+	// }()
+
+	// Notify others that user is online
+	h.webSocket.Lock()
 	for id, conn := range h.webSocket.connections {
 		if id != userId {
 			err := conn.WriteJSON(map[string]interface{}{
@@ -76,26 +113,21 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 				"data":  userId,
 			})
 			if err != nil {
-				conn.WriteJSON(map[string]interface{}{
-					"event": "error",
-					"error": err.Error(),
-				})
-				return
+				log.Printf("Error notifying user %v: %v", id, err)
 			}
-			return
 		}
 	}
+	h.webSocket.Unlock()
 
-	// second: wait for messages
+	// Message handling loop
 	for {
 		msg := entity.Message{}
 		err := conn.ReadJSON(&msg)
 		if err != nil {
-			conn.WriteJSON(map[string]interface{}{
-				"event": "error",
-				"error": err.Error(),
-			})
-			return
+			if websocket.IsUnexpectedCloseError(err, websocket.CloseGoingAway, websocket.CloseAbnormalClosure) {
+				log.Printf("error: %v", err)
+			}
+			break
 		}
 
 		chat, err := h.service.Message.GetChatById(r.Context(), msg.ChatId)
@@ -104,7 +136,7 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 				"event": "error",
 				"error": err.Error(),
 			})
-			return
+			continue // Don't close connection, just skip this message
 		}
 
 		var receiver_id uint
@@ -114,13 +146,16 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 			receiver_id = chat.UserID
 		}
 
+		h.webSocket.Lock()
 		receiverConn, ok := h.webSocket.connections[id(receiver_id)]
+		h.webSocket.Unlock()
+
 		if !ok {
 			conn.WriteJSON(map[string]interface{}{
 				"event": "error",
-				"error": "you cannot send a message to offline users",
+				"error": "recipient is offline",
 			})
-			return
+			continue
 		}
 
 		msg, _, err = h.service.CreateMessage(r.Context(), msg)
@@ -129,7 +164,7 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 				"event": "error",
 				"error": err.Error(),
 			})
-			return
+			continue
 		}
 
 		err = receiverConn.WriteJSON(map[string]interface{}{
@@ -141,7 +176,7 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 				"event": "error",
 				"error": err.Error(),
 			})
-			return
+			continue
 		}
 	}
 }
