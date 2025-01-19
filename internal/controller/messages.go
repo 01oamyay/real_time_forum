@@ -2,9 +2,9 @@ package controller
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
+	"strconv"
 	"sync"
 
 	"rlf/internal/entity"
@@ -46,7 +46,6 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 	h.webSocket.Unlock()
 
 	conn.SetCloseHandler(func(code int, text string) error {
-		log.Printf("Connection closed for user %v with code %d: %s", userId, code, text)
 		h.webSocket.Lock()
 		delete(h.webSocket.connections, userId)
 		// Notify others that user is offline
@@ -61,48 +60,6 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 		h.webSocket.Unlock()
 		return nil
 	})
-
-	// defer func() {
-	// 	conn.Close()
-	// 	h.webSocket.Lock()
-	// 	delete(h.webSocket.connections, userId)
-	// 	// Notify others that user is offline
-	// 	for id, conn := range h.webSocket.connections {
-	// 		if id != userId {
-	// 			conn.WriteJSON(map[string]interface{}{
-	// 				"event": "user-offline",
-	// 				"data":  userId,
-	// 			})
-	// 		}
-	// 	}
-	// 	h.webSocket.Unlock()
-	// }()
-
-	// const (
-	// 	writeWait  = 10 * time.Second
-	// 	pongWait   = 60 * time.Second
-	// 	pingPeriod = (pongWait * 9) / 10
-	// )
-
-	// conn.SetReadDeadline(time.Now().Add(pongWait))
-	// conn.SetPongHandler(func(appData string) error {
-	// 	conn.SetReadDeadline(time.Now().Add(pongWait))
-	// 	return nil
-	// })
-
-	// ticker := time.NewTicker(pingPeriod)
-	// defer ticker.Stop()
-
-	// go func() {
-	// 	for {
-	// 		select {
-	// 		case <-ticker.C:
-	// 			if err := conn.WriteControl(websocket.PingMessage, []byte{}, time.Now().Add(writeWait)); err != nil {
-	// 				return
-	// 			}
-	// 		}
-	// 	}
-	// }()
 
 	// Notify others that user is online
 	h.webSocket.Lock()
@@ -119,9 +76,11 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	h.webSocket.Unlock()
 
+	defer conn.Close()
+
 	// Message handling loop
 	for {
-		msg := entity.Message{}
+		var msg entity.Message
 		err := conn.ReadJSON(&msg)
 		if err != nil {
 			if websocket.IsUnexpectedCloseError(err, websocket.CloseGoingAway, websocket.CloseAbnormalClosure) {
@@ -178,6 +137,18 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 			})
 			continue
 		}
+
+		err = conn.WriteJSON(map[string]interface{}{
+			"event": "msg",
+			"data":  msg,
+		})
+		if err != nil {
+			conn.WriteJSON(map[string]interface{}{
+				"event": "error",
+				"error": err.Error(),
+			})
+			continue
+		}
 	}
 }
 
@@ -193,10 +164,6 @@ func (h *Handler) GetContacts(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	for k := range h.webSocket.connections {
-		fmt.Println(k)
-	}
-
 	for i := 0; i < len(contacts); i++ {
 		user_id := id(contacts[i].UserID)
 		_, ok := h.webSocket.connections[user_id]
@@ -210,6 +177,55 @@ func (h *Handler) GetContacts(w http.ResponseWriter, r *http.Request) {
 
 	if err := json.NewEncoder(w).Encode(contacts); err != nil {
 		h.errorHandler(w, r, http.StatusInternalServerError, err.Error())
+		return
+	}
+}
+
+func (h *Handler) GetMessages(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		h.errorHandler(w, r, http.StatusMethodNotAllowed, "method not allowed")
+		return
+	}
+
+	strChatID := r.URL.Path[len("/api/chat/"):]
+	id, err := strconv.Atoi(strChatID)
+	if err != nil || id < 0 {
+		h.errorHandler(w, r, http.StatusBadRequest, "invalid chat id")
+		return
+	}
+
+	limitStr := r.URL.Query().Get("limit")
+	offsetStr := r.URL.Query().Get("offset")
+
+	limit, err := strconv.Atoi(limitStr)
+	if err != nil {
+		h.errorHandler(w, r, http.StatusBadRequest, "Invalid limit")
+		return
+	}
+	offset, err := strconv.Atoi(offsetStr)
+	if err != nil {
+		h.errorHandler(w, r, http.StatusBadRequest, "Invalid offset")
+		return
+	}
+
+	chat, messages, status, err := h.service.Message.GetMessagesByChat(r.Context(), uint(id), limit, offset)
+	if err != nil {
+		h.errorHandler(w, r, status, err.Error())
+		return
+	}
+
+	if err := json.NewEncoder(w).Encode(entity.MsgEvent{
+		Chat:     chat,
+		Messages: messages,
+	}); err != nil {
+		h.errorHandler(w, r, http.StatusInternalServerError, err.Error())
+		return
+	}
+}
+
+func (h *Handler) GetChat(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		h.errorHandler(w, r, http.StatusMethodNotAllowed, "method not allowed")
 		return
 	}
 }

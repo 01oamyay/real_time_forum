@@ -9,6 +9,7 @@ import Utils from "./pkg/Utils.js";
 import fetcher from "./pkg/fetcher.js";
 import UsersListView from "./views/UsersListView.js";
 import WS from "./pkg/WS.js";
+import ChatView from "./views/ِChatView.js";
 
 const pathToRegex = (path) =>
   new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
@@ -50,6 +51,12 @@ const router = async () => {
       style: "create-post",
     },
     { path: "/post/:postID", view: Post, minRole: roles.user, style: "post" },
+    {
+      path: "/chat/:userID",
+      view: ChatView,
+      minRole: roles.user,
+      style: "chat",
+    },
   ];
 
   const potentialMatches = routes.map((route) => {
@@ -108,7 +115,8 @@ const router = async () => {
   if (
     match.route.view === Home ||
     match.route.view === Post ||
-    match.route.view === CreatePost
+    match.route.view === CreatePost ||
+    match.route.view === ChatView
   ) {
     // Load Navbar
     const NavBarView = new NavBar(null, user);
@@ -125,14 +133,17 @@ const router = async () => {
     let SideBarView;
     // Load Userlist
     let UserListView;
-    if (match.route.view === Home) {
+    if (match.route.view === Home || match.route.view == ChatView) {
       view.addStyle("sidebar");
       view.addStyle("user_sidebar");
 
       ws?.init();
 
-      SideBarView = new SideBar(null, user);
-      sideBarHTML = await SideBarView.getHtml();
+      if (match.route.view == Home) {
+        SideBarView = new SideBar(null, user);
+        sideBarHTML = await SideBarView.getHtml();
+      }
+
       UserListView = new UsersListView(null, user);
       userListHTML = await UserListView.getHtml();
     }

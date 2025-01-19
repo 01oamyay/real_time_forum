@@ -20,6 +20,9 @@ func (h *Handler) errorHandler(w http.ResponseWriter, r *http.Request, status in
 		Msg:    text,
 	}
 	w.WriteHeader(e.Status)
+
+
+
 	if err := json.NewEncoder(w).Encode(e); err != nil {
 		http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 	}

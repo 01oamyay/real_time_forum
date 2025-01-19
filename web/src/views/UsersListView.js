@@ -59,9 +59,17 @@ export default class extends AbstractView {
     // Toggle sidebar
     const check = document.querySelector("#toggle-user_btn");
     if (check) {
+      const sidebar = document.querySelector("#user_sidebar");
       check.addEventListener("click", () => {
-        const sidebar = document.querySelector("#user_sidebar");
-        sidebar.style.display = sidebar.style.display === "block" ? "none" : "block";
+        sidebar.style.display =
+          sidebar.style.display === "flex" ? "none" : "flex";
+      });
+      window.addEventListener("resize", () => {
+        if (window.innerWidth < 768) {
+          sidebar.style.display = "none";
+        } else {
+          sidebar.style.display = "flex";
+        }
       });
     }
 

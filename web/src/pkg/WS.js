@@ -30,5 +30,10 @@ export default class {
     window.addEventListener("beforeunload", () => {
       if (this.ws) ws.close();
     });
+
+    document.addEventListener("send-msg", (e) => {
+      console.log("dqzdqz", e.detail);
+      this?.ws?.send(JSON.stringify(e.detail));
+    });
   }
 }

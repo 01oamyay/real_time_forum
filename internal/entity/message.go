@@ -16,6 +16,11 @@ type Chat struct {
 	UserId1 uint `json:"user_id_1"`
 }
 
+type MsgEvent struct {
+	Chat     Chat      `json:"chat"`
+	Messages []Message `json:"messages"`
+}
+
 type Contact struct {
 	UserID    uint   `json:"user_id"`
 	FirstName string `json:"firstName"`

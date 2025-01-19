@@ -150,5 +150,10 @@ func (h *Handler) createRoutes() []Route {
 			Handler: h.WebSocketHandler,
 			Role:    entity.Roles.User,
 		},
+		{
+			Path:    "/api/chat/",
+			Handler: h.GetMessages,
+			Role:    entity.Roles.User,
+		},
 	}
 }

@@ -21,17 +21,18 @@ func newMessagesService(msgRepo repository.Message, userRepo repository.User) *M
 	}
 }
 
-func (s *MessagesService) GetMessagesByChat(ctx context.Context, second_user uint, limit, offset int) ([]entity.Message, int, error) {
-	chatId, status, _ := s.messagesRepo.ChatExist(ctx, second_user)
+func (s *MessagesService) GetMessagesByChat(ctx context.Context, second_user uint, limit, offset int) (entity.Chat, []entity.Message, int, error) {
+	chat, status, _ := s.messagesRepo.ChatExist(ctx, second_user)
 	if status == http.StatusNotFound {
-		_, status, err := s.messagesRepo.CreateChat(ctx, second_user)
+		chat, status, err := s.messagesRepo.CreateChat(ctx, second_user)
 		if err != nil {
-			return nil, status, err
+			return chat, nil, status, err
 		}
-		return []entity.Message{}, http.StatusNoContent, nil
+		return chat, []entity.Message{}, http.StatusOK, nil
 	}
 
-	return s.messagesRepo.GetMessagesByChat(ctx, uint(chatId), limit, offset)
+	messages, status, err := s.messagesRepo.GetMessagesByChat(ctx, uint(chat.ID), limit, offset)
+	return chat, messages, status, err
 }
 
 func (s *MessagesService) GetAllUserChats(ctx context.Context) ([]entity.Chat, int, error) {

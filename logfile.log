@@ -1160,3 +1160,390 @@ Link: 🌐 http://localhost:8080
 Link: 🌐 http://localhost:8080
 2025/01/19 11:51:02 Connection closed for user 6 with code 1001: 
 2025/01/19 11:51:17 Connection closed for user 49 with code 1001: 
+2025/01/19 12:11:59 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 12:12:30 Connection closed for user 6 with code 1001: 
+2025/01/19 12:16:00 Connection closed for user 6 with code 1001: 
+2025/01/19 12:17:41 Connection closed for user 6 with code 1001: 
+2025/01/19 12:18:26 Connection closed for user 6 with code 1001: 
+2025/01/19 12:18:51 Connection closed for user 6 with code 1001: 
+2025/01/19 12:20:24 Connection closed for user 6 with code 1001: 
+2025/01/19 12:20:38 Connection closed for user 6 with code 1001: 
+2025/01/19 12:20:59 Connection closed for user 12 with code 1001: 
+2025/01/19 12:21:56 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 12:22:19 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 12:22:47 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 12:23:33 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 12:23:35 2025/01/19 12:23:35 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=10&offset=0 - 500 - Internal Server Error
+2025/01/19 12:23:35 http: request method or response status code does not allow body
+2025/01/19 12:23:35 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:22)
+2025/01/19 12:23:35 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/19 12:24:03 2025/01/19 12:24:03 HTTP/1.1 [GET]	localhost:8080/api/chat/1?limit=10&offset=0 - 500 - Internal Server Error
+2025/01/19 12:24:03 http: request method or response status code does not allow body
+2025/01/19 12:24:03 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:22)
+2025/01/19 12:24:03 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/19 12:24:15 2025/01/19 12:24:15 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=10&offset=0 - 500 - Internal Server Error
+2025/01/19 12:24:15 row value misused
+2025/01/19 12:25:06 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 12:25:09 2025/01/19 12:25:09 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:25:09 no messages
+2025/01/19 12:25:09 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/19 12:25:31 2025/01/19 12:25:31 HTTP/1.1 [GET]	localhost:8080/api/chat/1?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:25:31 no messages
+2025/01/19 12:25:31 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/19 12:26:29 2025/01/19 12:26:29 HTTP/1.1 [GET]	localhost:8080/api/chat/1?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:26:29 no messages
+2025/01/19 12:26:29 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/19 12:27:50 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 12:27:53 2025/01/19 12:27:53 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:27:53 no messages
+2025/01/19 12:28:40 2025/01/19 12:28:40 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:28:40 no messages
+2025/01/19 12:30:15 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 12:30:38 2025/01/19 12:30:38 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:30:38 no messages
+2025/01/19 12:30:38 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/19 12:31:10 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 12:31:13 2025/01/19 12:31:13 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:31:13 no messages
+2025/01/19 12:31:27 2025/01/19 12:31:27 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:31:27 no messages
+2025/01/19 12:31:29 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 12:31:31 2025/01/19 12:31:31 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:31:31 no messages
+2025/01/19 12:31:51 2025/01/19 12:31:51 HTTP/1.1 [GET]	localhost:8080/api/chat/1?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:31:51 no messages
+2025/01/19 12:33:10 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 12:33:13 2025/01/19 12:33:13 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:33:13 no messages
+2025/01/19 12:33:52 2025/01/19 12:33:52 HTTP/1.1 [GET]	localhost:8080/api/chat/1?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:33:52 no messages
+2025/01/19 12:34:05 2025/01/19 12:34:05 HTTP/1.1 [GET]	localhost:8080/api/chat/1?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:34:05 no messages
+2025/01/19 12:34:29 2025/01/19 12:34:29 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:34:29 no messages
+2025/01/19 12:35:04 2025/01/19 12:35:04 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:35:04 no messages
+2025/01/19 12:35:04 2025/01/19 12:35:04 HTTP/1.1 [GET]	localhost:8080/api/chat/1?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:35:04 no messages
+2025/01/19 12:35:40 2025/01/19 12:35:40 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:35:40 no messages
+2025/01/19 12:35:41 2025/01/19 12:35:41 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:35:41 no messages
+2025/01/19 12:35:43 2025/01/19 12:35:43 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:35:43 no messages
+2025/01/19 12:36:22 2025/01/19 12:36:22 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=10&offset=0 - 500 - Internal Server Error
+2025/01/19 12:36:22 http: request method or response status code does not allow body
+2025/01/19 12:36:22 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:22)
+2025/01/19 12:36:22 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:29)
+2025/01/19 12:37:05 2025/01/19 12:37:05 HTTP/1.1 [GET]	localhost:8080/api/chat/1?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:37:05 no messages
+2025/01/19 12:37:29 2025/01/19 12:37:29 HTTP/1.1 [GET]	localhost:8080/api/chat/1?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:37:29 no messages
+2025/01/19 12:39:34 2025/01/19 12:39:34 HTTP/1.1 [GET]	localhost:8080/api/chat/1?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:39:34 no messages
+2025/01/19 12:46:00 2025/01/19 12:46:00 HTTP/1.1 [GET]	localhost:8080/api/chat/1?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:46:00 no messages
+2025/01/19 12:59:23 2025/01/19 12:59:23 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:59:23 no messages
+2025/01/19 12:59:47 2025/01/19 12:59:47 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:59:47 no messages
+2025/01/19 12:59:50 2025/01/19 12:59:50 HTTP/1.1 [GET]	localhost:8080/api/chat/1?limit=10&offset=0 - 204 - No Content
+2025/01/19 12:59:50 no messages
+2025/01/19 13:01:13 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 13:01:15 2025/01/19 13:01:15 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=10&offset=0 - 204 - No Content
+2025/01/19 13:01:15 no messages
+2025/01/19 13:01:15 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:27)
+2025/01/19 13:01:37 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 13:01:40 2025/01/19 13:01:40 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=10&offset=0 - 204 - No Content
+2025/01/19 13:01:40 no messages
+2025/01/19 13:01:40 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:27)
+2025/01/19 13:05:10 2025/01/19 13:05:10 HTTP/1.1 [GET]	localhost:8080/api/chat/1?limit=10&offset=0 - 204 - No Content
+2025/01/19 13:05:10 no messages
+2025/01/19 13:05:10 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:27)
+2025/01/19 13:06:44 2025/01/19 13:06:44 HTTP/1.1 [GET]	localhost:8080/api/chat/1?limit=10&offset=0 - 204 - No Content
+2025/01/19 13:06:44 no messages
+2025/01/19 13:06:44 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:27)
+2025/01/19 13:11:35 2025/01/19 13:11:35 HTTP/1.1 [GET]	localhost:8080/api/chat/1?limit=10&offset=0 - 204 - No Content
+2025/01/19 13:11:35 no messages
+2025/01/19 13:11:35 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:27)
+2025/01/19 13:13:37 2025/01/19 13:13:37 HTTP/1.1 [GET]	localhost:8080/api/chat/1?limit=10&offset=0 - 204 - No Content
+2025/01/19 13:13:37 no messages
+2025/01/19 13:13:37 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:27)
+2025/01/19 13:16:48 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 13:20:20 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 13:20:42 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 13:23:03 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 13:25:51 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 13:36:57 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 13:38:52 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 13:39:04 Error unmarshalling message: Time.UnmarshalJSON: input is not a JSON string
+2025/01/19 13:39:41 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 13:39:50 Error unmarshalling message: Time.UnmarshalJSON: input is not a JSON string
+2025/01/19 13:40:40 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 13:40:50 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 13:41:42 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 13:42:54 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 13:43:12 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 13:43:36 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 13:44:27 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 13:44:32 Error unmarshalling message: Time.UnmarshalJSON: input is not a JSON string
+2025/01/19 13:51:30 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 13:51:55 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 13:54:29 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 13:56:47 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 13:56:47 2025/01/19 13:56:47 HTTP/1.1 [GET]	localhost:8080/api/is-valid - 500 - Internal Server Error
+2025/01/19 13:56:47 context canceled
+2025/01/19 13:57:24 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 13:58:36 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 14:01:03 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 14:02:48 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 14:06:02 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 14:06:18 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 14:06:58 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 14:07:25 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 14:07:50 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 14:08:24 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 14:09:19 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 14:09:37 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 14:10:13 http: panic serving [::1]:51418: repeated read on failed websocket connection
+goroutine 44 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x88e360?, 0x9b1bb0?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+github.com/gorilla/websocket.(*Conn).NextReader(0xc0003ac840)
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:1030 +0x1fb
+github.com/gorilla/websocket.(*Conn).ReadJSON(0x8aa0c0?, {0x885220, 0xc00026a500})
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/json.go:50 +0x25
+rlf/internal/controller.(*Handler).WebSocketHandler(0xc0000ad710, {0x9b5438, 0xc00039c460}, 0xc000384ea0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:88 +0x59d
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b5438, 0xc00039c460}, 0xc000384a20)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc000386750?, {0x9b5438?, 0xc00039c460?}, 0x918abe?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b5438, 0xc00039c460}, 0xc000384a20)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a9dc0?, {0x9b5438?, 0xc00039c460?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b5438, 0xc00039c460}, 0xc000384a20)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000180750?, {0x9b5438?, 0xc00039c460?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b5438, 0xc00039c460}, 0xc000384a20)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc0003866c0?}, {0x9b5438?, 0xc00039c460?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc0002227e0, {0x9b5b98, 0xc0000ade00})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/19 14:10:30 http: panic serving [::1]:53578: repeated read on failed websocket connection
+goroutine 81 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x88e360?, 0x9b1bb0?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+github.com/gorilla/websocket.(*Conn).NextReader(0xc0001f3b80)
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:1030 +0x1fb
+github.com/gorilla/websocket.(*Conn).ReadJSON(0xc00045d790?, {0x885220, 0xc000508c80})
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/json.go:50 +0x25
+rlf/internal/controller.(*Handler).WebSocketHandler(0xc0000ad710, {0x9b5438, 0xc000422380}, 0xc0001fac60)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:88 +0x59d
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b5438, 0xc000422380}, 0xc0003eaea0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc00040c630?, {0x9b5438?, 0xc000422380?}, 0x918abe?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b5438, 0xc000422380}, 0xc0003eaea0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a9dc0?, {0x9b5438?, 0xc000422380?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b5438, 0xc000422380}, 0xc0003eaea0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000180750?, {0x9b5438?, 0xc000422380?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b5438, 0xc000422380}, 0xc0003eaea0)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000387aa0?}, {0x9b5438?, 0xc000422380?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc0003839e0, {0x9b5b98, 0xc0000ade00})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/19 14:10:51 http: panic serving [::1]:54632: repeated read on failed websocket connection
+goroutine 220 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x88e360?, 0x9b1bb0?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+github.com/gorilla/websocket.(*Conn).NextReader(0xc0001942c0)
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:1030 +0x1fb
+github.com/gorilla/websocket.(*Conn).ReadJSON(0xc0003e9790?, {0x885220, 0xc00011cd80})
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/json.go:50 +0x25
+rlf/internal/controller.(*Handler).WebSocketHandler(0xc0000ad710, {0x9b5438, 0xc0004680e0}, 0xc0000c2b40)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:88 +0x59d
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b5438, 0xc0004680e0}, 0xc00035a900)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc0001f60c0?, {0x9b5438?, 0xc0004680e0?}, 0x918abe?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b5438, 0xc0004680e0}, 0xc00035a900)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a9dc0?, {0x9b5438?, 0xc0004680e0?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b5438, 0xc0004680e0}, 0xc00035a900)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000180750?, {0x9b5438?, 0xc0004680e0?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b5438, 0xc0004680e0}, 0xc00035a900)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000346510?}, {0x9b5438?, 0xc0004680e0?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc0001e27e0, {0x9b5b98, 0xc0000ade00})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/19 14:11:05 http: panic serving 127.0.0.1:49134: repeated read on failed websocket connection
+goroutine 135 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x88e360?, 0x9b1bb0?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+github.com/gorilla/websocket.(*Conn).NextReader(0xc0001394a0)
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:1030 +0x1fb
+github.com/gorilla/websocket.(*Conn).ReadJSON(0x8aa0c0?, {0x885220, 0xc0002300c0})
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/json.go:50 +0x25
+rlf/internal/controller.(*Handler).WebSocketHandler(0xc0000ad710, {0x9b5438, 0xc00012ea80}, 0xc00033cea0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:88 +0x59d
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b5438, 0xc00012ea80}, 0xc00033ca20)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc000313cb0?, {0x9b5438?, 0xc00012ea80?}, 0x918abe?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b5438, 0xc00012ea80}, 0xc00033ca20)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a9dc0?, {0x9b5438?, 0xc00012ea80?}, 0xf?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b5438, 0xc00012ea80}, 0xc00033ca20)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000180750?, {0x9b5438?, 0xc00012ea80?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b5438, 0xc00012ea80}, 0xc00033ca20)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000313c20?}, {0x9b5438?, 0xc00012ea80?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc000119050, {0x9b5b98, 0xc0000ade00})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/19 14:11:14 http: panic serving 127.0.0.1:51434: repeated read on failed websocket connection
+goroutine 355 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x88e360?, 0x9b1bb0?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+github.com/gorilla/websocket.(*Conn).NextReader(0xc00049a160)
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:1030 +0x1fb
+github.com/gorilla/websocket.(*Conn).ReadJSON(0xc00045d790?, {0x885220, 0xc0004ae500})
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/json.go:50 +0x25
+rlf/internal/controller.(*Handler).WebSocketHandler(0xc0000ad710, {0x9b5438, 0xc000422d20}, 0xc000496900)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:88 +0x59d
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b5438, 0xc000422d20}, 0xc000496480)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc00040d2c0?, {0x9b5438?, 0xc000422d20?}, 0x918abe?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b5438, 0xc000422d20}, 0xc000496480)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a9dc0?, {0x9b5438?, 0xc000422d20?}, 0xf?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b5438, 0xc000422d20}, 0xc000496480)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000180750?, {0x9b5438?, 0xc000422d20?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b5438, 0xc000422d20}, 0xc000496480)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc00040d230?}, {0x9b5438?, 0xc000422d20?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc00035ecf0, {0x9b5b98, 0xc0000ade00})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/19 14:11:20 http: panic serving 127.0.0.1:60372: repeated read on failed websocket connection
+goroutine 364 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x88e360?, 0x9b1bb0?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+github.com/gorilla/websocket.(*Conn).NextReader(0xc00049af20)
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:1030 +0x1fb
+github.com/gorilla/websocket.(*Conn).ReadJSON(0xc00045d790?, {0x885220, 0xc00028e880})
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/json.go:50 +0x25
+rlf/internal/controller.(*Handler).WebSocketHandler(0xc0000ad710, {0x9b5438, 0xc000423260}, 0xc000497d40)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:88 +0x59d
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b5438, 0xc000423260}, 0xc0004978c0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc00040dc20?, {0x9b5438?, 0xc000423260?}, 0x918abe?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b5438, 0xc000423260}, 0xc0004978c0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8a9dc0?, {0x9b5438?, 0xc000423260?}, 0xf?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b5438, 0xc000423260}, 0xc0004978c0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc000180750?, {0x9b5438?, 0xc000423260?}, 0x6cbd9a?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b5438, 0xc000423260}, 0xc0004978c0)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc00040db90?}, {0x9b5438?, 0xc000423260?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc00035f3b0, {0x9b5b98, 0xc0000ade00})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/19 14:16:15 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 14:40:26 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/19 14:50:04 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080

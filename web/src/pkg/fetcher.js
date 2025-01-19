@@ -89,10 +89,10 @@ const makeRequest = async (path, body, method) => {
     return responseBody;
   }
   if (!response.ok) {
-    
     Utils.showError(response.status, responseBody.msg);
     return responseBody;
   }
+
   return responseBody;
 };
 

@@ -23,7 +23,7 @@ func newMessagesRepo(db *sql.DB, keys Keys) *MessagesRepository {
 
 func (r *MessagesRepository) GetMessagesByChat(ctx context.Context, chatId uint, limit, offset int) ([]entity.Message, int, error) {
 	query := `
-		SELECT (chat_id, sender_id, content, created_at) FROM message
+		SELECT chat_id, sender_id, content, created_at FROM message
 		WHERE chat_id = ?
 		ORDER BY created_at
 		LIMIT ? OFFSET ?
@@ -50,10 +50,6 @@ func (r *MessagesRepository) GetMessagesByChat(ctx context.Context, chatId uint,
 			return nil, http.StatusInternalServerError, err
 		}
 		messages = append(messages, msg)
-	}
-
-	if len(messages) == 0 {
-		return messages, http.StatusNoContent, errors.New("no messages")
 	}
 
 	if err = rows.Err(); err != nil {
@@ -115,29 +111,29 @@ func (r *MessagesRepository) CreateChat(ctx context.Context, second_user uint) (
 	return chat, http.StatusOK, nil
 }
 
-func (r *MessagesRepository) ChatExist(ctx context.Context, second_user uint) (int, int, error) {
+func (r *MessagesRepository) ChatExist(ctx context.Context, second_user uint) (entity.Chat, int, error) {
 	userId := ctx.Value(r.Keys.IDKey)
 	query := `
-		SELECT id FROM chat
+		SELECT id, user_id, user_id_1 FROM chat
 		WHERE (user_id = ? AND user_id_1 = ?) OR (user_id = ? AND user_id_1 = ?)
 	`
 
 	prep, err := r.db.PrepareContext(ctx, query)
 	if err != nil {
-		return 0, http.StatusInternalServerError, err
+		return entity.Chat{}, http.StatusInternalServerError, err
 	}
 	defer prep.Close()
 
-	chatId := 0
+	chat := entity.Chat{}
 	row := prep.QueryRowContext(ctx, userId, second_user, second_user, userId)
-	if err = row.Scan(&chatId); err != nil {
+	if err = row.Scan(&chat.ID, &chat.UserID, &chat.UserId1); err != nil {
 		if err == sql.ErrNoRows {
-			return 0, http.StatusNotFound, err
+			return chat, http.StatusNotFound, err
 		}
-		return 0, http.StatusInternalServerError, err
+		return chat, http.StatusInternalServerError, err
 	}
 
-	return chatId, http.StatusOK, nil
+	return chat, http.StatusOK, nil
 }
 
 func (r *MessagesRepository) ChatExistsById(ctx context.Context, chat_id uint) (bool, int, error) {
@@ -164,8 +160,8 @@ func (r *MessagesRepository) CreateMessage(ctx context.Context, chatId uint, tex
 	senderId := ctx.Value(r.Keys.IDKey).(int)
 
 	query := `
-		INSERT INTO message (chat_id, sender_id, content)
-		VALUES (?, ?, ?)
+		INSERT INTO message(chat_id, sender_id, content)
+		VALUES(?, ?, ?)
 		RETURNING id, chat_id, sender_id, content, created_at
 	`
 
@@ -185,7 +181,7 @@ func (r *MessagesRepository) CreateMessage(ctx context.Context, chatId uint, tex
 }
 
 func (r *MessagesRepository) GetChatById(ctx context.Context, chat_id uint) (entity.Chat, error) {
-	query := `SELECT (id, user_id, user_id_1) FROM chat WHERE id = ?`
+	query := `SELECT id, user_id, user_id_1 FROM chat WHERE id = ?`
 
 	chat := entity.Chat{}
 	prep, err := r.db.PrepareContext(ctx, query)
@@ -194,7 +190,7 @@ func (r *MessagesRepository) GetChatById(ctx context.Context, chat_id uint) (ent
 	}
 	defer prep.Close()
 
-	if err = prep.QueryRowContext(ctx, chat_id).Scan(&chat.ID, &chat.UserID, chat.UserId1); err != nil {
+	if err = prep.QueryRowContext(ctx, chat_id).Scan(&chat.ID, &chat.UserID, &chat.UserId1); err != nil {
 		return chat, err
 	}
 

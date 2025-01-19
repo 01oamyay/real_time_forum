@@ -47,7 +47,7 @@ type Message interface {
 	GetMessagesByChat(ctx context.Context, chatId uint, limit, offset int) ([]entity.Message, int, error)
 	GetAllUserChats(ctx context.Context) ([]entity.Chat, int, error)
 	CreateChat(ctx context.Context, second_user uint) (entity.Chat, int, error)
-	ChatExist(ctx context.Context, second_user uint) (int, int, error)
+	ChatExist(ctx context.Context, second_user uint) (entity.Chat, int, error)
 	ChatExistsById(ctx context.Context, chat_id uint) (bool, int, error)
 	CreateMessage(ctx context.Context, chatId uint, text string) (entity.Message, int, error)
 	GetChatById(ctx context.Context, chat_id uint) (entity.Chat, error)
