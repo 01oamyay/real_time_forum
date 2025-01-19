@@ -1096,3 +1096,25 @@ Link: 🌐 http://localhost:8080
 2025/01/18 18:49:35 no token cookie
 2025/01/18 18:50:13 [32mServer is running...🚀
 Link: 🌐 http://localhost:8080
+2025/01/18 22:18:55 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/18 22:21:28 2025/01/18 22:21:28 HTTP/1.1 [GET]	localhost:8080/api/categories - 401 - Unauthorized
+2025/01/18 22:21:28 no token cookie
+2025/01/18 22:21:28 2025/01/18 22:21:28 HTTP/1.1 [GET]	localhost:8080/ws - 401 - Unauthorized
+2025/01/18 22:21:28 no token cookie
+2025/01/18 22:21:28 2025/01/18 22:21:28 HTTP/1.1 [POST]	localhost:8080/api/signout - 401 - Unauthorized
+2025/01/18 22:21:28 no token cookie
+2025/01/18 22:21:28 2025/01/18 22:21:28 HTTP/1.1 [GET]	localhost:8080/api/contacts - 401 - Unauthorized
+2025/01/18 22:21:28 no token cookie
+2025/01/18 22:45:29 2025/01/18 22:45:29 HTTP/1.1 [GET]	localhost:8080/api/posts/General?limit=20&offset=100 - 204 - No Content
+2025/01/18 22:45:29 no posts found for category: General
+2025/01/18 22:45:29 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/18 22:48:41 2025/01/18 22:48:41 HTTP/1.1 [GET]	localhost:8080/api/posts/General?limit=20&offset=100 - 204 - No Content
+2025/01/18 22:48:41 no posts found for category: General
+2025/01/18 22:48:41 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/18 23:08:30 2025/01/18 23:08:30 HTTP/1.1 [GET]	localhost:8080/api/posts/General?limit=20&offset=100 - 204 - No Content
+2025/01/18 23:08:30 no posts found for category: General
+2025/01/18 23:08:30 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)
+2025/01/19 00:00:48 2025/01/19 00:00:48 HTTP/1.1 [GET]	localhost:8080/api/posts/General?limit=20&offset=100 - 204 - No Content
+2025/01/19 00:00:48 no posts found for category: General
+2025/01/19 00:00:48 http: superfluous response.WriteHeader call from rlf/internal/controller.(*Handler).errorHandler (errorHandler.go:24)

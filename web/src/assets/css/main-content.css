@@ -3,6 +3,8 @@
   height: calc(100vh - 71px);
   max-height: 100%;
   display: flex;
+  position: relative;
+  overflow: hidden;
 }
 
 .posts-box {
@@ -32,7 +34,6 @@
   }
   .posts-box {
     height: 100%;
-    padding-bottom: 50px;
     width: 100%;
   }
   .posts-grid {
