@@ -11,7 +11,7 @@ const showError = (status, message) => {
     500: "500 Internal Server Error",
     503: "503 Service Unavailable",
   };
-  
+
   app.innerHTML = `
         <div class="errorDiv">
         <h1>${titles[status]}</h1><br>
@@ -52,4 +52,16 @@ const parseJwt = (token) => {
   return JSON.parse(jsonPayload);
 };
 
-export default { showError, getUser, logOut, parseJwt };
+function showToast(msg, type = "error") {
+  const toast = document.getElementById("toast");
+  toast.innerHTML = msg;
+  toast.classList.add(type);
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+    toast.classList.remove(type);
+  }, 5000);
+}
+
+export default { showError, getUser, logOut, parseJwt, showToast };

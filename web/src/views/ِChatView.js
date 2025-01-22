@@ -1,3 +1,4 @@
+import Utils from "../pkg/Utils.js";
 import AbstractView from "./AbstractView.js";
 
 let limit = 10;
@@ -10,9 +11,7 @@ async function GetMessages() {
   const res = await fetch(
     `/api/chat/${receiver_id}?limit=${limit}&offset=${offset}`
   );
-  console.log(res.status);
   const messages = await res.json();
-  console.log(messages);
 
   if (messages?.status == 400 && offset > 0) {
     ended = true;
@@ -28,7 +27,7 @@ async function GetMessages() {
     return [];
   }
 
-  offset += messages?.length;
+  offset += messages?.length || 0;
 
   messages?.messages?.sort((a, b) => {
     return new Date(a.created_at) - new Date(b.created_at);
@@ -40,6 +39,7 @@ export default class extends AbstractView {
   constructor(params) {
     super(params);
     this.setTitle("Chat");
+    this.typingTimeout = null;
   }
 
   async getHtml() {
@@ -61,8 +61,13 @@ export default class extends AbstractView {
 
   async init() {
     offset = 0;
-    const receiver_id = this.params.userID;
+    receiver_id = this.params.userID;
     const messages = await GetMessages(receiver_id);
+    this.chatID = messages?.chat?.id;
+
+    const inputField = document.querySelector(
+      "textarea.chat__conversation-panel__input.panel-item"
+    );
 
     if (receiver_id == messages.chat.user_id) {
       sender_id = messages.chat.user_id_1;
@@ -70,20 +75,23 @@ export default class extends AbstractView {
       sender_id = messages.chat.user_id;
     }
 
+    inputField.setAttribute("data-sender_id", `${sender_id}`);
+
     const sendBtn = document.getElementById("send");
-    const input = document.querySelector(".chat__conversation-panel__input");
+    const msgInput = document.querySelector(
+      `.chat__conversation-panel__input[data-sender_id="${sender_id}"]`
+    );
     let pendingMessage = "";
 
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
+      if (e.key === "Enter" && !e.shiftKey) {
         sendBtn.click();
       }
     });
 
     sendBtn.addEventListener("click", async () => {
-      let message = document.querySelector(".chat__conversation-panel__input");
-      if (message?.value) {
-        pendingMessage = message.value;
+      if (msgInput?.value && msgInput.dataset.sender_id == sender_id) {
+        pendingMessage = msgInput.value;
         const sendEvent = new CustomEvent("send-msg", {
           detail: {
             chat_id: messages?.chat?.id,
@@ -92,8 +100,22 @@ export default class extends AbstractView {
             created_at: new Date().toISOString(),
           },
         });
-        message.value = "";
+        msgInput.value = "";
         document.dispatchEvent(sendEvent);
+      }
+    });
+
+    inputField.addEventListener("input", () => {
+      this.handleTyping();
+    });
+
+    document.addEventListener("typing", (e) => {
+      const status = e.detail;
+      const indicator = document.querySelector(".typing-indicator");
+      if (status.is_typing && status.user_id !== sender_id) {
+        indicator.classList.remove("hidden");
+      } else {
+        indicator.classList.add("hidden");
       }
     });
 
@@ -102,13 +124,11 @@ export default class extends AbstractView {
       console.log(messages.chat);
       if (e.detail.data.chat_id == messages.chat.id) {
         insertMsg(e.detail.data, sender_id);
-        document.querySelector(".chat__conversation-panel__input").value = "";
-        pendingMessage = "";
       }
     });
 
     document.addEventListener("msg-error", (e) => {
-      showToast(e.detail?.error);
+      Utils.showToast(e.detail?.error);
       document.querySelector(".chat__conversation-panel__input").value =
         pendingMessage;
     });
@@ -119,107 +139,177 @@ export default class extends AbstractView {
     // setup scroll event
     chatBoard.addEventListener("scroll", handleScroll);
   }
-}
 
-function showToast(msg, type = "error") {
-  const toast = document.getElementById("toast");
-  toast.innerHTML = msg;
-  toast.classList.add(type);
-  toast.classList.add("show");
-
-  setTimeout(() => {
-    toast.classList.remove("show");
-    toast.classList.remove(type);
-  }, 5000);
-}
-
-let lastScrollTime = 0;
-const scrollInterval = 500; // call the function at most once every 500ms
-
-function handleScroll() {
-  const chatBoard = document.querySelector(".chat__conversation-board");
-  const scrollPosition = chatBoard.scrollTop;
-  const clientHeight = chatBoard.clientHeight;
-
-  if (scrollPosition <= clientHeight && !ended) {
-    const currentTime = Date.now();
-    if (currentTime - lastScrollTime > scrollInterval) {
-      lastScrollTime = currentTime;
-      GetMessages().then((messages) => {
-        if (messages.length > 0) {
-          insertMsg(messages, sender_id);
-        }
-      });
+  handleTyping() {
+    if (this.typingTimeout) {
+      clearTimeout(this.typingTimeout);
     }
+
+    const typingEvent = new CustomEvent("typing", {
+      detail: {
+        type: "typing",
+        payload: {
+          chat_id: this.chatID,
+          is_typing: true,
+        },
+      },
+    });
+
+    document.dispatchEvent(typingEvent);
+
+    this.typingTimeout = setTimeout(() => {
+      const typingEvent = new CustomEvent("typing", {
+        detail: {
+          type: "typing",
+          payload: {
+            user_id: sender_id,
+            chat_id: this.params.chatID,
+            is_typing: false,
+          },
+        },
+      });
+
+      document.dispatchEvent(typingEvent);
+    }, 3000);
   }
 }
 
-function insertMsg(message, sender_id) {
-  let chatContainer = document.querySelector(".chat__conversation-board");
-  if (Array.isArray(message)) {
-    if (message.length == 0 && offset == 0) {
-      chatContainer.innerHTML = `<p class="noMsg">No Messages</p>`;
-    } else {
-      chatContainer.innerHTML = "";
-      message.forEach((msg) => {
-        const msgHtml = `
-          <div class="chat__conversation-board__message-container ${
-            msg.sender_id == sender_id ? "reversed" : ""
-          }">
-            <div class="chat__conversation-board__message__person">
-              <div class="chat__conversation-board__message__person__avatar">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                </svg>
-              </div>
-              <div class="chat__conversation-board__message__person__info">
-                <span class="nickname">${msg.nickname}</span>
-                <span class="created-at">${formatDate(msg.created_at)}</span>
-              </div>
-            </div>
-            <div class="chat__conversation-board__message__context">
-              <div class="chat__conversation-board__message__bubble">
-                <span>${msg.content}</span>
-              </div>
-            </div>
-          </div>
-        `;
-        chatContainer.appendChild(
-          document.createRange().createContextualFragment(msgHtml)
-        );
-      });
-      chatContainer.scrollTop = chatContainer.scrollHeight;
+let isThrottled = false;
+
+async function handleScroll(e) {
+  if (isThrottled) return;
+  let container = e.target;
+
+  if (container.scrollTop <= 0) {
+    isThrottled = true;
+
+    const height = container.scrollHeight;
+
+    try {
+      const messages = await GetMessages(receiver_id);
+      insertMsg(messages.messages, sender_id, true);
+
+      const newHeight = container.scrollHeight;
+      const diff = newHeight - height;
+      container.scrollTop = diff;
+    } catch (error) {
+      console.error("Error loading messages:", error);
+    } finally {
+      setTimeout(() => {
+        isThrottled = false;
+        if (container.scrollTop <= 0) {
+          handleScroll({ target: container });
+        }
+      }, 1000);
     }
-  } else {
-    const msgHtml = `
+  }
+}
+const loading = `
+<div class="chat__conversation-board__message-container">
+  <div class="chat__conversation-board__message__person">
+    <div class="chat__conversation-board__message__person__avatar">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+      </svg>
+    </div>
+  </div>
+  <div class="chat__conversation-board__message__context">
+    <div class="chat__conversation-board__message__bubble">
+      <svg version="1.1" id="L4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+        viewBox="0 44 52 12" enable-background="new 0 0 0 0" xml:space="preserve" width="30">
+        <circle fill="#fff" stroke="none" cx="6" cy="50" r="6">
+          <animate
+            attributeName="opacity"
+            dur="1s"
+            values="0;1;0"
+            repeatCount="indefinite"
+            begin="0.1"/>    
+        </circle>
+        <circle fill="#fff" stroke="none" cx="26" cy="50" r="6">
+          <animate
+            attributeName="opacity"
+            dur="1s"
+            values="0;1;0"
+            repeatCount="indefinite" 
+            begin="0.2"/>       
+        </circle>
+        <circle fill="#fff" stroke="none" cx="46" cy="50" r="6">
+          <animate
+            attributeName="opacity"
+            dur="1s"
+            values="0;1;0"
+            repeatCount="indefinite" 
+            begin="0.3"/>     
+        </circle>
+      </svg>
+
+      </p>
+    </div>
+  </div>
+</div>
+`;
+function insertMsg(message, sender_id, pre = false) {
+  let chatContainer = document.querySelector(".chat__conversation-board");
+
+  function createMessageHTML(msg) {
+    return `
       <div class="chat__conversation-board__message-container ${
-        message.sender_id == sender_id ? "reversed" : ""
+        msg.sender_id == sender_id ? "reversed" : ""
       }">
         <div class="chat__conversation-board__message__person">
           <div class="chat__conversation-board__message__person__avatar">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
             </svg>
-          </div>
-          <div class="chat__conversation-board__message__person__info">
-            <span class="nickname">${message.nickname}</span>
-            <span class="created-at">${formatDate(message.created_at)}</span>
           </div>
         </div>
         <div class="chat__conversation-board__message__context">
           <div class="chat__conversation-board__message__bubble">
-            <span>${message.content}</span>
+            <div class="chat__conversation-board__message__person__info">
+              <span class="nickname">${msg.nickname} - </span>
+              <span class="created-at">${formatDate(msg.created_at)}</span>
+            </div>
+            <p class="message">${msg.content.trim()}</p>
           </div>
         </div>
       </div>
     `;
+  }
+
+  if (Array.isArray(message)) {
+    if (message.length == 0 && offset == 0) {
+      chatContainer.innerHTML = `<p class="noMsg">No Messages</p>`;
+      return;
+    }
+
+    if (!pre) {
+      chatContainer.innerHTML = "";
+    }
+
+    message.forEach((msg) => {
+      const msgHtml = createMessageHTML(msg);
+      if (pre) {
+        chatContainer.prepend(
+          document.createRange().createContextualFragment(msgHtml)
+        );
+      } else {
+        chatContainer.appendChild(
+          document.createRange().createContextualFragment(msgHtml)
+        );
+      }
+    });
+
+    if (!pre) {
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+  } else {
+    const msgHtml = createMessageHTML(message);
     chatContainer.appendChild(
       document.createRange().createContextualFragment(msgHtml)
     );
     chatContainer.scrollTop = chatContainer.scrollHeight;
   }
 }
-
 function formatDate(dateString) {
   const date = new Date(dateString);
   const hours = date.getHours().toString().padStart(2, "0");

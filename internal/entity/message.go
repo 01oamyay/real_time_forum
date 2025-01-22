@@ -29,3 +29,9 @@ type Contact struct {
 	Nickname  string `json:"nickname"`
 	IsOnline  bool   `json:"isOnline"`
 }
+
+type Typing struct {
+	ChatID   uint `json:"chat_id"`
+	IsTyping bool `json:"is_typing"`
+	UserID   uint `json:"user_id"`
+}

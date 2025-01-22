@@ -25,7 +25,7 @@ func (r *MessagesRepository) GetMessagesByChat(ctx context.Context, chatId uint,
 	query := `
 		SELECT chat_id, sender_id, content, created_at FROM message
 		WHERE chat_id = ?
-		ORDER BY created_at
+		ORDER BY created_at DESC
 		LIMIT ? OFFSET ?
 	`
 	prep, err := r.db.PrepareContext(ctx, query)

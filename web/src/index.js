@@ -147,8 +147,9 @@ const router = async () => {
       UserListView = new UsersListView(null, user);
       userListHTML = await UserListView.getHtml();
     }
-
-    document.querySelector("#app").innerHTML = sideBarHTML;
+    document.querySelector("#app").innerHTML = `<div id="toast">
+      <div id="toast-message"></div>`;
+    document.querySelector("#app").innerHTML += sideBarHTML;
     document.querySelector("#app").innerHTML += await view.getHtml();
     document.querySelector("#app").innerHTML += userListHTML;
 

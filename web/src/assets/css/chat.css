@@ -56,17 +56,21 @@
 
 .chat__conversation-board__message__context {
   max-width: 55%;
-}
-
-.chat__conversation-board__message__bubble span {
-  display: inline-block;
   background: var(--chat-bubble-background);
-  color: var(--chat-text-color);
   padding: 0.5em 0.8em;
   border-radius: 6px;
-  font-size: 13px;
+  font-size: 14px;
+  color: var(--chat-text-color);
+}
+
+.chat__conversation-board__message__bubble .message {
+  display: inline-block;
+  color: whitesmoke;
   line-height: 1.5;
+  font-size: 16px;
   word-break: break-word;
+  margin-top: 5px;
+  white-space: pre-wrap;
 }
 
 .chat__conversation-board__message__bubble span:not(:last-child) {
@@ -146,27 +150,6 @@
   scrollbar-width: none;
 }
 
-#toast {
-  position: fixed;
-  right: 25px;
-  bottom: 25px;
-  z-index: 1000;
-  background-color: var(--chat-panel-background);
-  color: var(--chat-text-color);
-  padding: 16px;
-  border-radius: 10px;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.5s, transform 0.5s;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-}
-
-#toast.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#toast.show.error {
-  background-color: #f44336;
-  color: #fff;
+.loading{
+  height: 30px;
 }

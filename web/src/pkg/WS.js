@@ -1,3 +1,5 @@
+import Utils from "../pkg/Utils.js";
+
 export default class {
   constructor() {
     this.ws = null;
@@ -24,6 +26,14 @@ export default class {
         detail: data,
       });
       document.dispatchEvent(onlineEvent);
+
+      if (
+        data.event == "msg" &&
+        !document.location.pathname.startsWith("/chat/")
+      ) {
+        const sender = data.data.nickname;
+        Utils.showToast(`You received a new message from ${sender}`, "msg");
+      }
     };
     // Handle clean disconnection
     window.addEventListener("beforeunload", () => {
@@ -33,5 +43,7 @@ export default class {
     document.addEventListener("send-msg", (e) => {
       this?.ws?.send(JSON.stringify(e.detail));
     });
+
+    // document.addEventListener();
   }
 }
