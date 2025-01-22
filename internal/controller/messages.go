@@ -111,7 +111,7 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 
 		if !ok {
 			conn.WriteJSON(map[string]interface{}{
-				"event": "error",
+				"event": "msg-error",
 				"error": "recipient is offline",
 			})
 			continue
@@ -120,7 +120,7 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 		msg, _, err = h.service.CreateMessage(r.Context(), msg)
 		if err != nil {
 			conn.WriteJSON(map[string]interface{}{
-				"event": "error",
+				"event": "msg-error",
 				"error": err.Error(),
 			})
 			continue
@@ -132,7 +132,7 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 		})
 		if err != nil {
 			conn.WriteJSON(map[string]interface{}{
-				"event": "error",
+				"event": "msg-error",
 				"error": err.Error(),
 			})
 			continue
@@ -144,7 +144,7 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 		})
 		if err != nil {
 			conn.WriteJSON(map[string]interface{}{
-				"event": "error",
+				"event": "msg-error",
 				"error": err.Error(),
 			})
 			continue

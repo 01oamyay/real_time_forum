@@ -1547,3 +1547,39 @@ Link: 🌐 http://localhost:8080
 Link: 🌐 http://localhost:8080
 2025/01/19 14:50:04 [32mServer is running...🚀
 Link: 🌐 http://localhost:8080
+2025/01/20 11:15:24 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/20 11:15:44 2025/01/20 11:15:44 HTTP/1.1 [GET]	localhost:8080/api/chat/1?limit=100&offset=NaN - 400 - Bad Request
+2025/01/20 11:15:44 Invalid offset
+2025/01/20 11:15:45 2025/01/20 11:15:45 HTTP/1.1 [GET]	localhost:8080/api/chat/12?limit=100&offset=NaN - 400 - Bad Request
+2025/01/20 11:15:45 Invalid offset
+2025/01/20 11:15:48 2025/01/20 11:15:48 HTTP/1.1 [GET]	localhost:8080/api/chat/12?limit=100&offset=NaN - 400 - Bad Request
+2025/01/20 11:15:48 Invalid offset
+2025/01/20 11:15:49 2025/01/20 11:15:49 HTTP/1.1 [GET]	localhost:8080/api/chat/1?limit=100&offset=NaN - 400 - Bad Request
+2025/01/20 11:15:49 Invalid offset
+2025/01/20 11:15:50 2025/01/20 11:15:50 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=100&offset=NaN - 400 - Bad Request
+2025/01/20 11:15:50 Invalid offset
+2025/01/20 11:16:20 2025/01/20 11:16:20 HTTP/1.1 [GET]	localhost:8080/api/chat/12?limit=100&offset=NaN - 400 - Bad Request
+2025/01/20 11:16:20 Invalid offset
+2025/01/20 11:18:25 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/20 11:36:05 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/20 11:37:52 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/20 11:42:04 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/20 12:42:13 [32mServer is running...🚀
+Link: 🌐 http://localhost:8080
+2025/01/20 13:01:59 2025/01/20 13:01:59 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=10&offset=NaN - 400 - Bad Request
+2025/01/20 13:01:59 Invalid offset
+2025/01/20 13:02:07 2025/01/20 13:02:07 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=10&offset=NaN - 400 - Bad Request
+2025/01/20 13:02:07 Invalid offset
+2025/01/20 13:02:37 2025/01/20 13:02:37 HTTP/1.1 [GET]	localhost:8080/api/chat/6?limit=10&offset=NaN - 400 - Bad Request
+2025/01/20 13:02:37 Invalid offset
+2025/01/20 13:02:41 2025/01/20 13:02:41 HTTP/1.1 [GET]	localhost:8080/api/chat/49?limit=10&offset=NaN - 400 - Bad Request
+2025/01/20 13:02:41 Invalid offset
+2025/01/20 13:22:40 2025/01/20 13:22:40 HTTP/1.1 [GET]	localhost:8080/api/chat/undefined?limit=10&offset=0 - 400 - Bad Request
+2025/01/20 13:22:40 invalid chat id
+2025/01/20 13:22:43 2025/01/20 13:22:43 HTTP/1.1 [GET]	localhost:8080/api/chat/undefined?limit=10&offset=0 - 400 - Bad Request
+2025/01/20 13:22:43 invalid chat id

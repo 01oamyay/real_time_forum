@@ -20,7 +20,6 @@ export default class {
 
     this.ws.onmessage = (e) => {
       let data = JSON.parse(e.data);
-      console.log(data);
       let onlineEvent = new CustomEvent(data.event, {
         detail: data,
       });
@@ -32,7 +31,6 @@ export default class {
     });
 
     document.addEventListener("send-msg", (e) => {
-      console.log("dqzdqz", e.detail);
       this?.ws?.send(JSON.stringify(e.detail));
     });
   }

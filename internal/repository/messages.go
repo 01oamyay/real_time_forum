@@ -49,6 +49,14 @@ func (r *MessagesRepository) GetMessagesByChat(ctx context.Context, chatId uint,
 		if err := rows.Scan(&msg.ChatId, &msg.SenderId, &msg.Content, &msg.CreatedAt); err != nil {
 			return nil, http.StatusInternalServerError, err
 		}
+
+		var nickname string
+		err = r.db.QueryRowContext(ctx, "SELECT nickname FROM users WHERE id = ?", msg.SenderId).Scan(&nickname)
+		if err != nil {
+			return nil, http.StatusInternalServerError, err
+		}
+
+		msg.Nickname = nickname
 		messages = append(messages, msg)
 	}
 
@@ -176,6 +184,16 @@ func (r *MessagesRepository) CreateMessage(ctx context.Context, chatId uint, tex
 	if err = prep.QueryRowContext(ctx, chatId, senderId, text).Scan(&msg.ID, &msg.ChatId, &msg.SenderId, &msg.Content, &msg.CreatedAt); err != nil {
 		return msg, http.StatusInternalServerError, err
 	}
+
+	// Get the nickname of the sender
+	var nickname string
+	err = r.db.QueryRowContext(ctx, "SELECT nickname FROM users WHERE id = ?", senderId).Scan(&nickname)
+	if err != nil {
+		return msg, http.StatusInternalServerError, err
+	}
+
+	// Update the message struct with the nickname
+	msg.Nickname = nickname
 
 	return msg, http.StatusOK, nil
 }
