@@ -84,7 +84,7 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 	// Message handling loop
 	for {
 		var event struct {
-			Type    string          `json:"type"`
+			Type    string          `json:"event"`
 			Payload json.RawMessage `json:"payload"`
 		}
 
@@ -171,8 +171,7 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 					log.Printf("error unmarshaling message: %v", err)
 					continue
 				}
-
-				chat, err := h.service.Message.GetChatById(r.Context(), typing.ChatID)
+				chat, err := h.service.Message.GetChatById(r.Context(), uint(typing.ChatID))
 				if err != nil {
 					conn.WriteJSON(map[string]interface{}{
 						"event": "error",
@@ -188,7 +187,7 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 					receiver_id = chat.UserID
 				}
 
-				typing.UserID = uint(userId)
+				typing.UserID = int(userId)
 
 				h.webSocket.Lock()
 				receiverConn, ok := h.webSocket.connections[id(receiver_id)]
@@ -212,7 +211,8 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 				if typingTimer != nil {
 					typingTimer.Stop()
 				}
-				typingTimer = time.AfterFunc(3*time.Second, func() {
+
+				typingTimer = time.AfterFunc(1*time.Second, func() {
 					typing.IsTyping = false
 					err = receiverConn.WriteJSON(map[string]interface{}{
 						"event":  "typing",

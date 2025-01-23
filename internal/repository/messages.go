@@ -4,6 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"errors"
+	"fmt"
 	"net/http"
 
 	"rlf/internal/entity"
@@ -200,7 +201,6 @@ func (r *MessagesRepository) CreateMessage(ctx context.Context, chatId uint, tex
 
 func (r *MessagesRepository) GetChatById(ctx context.Context, chat_id uint) (entity.Chat, error) {
 	query := `SELECT id, user_id, user_id_1 FROM chat WHERE id = ?`
-
 	chat := entity.Chat{}
 	prep, err := r.db.PrepareContext(ctx, query)
 	if err != nil {
@@ -209,6 +209,7 @@ func (r *MessagesRepository) GetChatById(ctx context.Context, chat_id uint) (ent
 	defer prep.Close()
 
 	if err = prep.QueryRowContext(ctx, chat_id).Scan(&chat.ID, &chat.UserID, &chat.UserId1); err != nil {
+		fmt.Println("here", err)
 		return chat, err
 	}
 

@@ -1695,3 +1695,66 @@ Link: 🌐 http://localhost0.0.0.0:8080
 2025/01/22 16:18:39 Error notifying user 6: write tcp [::1]:8080->[::1]:57500: use of closed network connection
 2025/01/22 16:18:50 [32mServer is running...🚀
 Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 11:41:29 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 11:42:29 error: websocket: close 1005 (no status)
+2025/01/23 11:42:43 error: websocket: close 1005 (no status)
+2025/01/23 11:42:44 error: websocket: close 1005 (no status)
+2025/01/23 11:42:45 error: websocket: close 1005 (no status)
+2025/01/23 11:44:11 error: websocket: close 1005 (no status)
+2025/01/23 11:44:12 error: websocket: close 1005 (no status)
+2025/01/23 11:45:46 error: websocket: close 1005 (no status)
+2025/01/23 11:45:50 error: websocket: close 1005 (no status)
+2025/01/23 11:46:01 error: websocket: close 1005 (no status)
+2025/01/23 11:46:03 error: websocket: close 1005 (no status)
+2025/01/23 11:46:21 error: websocket: close 1005 (no status)
+2025/01/23 11:46:22 error: websocket: close 1005 (no status)
+2025/01/23 11:46:23 error: websocket: close 1005 (no status)
+2025/01/23 11:46:24 error: websocket: close 1005 (no status)
+2025/01/23 11:46:40 error: websocket: close 1005 (no status)
+2025/01/23 11:46:47 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 11:47:34 error: websocket: close 1005 (no status)
+2025/01/23 11:47:35 error: websocket: close 1005 (no status)
+2025/01/23 11:49:06 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 11:50:32 error: websocket: close 1005 (no status)
+2025/01/23 11:50:48 error: websocket: close 1005 (no status)
+2025/01/23 11:51:42 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 11:52:28 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 11:57:35 error: websocket: close 1005 (no status)
+2025/01/23 11:57:36 error: websocket: close 1005 (no status)
+2025/01/23 11:58:54 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 11:58:59 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 12:00:05 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 12:01:49 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 12:04:50 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 12:08:58 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 12:18:11 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 12:20:26 error: websocket: close 1005 (no status)
+2025/01/23 12:20:27 error: websocket: close 1005 (no status)
+2025/01/23 12:20:53 error: websocket: close 1005 (no status)
+2025/01/23 12:20:54 error: websocket: close 1005 (no status)
+2025/01/23 12:27:29 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 12:30:44 error: websocket: close 1005 (no status)
+2025/01/23 12:30:45 error: websocket: close 1005 (no status)
+2025/01/23 12:31:22 error: websocket: close 1005 (no status)
+2025/01/23 12:31:23 error: websocket: close 1005 (no status)
+2025/01/23 12:33:25 error: websocket: close 1005 (no status)
+2025/01/23 12:33:26 error: websocket: close 1005 (no status)
+2025/01/23 12:35:52 error: websocket: close 1005 (no status)
+2025/01/23 12:35:52 error: websocket: close 1005 (no status)
+2025/01/23 12:37:10 error: websocket: close 1005 (no status)
+2025/01/23 12:37:11 error: websocket: close 1005 (no status)
+2025/01/23 12:37:49 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080

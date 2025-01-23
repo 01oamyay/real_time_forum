@@ -73,13 +73,14 @@ export default class extends AbstractView {
     }
 
     document.addEventListener("user-online", (e) => {
-      const span = document.getElementById(`${e.detail.data}`);
+      console.log("user list:", e.detail);
+      const span = document.getElementById(`${e.detail}`);
       span?.classList.remove("offline");
       span.classList.add("online");
     });
 
     document.addEventListener("user-offline", (e) => {
-      const span = document.getElementById(`${e.detail.data}`);
+      const span = document.getElementById(`${e.detail}`);
       span?.classList.remove("online");
       span.classList.add("offline");
     });

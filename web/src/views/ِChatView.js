@@ -94,10 +94,13 @@ export default class extends AbstractView {
         pendingMessage = msgInput.value;
         const sendEvent = new CustomEvent("send-msg", {
           detail: {
-            chat_id: messages?.chat?.id,
-            sender_id: sender_id,
-            content: pendingMessage,
-            created_at: new Date().toISOString(),
+            event: "msg",
+            payload: {
+              chat_id: messages?.chat?.id,
+              sender_id: sender_id,
+              content: pendingMessage,
+              created_at: new Date().toISOString(),
+            },
           },
         });
         msgInput.value = "";
@@ -106,106 +109,50 @@ export default class extends AbstractView {
     });
 
     inputField.addEventListener("input", () => {
-      this.handleTyping();
-    });
-
-    document.addEventListener("typing", (e) => {
-      const status = e.detail;
-      const indicator = document.querySelector(".typing-indicator");
-      if (status.is_typing && status.user_id !== sender_id) {
-        indicator.classList.remove("hidden");
-      } else {
-        indicator.classList.add("hidden");
+      if (this.typingTimeout) {
+        clearTimeout(this.typingTimeout);
       }
-    });
 
-    document.addEventListener("msg", (e) => {
-      console.log(e.detail);
-      console.log(messages.chat);
-      if (e.detail.data.chat_id == messages.chat.id) {
-        insertMsg(e.detail.data, sender_id);
-      }
-    });
-
-    document.addEventListener("msg-error", (e) => {
-      Utils.showToast(e.detail?.error);
-      document.querySelector(".chat__conversation-panel__input").value =
-        pendingMessage;
-    });
-
-    insertMsg(messages.messages, sender_id);
-
-    const chatBoard = document.querySelector(".chat__conversation-board");
-    // setup scroll event
-    chatBoard.addEventListener("scroll", handleScroll);
-  }
-
-  handleTyping() {
-    if (this.typingTimeout) {
-      clearTimeout(this.typingTimeout);
-    }
-
-    const typingEvent = new CustomEvent("typing", {
-      detail: {
-        type: "typing",
-        payload: {
-          chat_id: this.chatID,
-          is_typing: true,
-        },
-      },
-    });
-
-    document.dispatchEvent(typingEvent);
-
-    this.typingTimeout = setTimeout(() => {
       const typingEvent = new CustomEvent("typing", {
         detail: {
-          type: "typing",
+          event: "typing",
           payload: {
+            chat_id: this.chatID,
+            is_typing: true,
             user_id: sender_id,
-            chat_id: this.params.chatID,
-            is_typing: false,
           },
         },
       });
 
       document.dispatchEvent(typingEvent);
-    }, 3000);
-  }
-}
 
-let isThrottled = false;
+      this.typingTimeout = setTimeout(() => {
+        const typingEvent = new CustomEvent("typing", {
+          detail: {
+            event: "typing",
+            payload: {
+              chat_id: this.chatID,
+              is_typing: false,
+              user_id: sender_id,
+            },
+          },
+        });
 
-async function handleScroll(e) {
-  if (isThrottled) return;
-  let container = e.target;
-
-  if (container.scrollTop <= 0) {
-    isThrottled = true;
-
-    const height = container.scrollHeight;
-
-    try {
-      const messages = await GetMessages(receiver_id);
-      insertMsg(messages.messages, sender_id, true);
-
-      const newHeight = container.scrollHeight;
-      const diff = newHeight - height;
-      container.scrollTop = diff;
-    } catch (error) {
-      console.error("Error loading messages:", error);
-    } finally {
-      setTimeout(() => {
-        isThrottled = false;
-        if (container.scrollTop <= 0) {
-          handleScroll({ target: container });
-        }
+        document.dispatchEvent(typingEvent);
       }, 1000);
-    }
-  }
-}
-const loading = `
-<div class="chat__conversation-board__message-container">
+    });
+
+    document.addEventListener("typing", (e) => {
+      const status = e.detail;
+      console.log(status);
+
+      let loadingElem = document.getElementById("loading");
+
+      if (status?.is_typing && !loadingElem) {
+        let chatContainer = document.querySelector(".chat__conversation-board");
+
+        const loadignFragement = document.createRange()
+          .createContextualFragment(`<div id="loading" class="chat__conversation-board__message-container">
   <div class="chat__conversation-board__message__person">
     <div class="chat__conversation-board__message__person__avatar">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -242,12 +189,75 @@ const loading = `
             begin="0.3"/>     
         </circle>
       </svg>
-
       </p>
     </div>
   </div>
-</div>
-`;
+</div>`);
+
+        chatContainer.append(loadignFragement);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+      }
+
+      if (loadingElem && !status?.is_typing) {
+        loadingElem.remove();
+      }
+    });
+
+    document.addEventListener("msg", (e) => {
+      console.log(e.detail);
+      console.log(messages.chat);
+      if (e.detail.chat_id == messages.chat.id) {
+        insertMsg(e.detail, sender_id);
+      }
+    });
+
+    document.addEventListener("msg-error", (e) => {
+      Utils.showToast(e.detail?.error);
+      document.querySelector(".chat__conversation-panel__input").value =
+        pendingMessage;
+    });
+
+    insertMsg(messages.messages, sender_id);
+
+    const chatBoard = document.querySelector(".chat__conversation-board");
+    // setup scroll event
+    chatBoard.addEventListener("scroll", handleScroll);
+  }
+
+  handleTyping() {}
+}
+
+let isThrottled = false;
+
+async function handleScroll(e) {
+  if (isThrottled) return;
+  let container = e.target;
+
+  if (container.scrollTop <= 0) {
+    isThrottled = true;
+
+    const height = container.scrollHeight;
+
+    try {
+      const messages = await GetMessages(receiver_id);
+      insertMsg(messages.messages, sender_id, true);
+
+      const newHeight = container.scrollHeight;
+      const diff = newHeight - height;
+      container.scrollTop = diff;
+    } catch (error) {
+      console.error("Error loading messages:", error);
+    } finally {
+      setTimeout(() => {
+        isThrottled = false;
+        if (container.scrollTop <= 0) {
+          handleScroll({ target: container });
+        }
+      }, 1000);
+    }
+  }
+}
+
 function insertMsg(message, sender_id, pre = false) {
   let chatContainer = document.querySelector(".chat__conversation-board");
 
@@ -310,6 +320,7 @@ function insertMsg(message, sender_id, pre = false) {
     chatContainer.scrollTop = chatContainer.scrollHeight;
   }
 }
+
 function formatDate(dateString) {
   const date = new Date(dateString);
   const hours = date.getHours().toString().padStart(2, "0");

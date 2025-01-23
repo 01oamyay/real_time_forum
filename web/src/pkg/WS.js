@@ -22,28 +22,53 @@ export default class {
 
     this.ws.onmessage = (e) => {
       let data = JSON.parse(e.data);
-      let onlineEvent = new CustomEvent(data.event, {
-        detail: data,
-      });
-      document.dispatchEvent(onlineEvent);
-
-      if (
-        data.event == "msg" &&
-        !document.location.pathname.startsWith("/chat/")
-      ) {
-        const sender = data.data.nickname;
-        Utils.showToast(`You received a new message from ${sender}`, "msg");
+      switch (data.event) {
+        case "msg":
+          let onlineEvent = new CustomEvent("msg", {
+            detail: data.data,
+          });
+          document.dispatchEvent(onlineEvent);
+          break;
+        case "msg-error":
+          Utils.showToast(data.error, "msg-error");
+          break;
+        case "typing":
+          let typingEvent = new CustomEvent("typing", {
+            detail: data.typing,
+          });
+          document.dispatchEvent(typingEvent);
+          break;
+        case "user-online":
+          let userOnlineEvent = new CustomEvent("user-online", {
+            detail: data.data,
+          });
+          document.dispatchEvent(userOnlineEvent);
+          break;
+        case "user-offline":
+          let userOfflineEvent = new CustomEvent("user-offline", {
+            detail: data.data,
+          });
+          document.dispatchEvent(userOfflineEvent);
+          break;
+        case "error":
+          console.log(data.error);
+          break;
+        default:
+          console.log("Unknown event:", data.event);
       }
     };
+
     // Handle clean disconnection
     window.addEventListener("beforeunload", () => {
-      if (this.ws) ws.close();
+      if (this.ws) this.ws.close();
     });
 
     document.addEventListener("send-msg", (e) => {
       this?.ws?.send(JSON.stringify(e.detail));
     });
 
-    // document.addEventListener();
+    document.addEventListener("typing", (e) => {
+      this?.ws?.send(JSON.stringify(e.detail));
+    });
   }
 }

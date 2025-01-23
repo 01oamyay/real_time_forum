@@ -31,7 +31,7 @@ type Contact struct {
 }
 
 type Typing struct {
-	ChatID   uint `json:"chat_id"`
+	ChatID   int  `json:"chat_id"`
 	IsTyping bool `json:"is_typing"`
-	UserID   uint `json:"user_id"`
+	UserID   int  `json:"user_id"`
 }
