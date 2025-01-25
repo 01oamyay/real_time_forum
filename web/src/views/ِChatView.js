@@ -182,7 +182,7 @@ export default class extends AbstractView {
   <div class="chat__conversation-board__message__context">
     <div class="chat__conversation-board__message__bubble">
       <div class="chat__conversation-board__message__person__info">
-        <span class="nickname">${messages.messages.}</span>
+        <span class="nickname">"to fix"</span>
       </div>
       <svg version="1.1" id="L4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
         viewBox="0 44 52 12" enable-background="new 0 0 0 0" xml:space="preserve" width="30">
