@@ -10,6 +10,7 @@ import (
 type User interface {
 	Create(ctx context.Context, user entity.User) (int, error)
 	GetUserIDByLogin(ctx context.Context, login string) (entity.User, int, error)
+	GetUserById(ctx context.Context, id int) (entity.User, error)
 	Exists(ctx context.Context, userId uint) (bool, int, error)
 }
 

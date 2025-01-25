@@ -43,13 +43,17 @@ func (s *UserService) Create(ctx context.Context, user entity.User) (int, error)
 	return status, err
 }
 
+func (s *UserService) GetUserById(ctx context.Context, id int) (entity.User, error) {
+	return s.userRepo.GetUserById(ctx, id)
+}
+
 func (s *UserService) SignIn(ctx context.Context, user entity.UserInput) (string, int, error) {
 	if user.Login == "" {
 		return "", http.StatusBadRequest, errors.New("invalid credentials")
 	} else if user.Password == "" {
 		return "", http.StatusBadRequest, errors.New("invalid password")
 	}
-	
+
 	repoUserStruct, status, err := s.userRepo.GetUserIDByLogin(ctx, user.Login)
 	if err != nil {
 		if status == http.StatusBadRequest {

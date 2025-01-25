@@ -37,7 +37,8 @@ type MsgEvent struct {
 }
 
 type Typing struct {
-	ChatID   int  `json:"chat_id"`
-	IsTyping bool `json:"is_typing"`
-	UserID   int  `json:"user_id"`
+	ChatID   int    `json:"chat_id"`
+	IsTyping bool   `json:"is_typing"`
+	UserID   int    `json:"user_id"`
+	Nickname string `json:"nickname"`
 }

@@ -45,6 +45,21 @@ func (r *UserRepository) GetUserIDByLogin(ctx context.Context, login string) (en
 	return user, http.StatusOK, nil
 }
 
+func (r *UserRepository) GetUserById(ctx context.Context, id int) (entity.User, error) {
+	query := `SELECT id, nickname FROM users WHERE id = ? LIMIT 1;`
+	prep, err := r.db.PrepareContext(ctx, query)
+	user := entity.User{}
+	if err != nil {
+		return user, err
+	}
+	defer prep.Close()
+
+	if err = prep.QueryRowContext(ctx, id).Scan(&user.ID, &user.NickName); err != nil {
+		return user, err
+	}
+	return user, nil
+}
+
 func (r *UserRepository) Exists(ctx context.Context, userId uint) (bool, int, error) {
 	exists := false
 	query := `

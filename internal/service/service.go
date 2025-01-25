@@ -10,6 +10,7 @@ import (
 type User interface {
 	Create(ctx context.Context, user entity.User) (int, error)
 	SignIn(ctx context.Context, user entity.UserInput) (string, int, error)
+	GetUserById(ctx context.Context, id int) (entity.User, error)
 }
 
 type Session interface {

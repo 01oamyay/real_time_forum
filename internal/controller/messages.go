@@ -211,6 +211,16 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 
 					typing.UserID = int(userId)
 
+					user, err := h.service.User.GetUserById(r.Context(), userId)
+					if err != nil {
+						conn.WriteJSON(map[string]interface{}{
+							"event": "error",
+							"error": err.Error(),
+						})
+					}
+
+					typing.Nickname = user.NickName
+
 					var receiverConn *websocket.Conn
 					h.webSocket.Lock()
 					for conn, id := range h.webSocket.connections {
