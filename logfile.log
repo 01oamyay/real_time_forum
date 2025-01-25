@@ -2433,3 +2433,39 @@ Link: 🌐 http://localhost0.0.0.0:8080
 2025/01/25 13:06:47 error: websocket: close 1005 (no status)
 2025/01/25 13:06:47 error: websocket: close 1005 (no status)
 2025/01/25 13:07:10 error: websocket: close 1005 (no status)
+2025/01/25 15:09:32 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/25 15:09:37 2025/01/25 15:09:37 HTTP/1.1 [POST]	localhost:8080/api/signin - 400 - Bad Request
+2025/01/25 15:09:37 invalid email or password
+2025/01/25 15:10:02 2025/01/25 15:10:02 HTTP/1.1 [POST]	localhost:8080/api/signin - 400 - Bad Request
+2025/01/25 15:10:02 invalid password
+2025/01/25 15:11:04 error: websocket: close 1005 (no status)
+2025/01/25 15:11:28 error: websocket: close 1005 (no status)
+2025/01/25 15:11:29 error: websocket: close 1005 (no status)
+2025/01/25 15:11:32 error: websocket: close 1005 (no status)
+2025/01/25 15:11:53 error: websocket: close 1005 (no status)
+2025/01/25 15:11:57 error: websocket: close 1005 (no status)
+2025/01/25 15:12:15 error: websocket: close 1005 (no status)
+2025/01/25 15:12:48 error: websocket: close 1005 (no status)
+2025/01/25 15:12:51 error: websocket: close 1005 (no status)
+2025/01/25 15:13:00 error: websocket: close 1005 (no status)
+2025/01/25 15:13:03 error: websocket: close 1005 (no status)
+2025/01/25 15:14:10 error: websocket: close 1005 (no status)
+2025/01/25 15:14:18 error: websocket: close 1005 (no status)
+2025/01/25 15:14:19 error: websocket: close 1005 (no status)
+2025/01/25 15:14:24 error: websocket: close 1005 (no status)
+2025/01/25 15:14:48 error: websocket: close 1005 (no status)
+2025/01/25 15:16:40 error: websocket: close 1005 (no status)
+2025/01/25 15:16:48 error: websocket: close 1005 (no status)
+2025/01/25 15:20:16 error: websocket: close 1005 (no status)
+2025/01/25 15:20:17 error: websocket: close 1005 (no status)
+2025/01/25 15:20:37 error: websocket: close 1005 (no status)
+2025/01/25 15:20:38 error: websocket: close 1005 (no status)
+2025/01/25 15:23:34 error: websocket: close 1005 (no status)
+2025/01/25 15:23:36 error: websocket: close 1005 (no status)
+2025/01/25 15:24:20 error: websocket: close 1005 (no status)
+2025/01/25 15:24:24 error: websocket: close 1005 (no status)
+2025/01/25 15:26:30 error: websocket: close 1005 (no status)
+2025/01/25 15:26:50 error: websocket: close 1005 (no status)
+2025/01/25 15:27:48 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080

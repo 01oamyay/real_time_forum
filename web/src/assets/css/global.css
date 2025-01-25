@@ -100,6 +100,7 @@ body {
   color: var(--chat-text-color);
   padding: 16px;
   border-radius: 10px;
+  display: none;
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.5s, transform 0.5s;
@@ -107,6 +108,7 @@ body {
 }
 
 #toast.show {
+  display: block;
   opacity: 1;
   transform: translateY(0);
 }
