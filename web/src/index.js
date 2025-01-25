@@ -123,6 +123,8 @@ const router = async () => {
     document.querySelector("#navbar").innerHTML = await NavBarView.getHtml();
     NavBarView.init();
 
+    
+
     view.addStyle("navbar");
     view.addStyle("main-content");
     view.addStyle("post-card");

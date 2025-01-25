@@ -21,14 +21,14 @@ var upgrader = websocket.Upgrader{
 
 type WebSocket struct {
 	sync.Mutex
-	connections map[id]*websocket.Conn
+	connections map[*websocket.Conn]int
 }
 
 type id uint
 
 func newWS() *WebSocket {
 	return &WebSocket{
-		connections: make(map[id]*websocket.Conn),
+		connections: make(map[*websocket.Conn]int),
 		Mutex:       sync.Mutex{},
 	}
 }
@@ -41,10 +41,10 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer conn.Close()
 
-	userId := id(uint(r.Context().Value(h.service.Keys.IDKey).(int)))
+	userId := r.Context().Value(h.service.Keys.IDKey).(int)
 
 	h.webSocket.Lock()
-	h.webSocket.connections[userId] = conn
+	h.webSocket.connections[conn] = userId
 	h.webSocket.Unlock()
 
 	var wg sync.WaitGroup
@@ -52,10 +52,19 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 
 	conn.SetCloseHandler(func(code int, text string) error {
 		h.webSocket.Lock()
-		delete(h.webSocket.connections, userId)
+		delete(h.webSocket.connections, conn)
+
+		hasOtherConnections := false
+		for _, id := range h.webSocket.connections {
+			if id == userId {
+				hasOtherConnections = true
+				break
+			}
+		}
+
 		// Notify others that user is offline
-		for id, conn := range h.webSocket.connections {
-			if id != userId {
+		if !hasOtherConnections {
+			for conn := range h.webSocket.connections {
 				conn.WriteJSON(map[string]interface{}{
 					"event": "user-offline",
 					"data":  userId,
@@ -69,7 +78,7 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Notify others that user is online
 	h.webSocket.Lock()
-	for id, conn := range h.webSocket.connections {
+	for conn, id := range h.webSocket.connections {
 		if id != userId {
 			err := conn.WriteJSON(map[string]interface{}{
 				"event": "user-online",
@@ -126,11 +135,17 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 						receiver_id = chat.UserID
 					}
 
+					var receiverConn *websocket.Conn
 					h.webSocket.Lock()
-					receiverConn, ok := h.webSocket.connections[id(receiver_id)]
+					for conn, id := range h.webSocket.connections {
+						if id == int(receiver_id) {
+							receiverConn = conn
+							break
+						}
+					}
 					h.webSocket.Unlock()
 
-					if !ok {
+					if receiverConn == nil {
 						conn.WriteJSON(map[string]interface{}{
 							"event": "msg-error",
 							"error": "recipient is offline",
@@ -196,11 +211,17 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 
 					typing.UserID = int(userId)
 
+					var receiverConn *websocket.Conn
 					h.webSocket.Lock()
-					receiverConn, ok := h.webSocket.connections[id(receiver_id)]
+					for conn, id := range h.webSocket.connections {
+						if id == int(receiver_id) {
+							receiverConn = conn
+							break
+						}
+					}
 					h.webSocket.Unlock()
 
-					if !ok {
+					if receiverConn == nil {
 						continue
 					}
 
@@ -252,14 +273,21 @@ func (h *Handler) GetContacts(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	for i := 0; i < len(contacts); i++ {
-		user_id := id(contacts[i].UserID)
-		_, ok := h.webSocket.connections[user_id]
+	// Get the user IDs of online users
+	onlineUserIds := make([]uint, 0)
+	h.webSocket.Lock()
+	for _, id := range h.webSocket.connections {
+		onlineUserIds = append(onlineUserIds, uint(id))
+	}
+	h.webSocket.Unlock()
 
-		if ok {
-			contacts[i].IsOnline = true
-		} else {
-			contacts[i].IsOnline = false
+	// Update the contacts with online status
+	for i := range contacts {
+		for _, onlineId := range onlineUserIds {
+			if contacts[i].UserID == onlineId {
+				contacts[i].IsOnline = true
+				break
+			}
 		}
 	}
 

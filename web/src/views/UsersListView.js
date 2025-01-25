@@ -13,19 +13,26 @@ export default class extends AbstractView {
 
     contacts.sort((a, b) => {
       // Prioritize contacts with valid last messages
-      if (a.has_last_msg !== b.has_last_msg) {
-        return b.has_last_msg - a.has_last_msg;
+      if (a.last_msg.Valid && b.last_msg.Valid) {
+        let aDate = new Date(a.last_msg.Time);
+        let bDate = new Date(b.last_msg.Time);
+        return bDate - aDate;
       }
 
-      // If both have last messages, sort by time (most recent first)
-      if (a.has_last_msg) {
-        return new Date(b.last_msg.Time) - new Date(a.last_msg.Time);
+      if (a.last_msg.Valid) {
+        return -1;
       }
 
-      // If no last messages, sort alphabetically by firstName
-      return a.firstName.localeCompare(b.firstName);
+      if (b.last_msg.Valid) {
+        return 1;
+      }
+
+      let aName = `${a.firstName}  ${a.lastName}`;
+      let bName = `${b.firstName}  ${b.lastName}`;
+      return aName.localeCompare(bName);
     });
     this.contacts = contacts;
+    return contacts;
   }
 
   async getHtml() {
@@ -36,8 +43,7 @@ export default class extends AbstractView {
     `;
 
     await this.getContacts();
-
-    console.log(this.contacts);
+    console.log(this.contacts.filter((u) => u.isOnline).map((u) => u.isOnline));
 
     this.contacts.forEach((user) => {
       sidebarHtml += `
@@ -47,7 +53,7 @@ export default class extends AbstractView {
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                         </svg>
-                        <span>${(user.firstName, user.lastName)}</span>
+                        <span>${user.firstName} ${user.lastName}</span>
                     </div>
                     <span id=${user.user_id} class="dot ${
         user.isOnline ? "online" : "offline"
@@ -98,6 +104,32 @@ export default class extends AbstractView {
       const span = document.getElementById(`${e.detail}`);
       span?.classList.remove("online");
       span.classList.add("offline");
+    });
+
+    document.addEventListener("new_user", async () => {
+      // re-get the contact and update the component
+      await this.getContacts();
+      let newList = this?.contacts?.map((user) => {
+        return `<li class="item">
+                <a href="/chat/${user.user_id}" data-link>
+                    <div class="item-content">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>
+                        <span>${user.firstName} ${user.lastName}</span>
+                    </div>
+                    <span id=${user.user_id} class="dot ${
+          user.isOnline ? "online" : "offline"
+        }"></span>
+                </a>
+            </li>`;
+      });
+
+      const ul = document.createElement("ul");
+      ul.innerHTML = newList.join("");
+      let sidebar = document.getElementById("user_sidebar");
+      sidebar.innerHTML = "";
+      sidebar.appendChild(ul);
     });
   }
 }

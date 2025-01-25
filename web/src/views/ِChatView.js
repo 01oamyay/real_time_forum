@@ -11,14 +11,16 @@ async function GetMessages() {
   const res = await fetch(
     `/api/chat/${receiver_id}?limit=${limit}&offset=${offset}`
   );
+
   const messages = await res.json();
 
-  if (messages?.status == 400 && offset > 0) {
-    ended = true;
-    return [];
+  if (messages.status == 404) {
+    Utils.showError(messages.status, messages.msg);
   }
 
-  console.log(messages);
+  if (messages?.status == 400 && offset > 0) {
+    return [];
+  }
 
   if (messages?.msg) {
     return;
@@ -65,6 +67,8 @@ export default class extends AbstractView {
     offset = 0;
     receiver_id = this.params.userID;
     const messages = await GetMessages(receiver_id);
+    if (!messages) return;
+
     this.chatID = messages?.chat?.id;
 
     const inputField = document.querySelector(
@@ -95,7 +99,7 @@ export default class extends AbstractView {
       }
     });
 
-    sendBtn.addEventListener("click", async () => {
+    sendBtn.addEventListener("click", () => {
       if (msgInput?.value && msgInput.dataset.sender_id == sender_id) {
         pendingMessage = msgInput.value;
         const sendEvent = new CustomEvent("send-msg", {
@@ -160,6 +164,8 @@ export default class extends AbstractView {
       const status = e.detail;
 
       let loadingElem = document.getElementById("loading");
+
+      if (status.chat_id != this.chatID) return;
 
       if (status?.is_typing && !loadingElem) {
         let chatContainer = document.querySelector(".chat__conversation-board");
@@ -284,7 +290,6 @@ function insertMsg(message, sender_id, pre = false) {
   let chatContainer = document.querySelector(".chat__conversation-board");
 
   function createMessageHTML(msg) {
-    console.log("test", msg);
     return `
       <div class="chat__conversation-board__message-container ${
         msg.sender_id == sender_id ? "reversed" : ""

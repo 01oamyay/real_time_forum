@@ -3,6 +3,7 @@ package controller
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 	"time"
 
@@ -26,6 +27,18 @@ func (h *Handler) signUp(w http.ResponseWriter, r *http.Request) {
 		h.errorHandler(w, r, status, fmt.Sprintf("bad request: %v", err.Error()))
 		return
 	}
+
+	for conn := range h.webSocket.connections {
+		err := conn.WriteJSON(
+			map[string]interface{}{
+				"event": "new_user",
+				"data":  input,
+			})
+		if err != nil {
+			log.Println("Unable to send to ws msg", err)
+		}
+	}
+
 	w.WriteHeader(status)
 }
 

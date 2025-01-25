@@ -23,14 +23,25 @@ export default class {
     this.ws.onmessage = (e) => {
       let data = JSON.parse(e.data);
       switch (data.event) {
+        case "new_user":
+          let newUserEvent = new CustomEvent("new_user", { detail: data });
+          document.dispatchEvent(newUserEvent);
+          break;
         case "msg":
           let onlineEvent = new CustomEvent("msg", {
             detail: data.data,
           });
+
+          if (!document.location.pathname.startsWith("/chat/")) {
+            Utils.showToast(
+              "You received a message from " + data.data.nickname
+            );
+          }
+
           document.dispatchEvent(onlineEvent);
           break;
         case "msg-error":
-          Utils.showToast(data.error, "msg-error");
+          Utils.showToast(data.error, "error");
           break;
         case "typing":
           let typingEvent = new CustomEvent("typing", {
@@ -39,6 +50,7 @@ export default class {
           document.dispatchEvent(typingEvent);
           break;
         case "user-online":
+          console.log(data);
           let userOnlineEvent = new CustomEvent("user-online", {
             detail: data.data,
           });
@@ -69,7 +81,6 @@ export default class {
       //   const errEv = new CustomEvent("ws-closing");
       //   document.dispatchEvent(errEv);
       // }
-      console.log("send-msg emitted");
       this?.ws?.send(JSON.stringify(e.detail));
     });
 

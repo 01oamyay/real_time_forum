@@ -193,6 +193,21 @@ func (r *MessagesRepository) CreateMessage(ctx context.Context, chatId uint, tex
 		return msg, http.StatusInternalServerError, err
 	}
 
+	// update last msg in chat
+	chat_query := `
+	UPDATE chat SET last_msg = ?  WHERE id = ?
+	`
+	prep, err = r.db.PrepareContext(ctx, chat_query)
+	if err != nil {
+		return msg, http.StatusInternalServerError, err
+	}
+	defer prep.Close()
+
+	_, err = prep.ExecContext(ctx, msg.CreatedAt, chatId)
+	if err != nil {
+		return msg, http.StatusInternalServerError, err
+	}
+
 	// Update the message struct with the nickname
 	msg.Nickname = nickname
 
