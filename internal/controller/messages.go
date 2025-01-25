@@ -39,12 +39,16 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 		h.errorHandler(w, r, http.StatusInternalServerError, err.Error())
 		return
 	}
+	defer conn.Close()
 
 	userId := id(uint(r.Context().Value(h.service.Keys.IDKey).(int)))
 
 	h.webSocket.Lock()
 	h.webSocket.connections[userId] = conn
 	h.webSocket.Unlock()
+
+	var wg sync.WaitGroup
+	wg.Add(1)
 
 	conn.SetCloseHandler(func(code int, text string) error {
 		h.webSocket.Lock()
@@ -59,6 +63,7 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 			}
 		}
 		h.webSocket.Unlock()
+		wg.Done()
 		return nil
 	})
 
@@ -79,141 +84,126 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 
 	defer conn.Close()
 
-	var typingTimer *time.Timer
-
 	// Message handling loop
-	for {
-		var event struct {
-			Type    string          `json:"event"`
-			Payload json.RawMessage `json:"payload"`
-		}
+	go func() {
+		var typingTimer *time.Timer
+		// defer wg.Done()
+		for {
 
-		if err := conn.ReadJSON(&event); err != nil {
-			if websocket.IsUnexpectedCloseError(err, websocket.CloseGoingAway, websocket.CloseAbnormalClosure) {
-				log.Printf("error: %v", err)
+			var event struct {
+				Type    string          `json:"event"`
+				Payload json.RawMessage `json:"payload"`
 			}
-			break
-		}
 
-		switch event.Type {
-		case "msg":
-			{
-				var msg entity.Message
-				if err := json.Unmarshal(event.Payload, &msg); err != nil {
-					log.Printf("error unmarshaling message: %v", err)
-					continue
+			if err := conn.ReadJSON(&event); err != nil {
+				if websocket.IsUnexpectedCloseError(err, websocket.CloseGoingAway, websocket.CloseAbnormalClosure) {
+					log.Printf("error: %v", err)
 				}
-				chat, err := h.service.Message.GetChatById(r.Context(), msg.ChatId)
-				if err != nil {
-					conn.WriteJSON(map[string]interface{}{
-						"event": "error",
-						"error": err.Error(),
-					})
-					continue // Don't close connection, just skip this message
-				}
-
-				var receiver_id uint
-				if chat.UserID == uint(userId) {
-					receiver_id = chat.UserId1
-				} else {
-					receiver_id = chat.UserID
-				}
-
-				h.webSocket.Lock()
-				receiverConn, ok := h.webSocket.connections[id(receiver_id)]
-				h.webSocket.Unlock()
-
-				if !ok {
-					conn.WriteJSON(map[string]interface{}{
-						"event": "msg-error",
-						"error": "recipient is offline",
-					})
-					continue
-				}
-
-				msg, _, err = h.service.CreateMessage(r.Context(), msg)
-				if err != nil {
-					conn.WriteJSON(map[string]interface{}{
-						"event": "msg-error",
-						"error": err.Error(),
-					})
-					continue
-				}
-
-				err = receiverConn.WriteJSON(map[string]interface{}{
-					"event": "msg",
-					"data":  msg,
-				})
-				if err != nil {
-					conn.WriteJSON(map[string]interface{}{
-						"event": "msg-error",
-						"error": err.Error(),
-					})
-					continue
-				}
-
-				err = conn.WriteJSON(map[string]interface{}{
-					"event": "msg",
-					"data":  msg,
-				})
-				if err != nil {
-					conn.WriteJSON(map[string]interface{}{
-						"event": "msg-error",
-						"error": err.Error(),
-					})
-					continue
-				}
+				break
 			}
-		case "typing":
-			{
-				var typing entity.Typing
-				if err := json.Unmarshal(event.Payload, &typing); err != nil {
-					log.Printf("error unmarshaling message: %v", err)
-					continue
-				}
-				chat, err := h.service.Message.GetChatById(r.Context(), uint(typing.ChatID))
-				if err != nil {
-					conn.WriteJSON(map[string]interface{}{
-						"event": "error",
-						"error": err.Error(),
+
+			switch event.Type {
+			case "msg":
+				{
+					var msg entity.Message
+					if err := json.Unmarshal(event.Payload, &msg); err != nil {
+						log.Printf("error unmarshaling message: %v", err)
+						continue
+					}
+					chat, err := h.service.Message.GetChatById(r.Context(), msg.ChatId)
+					if err != nil {
+						conn.WriteJSON(map[string]interface{}{
+							"event": "error",
+							"error": err.Error(),
+						})
+						continue // Don't close connection, just skip this message
+					}
+
+					var receiver_id uint
+					if chat.UserID == uint(userId) {
+						receiver_id = chat.UserId1
+					} else {
+						receiver_id = chat.UserID
+					}
+
+					h.webSocket.Lock()
+					receiverConn, ok := h.webSocket.connections[id(receiver_id)]
+					h.webSocket.Unlock()
+
+					if !ok {
+						conn.WriteJSON(map[string]interface{}{
+							"event": "msg-error",
+							"error": "recipient is offline",
+						})
+						continue
+					}
+
+					msg, _, err = h.service.CreateMessage(r.Context(), msg)
+					if err != nil {
+						conn.WriteJSON(map[string]interface{}{
+							"event": "msg-error",
+							"error": err.Error(),
+						})
+						continue
+					}
+
+					err = receiverConn.WriteJSON(map[string]interface{}{
+						"event": "msg",
+						"data":  msg,
 					})
-					continue
-				}
+					if err != nil {
+						conn.WriteJSON(map[string]interface{}{
+							"event": "msg-error",
+							"error": err.Error(),
+						})
+						continue
+					}
 
-				var receiver_id uint
-				if chat.UserID == uint(userId) {
-					receiver_id = chat.UserId1
-				} else {
-					receiver_id = chat.UserID
-				}
-
-				typing.UserID = int(userId)
-
-				h.webSocket.Lock()
-				receiverConn, ok := h.webSocket.connections[id(receiver_id)]
-				h.webSocket.Unlock()
-
-				if !ok {
-					continue
-				}
-
-				err = receiverConn.WriteJSON(map[string]interface{}{
-					"event":  "typing",
-					"typing": typing,
-				})
-				if err != nil {
-					conn.WriteJSON(map[string]interface{}{
-						"event": "error",
-						"error": err.Error(),
+					err = conn.WriteJSON(map[string]interface{}{
+						"event": "msg",
+						"data":  msg,
 					})
+					if err != nil {
+						conn.WriteJSON(map[string]interface{}{
+							"event": "msg-error",
+							"error": err.Error(),
+						})
+						continue
+					}
 				}
+			case "typing":
+				{
+					var typing entity.Typing
+					if err := json.Unmarshal(event.Payload, &typing); err != nil {
+						log.Printf("error unmarshaling message: %v", err)
+						continue
+					}
+					chat, err := h.service.Message.GetChatById(r.Context(), uint(typing.ChatID))
+					if err != nil {
+						conn.WriteJSON(map[string]interface{}{
+							"event": "error",
+							"error": err.Error(),
+						})
+						continue
+					}
 
-				if typingTimer != nil {
-					typingTimer.Stop()
-				}
+					var receiver_id uint
+					if chat.UserID == uint(userId) {
+						receiver_id = chat.UserId1
+					} else {
+						receiver_id = chat.UserID
+					}
 
-				typingTimer = time.AfterFunc(1*time.Second, func() {
-					typing.IsTyping = false
+					typing.UserID = int(userId)
+
+					h.webSocket.Lock()
+					receiverConn, ok := h.webSocket.connections[id(receiver_id)]
+					h.webSocket.Unlock()
+
+					if !ok {
+						continue
+					}
+
 					err = receiverConn.WriteJSON(map[string]interface{}{
 						"event":  "typing",
 						"typing": typing,
@@ -224,11 +214,30 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 							"error": err.Error(),
 						})
 					}
-				})
+
+					if typingTimer != nil {
+						typingTimer.Stop()
+					}
+
+					typingTimer = time.AfterFunc(2*time.Second, func() {
+						typing.IsTyping = false
+						err = receiverConn.WriteJSON(map[string]interface{}{
+							"event":  "typing",
+							"typing": typing,
+						})
+						if err != nil {
+							conn.WriteJSON(map[string]interface{}{
+								"event": "error",
+								"error": err.Error(),
+							})
+						}
+					})
+				}
 			}
 		}
+	}()
 
-	}
+	wg.Wait()
 }
 
 func (h *Handler) GetContacts(w http.ResponseWriter, r *http.Request) {

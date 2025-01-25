@@ -181,6 +181,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  document.addEventListener("ws-closing", () => {
+    Utils.showToast(
+      "Websocket is either closed or in closing state, the page will be refreshed",
+      "error"
+    );
+
+    // refresh the page after 3 seconds
+    setTimeout(() => {
+      location.reload();
+    }, 3000);
+  });
+
   router();
 });
 

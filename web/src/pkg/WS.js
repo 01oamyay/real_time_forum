@@ -15,7 +15,7 @@ export default class {
       console.log("Connection closed:", event.code, event.reason);
     };
 
-    // Implement reconnection logic if needed
+    // Watch for error
     this.ws.onerror = (error) => {
       console.error("WebSocket error:", error);
     };
@@ -64,10 +64,21 @@ export default class {
     });
 
     document.addEventListener("send-msg", (e) => {
+      // if (this?.ws?.CLOSED || !this?.ws?.CLOSING) {
+      //   console.log("connection wlosed or closing");
+      //   const errEv = new CustomEvent("ws-closing");
+      //   document.dispatchEvent(errEv);
+      // }
+      console.log("send-msg emitted");
       this?.ws?.send(JSON.stringify(e.detail));
     });
 
     document.addEventListener("typing", (e) => {
+      // if (this?.ws?.CLOSED || !this?.ws?.CLOSING) {
+      //   console.log("connection wlosed or closing");
+      //   const errEv = new CustomEvent("ws-closing");
+      //   document.dispatchEvent(errEv);
+      // }
       this?.ws?.send(JSON.stringify(e.detail));
     });
   }

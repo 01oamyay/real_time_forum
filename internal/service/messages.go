@@ -2,6 +2,7 @@ package service
 
 import (
 	"context"
+	"database/sql"
 	"errors"
 	"net/http"
 
@@ -72,5 +73,35 @@ func (s *MessagesService) GetChatById(ctx context.Context, chat_id uint) (entity
 }
 
 func (s *MessagesService) GetContacts(ctx context.Context) ([]entity.Contact, int, error) {
-	return s.messagesRepo.GetContacts(ctx)
+	allChats, status, err := s.messagesRepo.GetAllUserChats(ctx)
+	if err != nil {
+		return nil, status, err
+	}
+
+	contacts, status, err := s.messagesRepo.GetContacts(ctx)
+	if err != nil {
+		return nil, status, err
+	}
+
+	chatMap := make(map[uint]sql.NullTime)
+	for _, chat := range allChats {
+		// Check both potential user ID fields
+		if chat.UserID != 0 {
+			chatMap[chat.UserID] = chat.LastMsg
+		}
+		if chat.UserId1 != 0 {
+			chatMap[chat.UserId1] = chat.LastMsg
+		}
+
+	}
+
+	// Update contacts with last message time if found
+	for i := range contacts {
+		if lastMsg, exists := chatMap[contacts[i].UserID]; exists {
+			contacts[i].LastMsg = lastMsg
+			contacts[i].HasLastMsg = true
+		}
+	}
+
+	return contacts, status, err
 }

@@ -1,6 +1,9 @@
 package entity
 
-import "time"
+import (
+	"database/sql"
+	"time"
+)
 
 type Message struct {
 	ID        uint      `json:"id"`
@@ -12,22 +15,25 @@ type Message struct {
 }
 
 type Chat struct {
-	ID      uint `json:"id"`
-	UserID  uint `json:"user_id"`
-	UserId1 uint `json:"user_id_1"`
+	ID      uint         `json:"id"`
+	UserID  uint         `json:"user_id"`
+	UserId1 uint         `json:"user_id_1"`
+	LastMsg sql.NullTime `json:"last_msg"`
+}
+
+type Contact struct {
+	UserID     uint         `json:"user_id"`
+	FirstName  string       `json:"firstName"`
+	LastName   string       `json:"lastName"`
+	Nickname   string       `json:"nickname"`
+	IsOnline   bool         `json:"isOnline"`
+	LastMsg    sql.NullTime `json:"last_msg"`
+	HasLastMsg bool         `json:"has_last_msg"`
 }
 
 type MsgEvent struct {
 	Chat     Chat      `json:"chat"`
 	Messages []Message `json:"messages"`
-}
-
-type Contact struct {
-	UserID    uint   `json:"user_id"`
-	FirstName string `json:"firstName"`
-	LastName  string `json:"lastName"`
-	Nickname  string `json:"nickname"`
-	IsOnline  bool   `json:"isOnline"`
 }
 
 type Typing struct {

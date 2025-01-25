@@ -10,6 +10,21 @@ export default class extends AbstractView {
 
   async getContacts() {
     const contacts = await fetcher.get("/api/contacts");
+
+    contacts.sort((a, b) => {
+      // Prioritize contacts with valid last messages
+      if (a.has_last_msg !== b.has_last_msg) {
+        return b.has_last_msg - a.has_last_msg;
+      }
+
+      // If both have last messages, sort by time (most recent first)
+      if (a.has_last_msg) {
+        return new Date(b.last_msg.Time) - new Date(a.last_msg.Time);
+      }
+
+      // If no last messages, sort alphabetically by firstName
+      return a.firstName.localeCompare(b.firstName);
+    });
     this.contacts = contacts;
   }
 

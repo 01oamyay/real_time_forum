@@ -18,16 +18,18 @@ async function GetMessages() {
     return [];
   }
 
+  console.log(messages);
+
   if (messages?.msg) {
     return;
   }
 
-  if (!messages?.length && offset > 0) {
+  if (!messages?.messages?.length && offset > 0) {
     ended = true;
     return [];
   }
 
-  offset += messages?.length || 0;
+  offset += messages?.messages?.length || 0;
 
   messages?.messages?.sort((a, b) => {
     return new Date(a.created_at) - new Date(b.created_at);
@@ -86,6 +88,10 @@ export default class extends AbstractView {
     document.addEventListener("keydown", (e) => {
       if (e.key === "Enter" && !e.shiftKey) {
         sendBtn.click();
+        const typingMsg = document.getElementById("loading");
+        if (typingMsg) {
+          typingMsg.remove();
+        }
       }
     });
 
@@ -105,12 +111,20 @@ export default class extends AbstractView {
         });
         msgInput.value = "";
         document.dispatchEvent(sendEvent);
+        const typingMsg = document.getElementById("loading");
+        if (typingMsg) {
+          typingMsg.remove();
+        }
       }
     });
 
-    inputField.addEventListener("input", () => {
+    inputField.addEventListener("input", (e) => {
       if (this.typingTimeout) {
         clearTimeout(this.typingTimeout);
+      }
+
+      if (e.inputType == "insertLineBreak") {
+        return;
       }
 
       const typingEvent = new CustomEvent("typing", {
@@ -144,7 +158,6 @@ export default class extends AbstractView {
 
     document.addEventListener("typing", (e) => {
       const status = e.detail;
-      console.log(status);
 
       let loadingElem = document.getElementById("loading");
 
@@ -204,9 +217,11 @@ export default class extends AbstractView {
     });
 
     document.addEventListener("msg", (e) => {
-      console.log(e.detail);
-      console.log(messages.chat);
       if (e.detail.chat_id == messages.chat.id) {
+        const typingMsg = document.getElementById("loading");
+        if (typingMsg) {
+          typingMsg.remove();
+        }
         insertMsg(e.detail, sender_id);
       }
     });
@@ -223,13 +238,16 @@ export default class extends AbstractView {
     // setup scroll event
     chatBoard.addEventListener("scroll", handleScroll);
   }
-
-  handleTyping() {}
 }
 
 let isThrottled = false;
 
 async function handleScroll(e) {
+  if (ended) {
+    const chatBoard = document.querySelector(".chat__conversation-board");
+    chatBoard.removeEventListener("scroll", handleScroll);
+    return;
+  }
   if (isThrottled) return;
   let container = e.target;
 
@@ -240,7 +258,11 @@ async function handleScroll(e) {
 
     try {
       const messages = await GetMessages(receiver_id);
-      insertMsg(messages.messages, sender_id, true);
+      if (messages?.length) {
+        return;
+      }
+
+      insertMsg(messages, sender_id, true);
 
       const newHeight = container.scrollHeight;
       const diff = newHeight - height;
@@ -262,6 +284,7 @@ function insertMsg(message, sender_id, pre = false) {
   let chatContainer = document.querySelector(".chat__conversation-board");
 
   function createMessageHTML(msg) {
+    console.log("test", msg);
     return `
       <div class="chat__conversation-board__message-container ${
         msg.sender_id == sender_id ? "reversed" : ""

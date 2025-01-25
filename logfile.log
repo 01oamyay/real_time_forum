@@ -1758,3 +1758,192 @@ Link: 🌐 http://localhost0.0.0.0:8080
 2025/01/23 12:37:11 error: websocket: close 1005 (no status)
 2025/01/23 12:37:49 [32mServer is running...🚀
 Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 13:22:14 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 13:24:18 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 13:25:37 2025/01/23 13:25:37 HTTP/1.1 [GET]	localhost:8080/api/contacts - 500 - Internal Server Error
+2025/01/23 13:25:37 row value misused
+2025/01/23 13:26:38 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 13:29:09 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 13:31:35 2025/01/23 13:31:35 HTTP/1.1 [POST]	localhost:8080/api/signin - 400 - Bad Request
+2025/01/23 13:31:35 invalid password
+2025/01/23 13:33:19 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 13:33:41 error: websocket: close 1005 (no status)
+2025/01/23 13:33:54 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 13:34:51 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 13:39:18 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 13:41:11 2025/01/23 13:41:11 HTTP/1.1 [GET]	localhost:8080/api/contacts - 500 - Internal Server Error
+2025/01/23 13:41:11 sql: expected 3 destination arguments in Scan, not 4
+2025/01/23 13:41:25 error: websocket: close 1005 (no status)
+2025/01/23 13:41:25 2025/01/23 13:41:25 HTTP/1.1 [GET]	localhost:8080/api/contacts - 500 - Internal Server Error
+2025/01/23 13:41:25 sql: expected 3 destination arguments in Scan, not 4
+2025/01/23 13:41:28 error: websocket: close 1005 (no status)
+2025/01/23 13:41:28 2025/01/23 13:41:28 HTTP/1.1 [GET]	localhost:8080/api/contacts - 500 - Internal Server Error
+2025/01/23 13:41:28 sql: expected 3 destination arguments in Scan, not 4
+2025/01/23 13:43:25 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 13:43:26 2025/01/23 13:43:26 HTTP/1.1 [GET]	localhost:8080/api/contacts - 500 - Internal Server Error
+2025/01/23 13:43:26 sql: expected 3 destination arguments in Scan, not 4
+2025/01/23 13:43:28 2025/01/23 13:43:28 HTTP/1.1 [GET]	localhost:8080/api/contacts - 500 - Internal Server Error
+2025/01/23 13:43:28 sql: expected 3 destination arguments in Scan, not 4
+2025/01/23 13:44:20 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 13:44:21 2025/01/23 13:44:21 HTTP/1.1 [GET]	localhost:8080/api/contacts - 500 - Internal Server Error
+2025/01/23 13:44:21 sql: expected 3 destination arguments in Scan, not 4
+2025/01/23 13:44:42 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 13:44:43 2025/01/23 13:44:43 HTTP/1.1 [GET]	localhost:8080/api/contacts - 500 - Internal Server Error
+2025/01/23 13:44:43 sql: Scan error on column index 3, name "last_msg": unsupported Scan, storing driver.Value type <nil> into type *time.Time
+2025/01/23 13:46:49 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 13:52:47 error: websocket: close 1005 (no status)
+2025/01/23 13:52:52 error: websocket: close 1005 (no status)
+2025/01/23 13:52:59 error: websocket: close 1005 (no status)
+2025/01/23 13:54:39 error: websocket: close 1005 (no status)
+2025/01/23 13:55:20 error: websocket: close 1005 (no status)
+2025/01/23 13:55:21 error: websocket: close 1005 (no status)
+2025/01/23 13:55:42 error: websocket: close 1005 (no status)
+2025/01/23 13:55:48 http: panic serving [::1]:60670: concurrent write to websocket connection
+goroutine 1379 [running]:
+net/http.(*conn).serve.func1()
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:1898 +0xbe
+panic({0x890560?, 0x9b4910?})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/runtime/panic.go:770 +0x132
+github.com/gorilla/websocket.(*messageWriter).flushFrame(0xc000252060, 0x1, {0x0?, 0xc000073808?, 0xc0001ba510?})
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:617 +0x4b8
+github.com/gorilla/websocket.(*messageWriter).Close(0xc0001ba510?)
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:731 +0x35
+github.com/gorilla/websocket.(*Conn).beginMessage(0xc00021a160, 0xc0001ba510, 0x1)
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:480 +0x3a
+github.com/gorilla/websocket.(*Conn).NextWriter(0xc00021a160, 0x1)
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/conn.go:520 +0x3f
+github.com/gorilla/websocket.(*Conn).WriteJSON(0x8ac440?, {0x8ac440, 0xc0001ba4e0})
+	/home/oamyay/go/pkg/mod/github.com/gorilla/websocket@v1.5.3/json.go:24 +0x34
+rlf/internal/controller.(*Handler).WebSocketHandler(0xc0001142d0, {0x9b8198, 0xc0002ce380}, 0xc0001f8ea0)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/messages.go:200 +0x1558
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).identify.func6({0x9b8198, 0xc0002ce380}, 0xc0004fe480)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:62 +0x3c2
+net/http.HandlerFunc.ServeHTTP(0xc000612660?, {0x9b8198?, 0xc0002ce380?}, 0x91b2d9?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*Handler).corsMiddleWare.func7({0x9b8198, 0xc0002ce380}, 0xc0004fe480)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/middleware.go:21 +0x13f
+net/http.HandlerFunc.ServeHTTP(0x8ac140?, {0x9b8198?, 0xc0002ce380?}, 0xb?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+rlf/internal/controller.(*Handler).InitRoutes.(*RateLimiter).Limiter.func8({0x9b8198, 0xc0002ce380}, 0xc0004fe480)
+	/home/oamyay/Desktop/zone_01/js/real-time-forum/internal/controller/rateLimiter.go:68 +0x232
+net/http.HandlerFunc.ServeHTTP(0xc0001220d0?, {0x9b8198?, 0xc0002ce380?}, 0x6cbffa?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2166 +0x29
+net/http.(*ServeMux).ServeHTTP(0x46d999?, {0x9b8198, 0xc0002ce380}, 0xc0004fe480)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2683 +0x1ad
+net/http.serverHandler.ServeHTTP({0xc000507a40?}, {0x9b8198?, 0xc0002ce380?}, 0x6?)
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3137 +0x8e
+net/http.(*conn).serve(0xc000503b90, {0x9b88f8, 0xc0001149f0})
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:2039 +0x5e8
+created by net/http.(*Server).Serve in goroutine 1
+	/home/oamyay/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.22.3.linux-amd64/src/net/http/server.go:3285 +0x4b4
+2025/01/23 13:56:14 error: websocket: close 1005 (no status)
+2025/01/23 13:56:15 error: websocket: close 1005 (no status)
+2025/01/23 15:21:30 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 15:22:11 Error notifying user 2: write tcp [::1]:8080->[::1]:35670: use of closed network connection
+2025/01/23 15:22:22 Error notifying user 3: write tcp [::1]:8080->[::1]:56136: use of closed network connection
+2025/01/23 15:22:32 Error notifying user 2: write tcp [::1]:8080->[::1]:49152: use of closed network connection
+2025/01/23 15:22:51 Error notifying user 3: write tcp [::1]:8080->[::1]:46290: use of closed network connection
+2025/01/23 15:22:57 Error notifying user 3: write tcp [::1]:8080->[::1]:46290: use of closed network connection
+2025/01/23 15:23:49 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 15:23:59 Error notifying user 2: write tcp [::1]:8080->[::1]:59900: use of closed network connection
+2025/01/23 15:24:05 Error notifying user 3: write tcp [::1]:8080->[::1]:59922: use of closed network connection
+2025/01/23 15:24:51 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 15:25:06 error: websocket: close 1005 (no status)
+2025/01/23 15:35:02 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 15:35:15 error: websocket: close 1005 (no status)
+2025/01/23 15:38:30 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 15:38:47 error: websocket: close 1005 (no status)
+2025/01/23 15:38:54 error: websocket: close 1005 (no status)
+2025/01/23 15:39:23 error: websocket: close 1005 (no status)
+2025/01/23 15:39:23 error: websocket: close 1005 (no status)
+2025/01/23 15:39:30 error: websocket: close 1005 (no status)
+2025/01/23 15:39:30 error: websocket: close 1005 (no status)
+2025/01/23 15:40:14 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 15:40:24 error: websocket: close 1005 (no status)
+2025/01/23 15:40:24 error: websocket: close 1005 (no status)
+2025/01/23 15:40:50 error: websocket: close 1005 (no status)
+2025/01/23 15:40:50 error: websocket: close 1005 (no status)
+2025/01/23 15:44:19 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 15:45:53 error: websocket: close 1005 (no status)
+2025/01/23 15:45:53 error: websocket: close 1005 (no status)
+2025/01/23 15:46:36 error: websocket: close 1005 (no status)
+2025/01/23 15:46:37 error: websocket: close 1005 (no status)
+2025/01/23 15:47:14 error: websocket: close 1005 (no status)
+2025/01/23 15:47:15 error: websocket: close 1005 (no status)
+2025/01/23 15:48:09 error: websocket: close 1005 (no status)
+2025/01/23 15:48:10 error: websocket: close 1005 (no status)
+2025/01/23 15:48:10 error: websocket: close 1005 (no status)
+2025/01/23 15:49:48 error: websocket: close 1005 (no status)
+2025/01/23 15:50:46 error: websocket: close 1005 (no status)
+2025/01/23 15:50:47 error: websocket: close 1005 (no status)
+2025/01/23 15:50:59 error: websocket: close 1005 (no status)
+2025/01/23 15:51:00 error: websocket: close 1005 (no status)
+2025/01/23 15:51:26 error: websocket: close 1005 (no status)
+2025/01/23 15:51:27 error: websocket: close 1005 (no status)
+2025/01/23 15:51:28 error: websocket: close 1005 (no status)
+2025/01/23 15:52:17 error: websocket: close 1005 (no status)
+2025/01/23 15:52:18 error: websocket: close 1005 (no status)
+2025/01/23 15:53:32 error: websocket: close 1005 (no status)
+2025/01/23 15:53:36 error: websocket: close 1005 (no status)
+2025/01/23 15:56:21 error: websocket: close 1005 (no status)
+2025/01/23 15:56:22 error: websocket: close 1005 (no status)
+2025/01/23 15:56:50 error: websocket: close 1005 (no status)
+2025/01/23 15:56:51 error: websocket: close 1005 (no status)
+2025/01/23 15:57:57 error: websocket: close 1005 (no status)
+2025/01/23 15:58:55 error: websocket: close 1005 (no status)
+2025/01/23 16:00:09 error: websocket: close 1005 (no status)
+2025/01/23 16:00:10 error: websocket: close 1005 (no status)
+2025/01/23 16:00:12 error: websocket: close 1005 (no status)
+2025/01/23 16:00:24 error: websocket: close 1005 (no status)
+2025/01/23 16:01:50 error: websocket: close 1005 (no status)
+2025/01/23 16:03:04 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 16:04:05 error: websocket: close 1005 (no status)
+2025/01/23 16:05:26 error: websocket: close 1005 (no status)
+2025/01/23 16:05:27 error: websocket: close 1005 (no status)
+2025/01/23 16:05:54 error: websocket: close 1005 (no status)
+2025/01/23 16:06:46 error: websocket: close 1005 (no status)
+2025/01/23 16:06:47 error: websocket: close 1005 (no status)
+2025/01/23 16:07:40 error: websocket: close 1005 (no status)
+2025/01/23 16:07:41 error: websocket: close 1005 (no status)
+2025/01/23 16:07:56 error: websocket: close 1005 (no status)
+2025/01/23 16:08:05 error: websocket: close 1005 (no status)
+2025/01/23 16:08:07 error: websocket: close 1005 (no status)
+2025/01/23 16:08:45 error: websocket: close 1005 (no status)
+2025/01/23 16:09:14 error: websocket: close 1005 (no status)
+2025/01/23 16:09:37 error: websocket: close 1005 (no status)
+2025/01/23 16:09:39 error: websocket: close 1005 (no status)
+2025/01/23 16:10:36 error: websocket: close 1005 (no status)
+2025/01/23 16:11:51 error: websocket: close 1005 (no status)
+2025/01/23 16:13:45 error: websocket: close 1005 (no status)
+2025/01/23 16:13:46 error: websocket: close 1005 (no status)
+2025/01/23 16:14:30 error: websocket: close 1005 (no status)
+2025/01/23 16:14:43 error: websocket: close 1005 (no status)
+2025/01/23 16:14:44 error: websocket: close 1005 (no status)
+2025/01/23 16:17:27 error: websocket: close 1005 (no status)
+2025/01/23 16:17:48 error: websocket: close 1005 (no status)
+2025/01/23 17:05:35 error: websocket: close 1005 (no status)
+2025/01/23 17:05:36 error: websocket: close 1005 (no status)
+2025/01/23 17:14:47 [32mServer is running...🚀
+Link: 🌐 http://localhost0.0.0.0:8080
+2025/01/23 17:15:52 error: websocket: close 1005 (no status)
+2025/01/23 17:18:32 error: websocket: close 1005 (no status)

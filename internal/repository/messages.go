@@ -24,7 +24,7 @@ func newMessagesRepo(db *sql.DB, keys Keys) *MessagesRepository {
 
 func (r *MessagesRepository) GetMessagesByChat(ctx context.Context, chatId uint, limit, offset int) ([]entity.Message, int, error) {
 	query := `
-		SELECT chat_id, sender_id, content, created_at FROM message
+		SELECT id, chat_id, sender_id, content, created_at FROM message
 		WHERE chat_id = ?
 		ORDER BY created_at DESC
 		LIMIT ? OFFSET ?
@@ -47,7 +47,7 @@ func (r *MessagesRepository) GetMessagesByChat(ctx context.Context, chatId uint,
 
 	for rows.Next() {
 		msg := entity.Message{}
-		if err := rows.Scan(&msg.ChatId, &msg.SenderId, &msg.Content, &msg.CreatedAt); err != nil {
+		if err := rows.Scan(&msg.ID, &msg.ChatId, &msg.SenderId, &msg.Content, &msg.CreatedAt); err != nil {
 			return nil, http.StatusInternalServerError, err
 		}
 
@@ -72,7 +72,7 @@ func (r *MessagesRepository) GetAllUserChats(ctx context.Context) ([]entity.Chat
 	userId := ctx.Value(r.Keys.IDKey).(int)
 
 	query := `
-		SELECT (id, user_id, user_id_1) FROM chat
+		SELECT id, user_id, user_id_1, last_msg FROM chat
 		WHERE user_id = ? OR user_id_1 = ?
 	`
 	prep, err := r.db.PrepareContext(ctx, query)
@@ -88,7 +88,7 @@ func (r *MessagesRepository) GetAllUserChats(ctx context.Context) ([]entity.Chat
 	chats := []entity.Chat{}
 	for rows.Next() {
 		chat := entity.Chat{}
-		if err = rows.Scan(&chat.ID, &chat.UserID, &chat.UserId1); err != nil {
+		if err = rows.Scan(&chat.ID, &chat.UserID, &chat.UserId1, &chat.LastMsg); err != nil {
 			return nil, http.StatusInternalServerError, err
 		}
 		chats = append(chats, chat)
