@@ -32,7 +32,7 @@ func NewHandler(service *service.Service, secret string) *Handler {
 		service:     service,
 		secret:      secret,
 		webSocket:   newWS(),
-		RateLimiter: NewRateLimiter(1000000, time.Minute),
+		RateLimiter: NewRateLimiter(60, time.Minute),
 	}
 }
 

@@ -24,8 +24,6 @@ type WebSocket struct {
 	connections map[*websocket.Conn]int
 }
 
-type id uint
-
 func newWS() *WebSocket {
 	return &WebSocket{
 		connections: make(map[*websocket.Conn]int),

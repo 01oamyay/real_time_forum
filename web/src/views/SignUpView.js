@@ -3,7 +3,6 @@ import redirect from "../index.js";
 import fetcher from "../pkg/fetcher.js";
 
 const signup = async (user) => {
-
   const data = await fetcher.post("/api/signup", user);
   if (data && data.msg !== undefined) {
     let showErr = document.getElementById("showError");
@@ -135,7 +134,6 @@ export default class extends AbstractView {
                             Already have an account? 
                             <a href="/sign-in" data-link>Sign In</a>
                         </p>
-                          <a href="/" data-link>Go Home</a>
                     </div>
 
                     <div id="showError" class="error-message"></div>
@@ -332,7 +330,6 @@ export default class extends AbstractView {
         rePasswordInput.value
       );
 
-      // Only proceed if all validations pass
       if (
         isFirstNameValid &&
         isLastNameValid &&
