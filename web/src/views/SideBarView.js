@@ -1,4 +1,5 @@
 import AbstractView from "./AbstractView.js";
+import nav from "../index.js";
 
 export default class extends AbstractView {
   constructor(params, user) {
@@ -62,7 +63,7 @@ export default class extends AbstractView {
           ["my-posts", "liked-posts", "disliked-posts"].includes(category)
         ) {
           // Redirect to login or show error
-          window.location.href = "/sign-in";
+          nav.navigateTo("/sign-in");
           return;
         }
 
@@ -95,8 +96,7 @@ export default class extends AbstractView {
             if (window.innerWidth > 768) {
               item.style.display = "block";
             }
-          }
-          );
+          });
         });
       });
     }

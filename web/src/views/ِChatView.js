@@ -6,6 +6,7 @@ let offset = 0;
 let ended = false;
 let sender_id;
 let receiver_id;
+let chatID;
 
 async function GetMessages() {
   const res = await fetch(
@@ -55,7 +56,7 @@ export default class extends AbstractView {
       <div class="chat__conversation-board">
       </div>
       <div class="chat__conversation-panel">
-        <textarea class="chat__conversation-panel__input panel-item" placeholder="Type a message..." rows="1"></textarea>
+        <textarea class="chat__conversation-panel__input panel-item" placeholder="Type a message..." rows="1" max-length="200" required></textarea>
         <button id="send" class="chat__conversation-panel__button panel-item btn-icon send-message-button">    
       <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"/></svg>
         </button>
@@ -69,7 +70,9 @@ export default class extends AbstractView {
     const messages = await GetMessages(receiver_id);
     if (!messages) return;
 
-    this.chatID = messages?.chat?.id;
+    console.log("old chat", chatID);
+    chatID = messages?.chat?.id;
+    console.log("new chat", chatID);
 
     const inputField = document.querySelector(
       "textarea.chat__conversation-panel__input.panel-item"
@@ -101,6 +104,15 @@ export default class extends AbstractView {
 
     sendBtn.addEventListener("click", () => {
       if (msgInput?.value && msgInput.dataset.sender_id == sender_id) {
+        console.log(msgInput.value.length);
+        if (
+          msgInput?.value.length == 0 ||
+          msgInput.value.trim() == "" ||
+          msgInput?.value.length > 200
+        ) {
+          Utils.showToast("Message length must be between 1 and 200");
+          return;
+        }
         pendingMessage = msgInput.value;
         const sendEvent = new CustomEvent("send-msg", {
           detail: {
@@ -135,7 +147,7 @@ export default class extends AbstractView {
         detail: {
           event: "typing",
           payload: {
-            chat_id: this.chatID,
+            chat_id: chatID,
             is_typing: true,
             user_id: sender_id,
           },
@@ -149,7 +161,7 @@ export default class extends AbstractView {
           detail: {
             event: "typing",
             payload: {
-              chat_id: this.chatID,
+              chat_id: chatID,
               is_typing: false,
               user_id: sender_id,
             },
@@ -164,7 +176,8 @@ export default class extends AbstractView {
       const status = e.detail;
       let loadingElem = document.getElementById("loading");
 
-      if (status.chat_id != this.chatID) return;
+      if (status.chat_id != chatID) return;
+      console.log(status.chat_id, chatID);
 
       if (status?.is_typing && !loadingElem) {
         let chatContainer = document.querySelector(".chat__conversation-board");
@@ -225,7 +238,7 @@ export default class extends AbstractView {
     });
 
     document.addEventListener("msg", (e) => {
-      if (e.detail.chat_id == messages.chat.id) {
+      if (e.detail.chat_id == chatID) {
         const typingMsg = document.getElementById("loading");
         if (typingMsg) {
           typingMsg.remove();

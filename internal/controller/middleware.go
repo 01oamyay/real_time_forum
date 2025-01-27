@@ -84,8 +84,40 @@ func (h *Handler) identify(role uint, next http.HandlerFunc) http.HandlerFunc {
 
 func (h *Handler) isAlreadyIdentified(next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		_, err := r.Cookie("token")
+		cookie, err := r.Cookie("token")
 		if err == nil {
+			exist, err := h.service.IsTokenExist(r.Context(), cookie.Value)
+			if err != nil {
+				h.errorHandler(w, r, http.StatusInternalServerError, err.Error())
+				return
+			}
+			if !exist {
+				http.SetCookie(w, &http.Cookie{
+					Name:   "token",
+					Value:  "",
+					Path:   "/",
+					MaxAge: -1,
+				})
+				next(w, r)
+				return
+			}
+
+			_, err = smpljwt.ParseToken(cookie.Value, h.secret)
+			if err != nil {
+				if dberr := h.service.DeleteSessionByToken(r.Context(), cookie.Value); dberr != nil {
+					h.errorHandler(w, r, http.StatusInternalServerError, dberr.Error())
+					return
+				}
+				http.SetCookie(w, &http.Cookie{
+					Name:   "token",
+					Value:  "",
+					Path:   "/",
+					MaxAge: -1,
+				})
+				next(w, r)
+				return
+			}
+
 			h.errorHandler(w, r, http.StatusForbidden, "already authorized")
 			return
 		}

@@ -124,6 +124,14 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 						continue // Don't close connection, just skip this message
 					}
 
+					if (len(msg.Content) > 200) || (len(msg.Content) == 0) {
+						conn.WriteJSON(map[string]interface{}{
+							"event": "error",
+							"error": "Message too long or empty",
+						})
+						continue
+					}
+
 					var receiver_id uint
 					if chat.UserID == uint(userId) {
 						receiver_id = chat.UserId1

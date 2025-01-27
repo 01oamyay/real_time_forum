@@ -1,6 +1,7 @@
 import AbstractView from "./AbstractView.js";
 import fetcher from "../pkg/fetcher.js";
 import Utils from "../pkg/Utils.js";
+import nav from "../index.js";
 
 const path = `/api/posts/`;
 let offset = 0;
@@ -182,7 +183,7 @@ const newPostElement = (post) => {
   commentButton.appendChild(commentCount);
 
   commentButton.addEventListener("click", () => {
-    window.location.href = `/post/${post.post_id}`;
+    nav.navigateTo(`/post/${post.post_id}`);
   });
 
   // check vote status

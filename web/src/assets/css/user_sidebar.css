@@ -42,7 +42,12 @@
   justify-content: space-between;
   align-items: center;
 }
-
+.user_sidebar ul .item a .name {
+  max-width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .user_sidebar ul .item a:hover {
   color: var(--text-primary);
 }

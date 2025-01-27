@@ -123,8 +123,6 @@ const router = async () => {
     document.querySelector("#navbar").innerHTML = await NavBarView.getHtml();
     NavBarView.init();
 
-    
-
     view.addStyle("navbar");
     view.addStyle("main-content");
     view.addStyle("post-card");
@@ -145,7 +143,6 @@ const router = async () => {
         SideBarView = new SideBar(null, user);
         sideBarHTML = await SideBarView.getHtml();
       }
-
     }
     UserListView = new UsersListView(null, user);
     userListHTML = await UserListView.getHtml();
@@ -180,6 +177,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target.matches("[data-link]")) {
       e.preventDefault();
       navigateTo(e.target.href);
+    } else if (e.target.closest("[data-link]")) {
+      e.preventDefault();
+      navigateTo(e.target.closest("[data-link]")?.href);
     }
   });
 
