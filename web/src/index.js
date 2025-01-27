@@ -135,9 +135,9 @@ const router = async () => {
     let SideBarView;
     // Load Userlist
     let UserListView;
+    view.addStyle("user_sidebar");
     if (match.route.view === Home || match.route.view == ChatView) {
       view.addStyle("sidebar");
-      view.addStyle("user_sidebar");
 
       ws?.init();
 
@@ -146,9 +146,9 @@ const router = async () => {
         sideBarHTML = await SideBarView.getHtml();
       }
 
-      UserListView = new UsersListView(null, user);
-      userListHTML = await UserListView.getHtml();
     }
+    UserListView = new UsersListView(null, user);
+    userListHTML = await UserListView.getHtml();
     document.querySelector("#app").innerHTML = `<div id="toast">
       <div id="toast-message"></div>`;
     document.querySelector("#app").innerHTML += sideBarHTML;

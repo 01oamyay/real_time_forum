@@ -1,6 +1,7 @@
 import AbstractView from "./AbstractView.js";
 import Utils from "../pkg/Utils.js";
 import fetcher from "../pkg/fetcher.js";
+import navigateTo from "../index.js"
 
 export default class extends AbstractView {
   constructor(params, user) {
@@ -33,7 +34,7 @@ export default class extends AbstractView {
     const isAuthorized = await fetcher.isLoggedIn();
 
     document.getElementById("logo")?.addEventListener("click", () => {
-      window.location.href = "/";
+      navigateTo.navigateTo("/")
     });
 
     if (isAuthorized) {
@@ -41,7 +42,7 @@ export default class extends AbstractView {
       document
         .getElementById("create-post-btn")
         ?.addEventListener("click", () => {
-          window.location.href = "/create-post";
+          navigateTo.navigateTo("/create-post");
         });
 
       document.getElementById("logout-btn")?.addEventListener("click", () => {
@@ -50,11 +51,11 @@ export default class extends AbstractView {
     } else {
       // Login/Register buttons
       document.getElementById("login-btn")?.addEventListener("click", () => {
-        window.location.href = "/sign-in";
+        navigateTo.navigateTo("/sign-in");
       });
 
       document.getElementById("register-btn")?.addEventListener("click", () => {
-        window.location.href = "/sign-up";
+        navigateTo.navigateTo("/sign-up");
       });
     }
   }

@@ -11,7 +11,7 @@ export default class extends AbstractView {
   async getContacts() {
     const contacts = await fetcher.get("/api/contacts");
 
-    contacts.sort((a, b) => {
+    contacts?.sort((a, b) => {
       // Prioritize contacts with valid last messages
       if (a.last_msg.Valid && b.last_msg.Valid) {
         let aDate = new Date(a.last_msg.Time);
@@ -43,9 +43,8 @@ export default class extends AbstractView {
     `;
 
     await this.getContacts();
-    console.log(this.contacts.filter((u) => u.isOnline).map((u) => u.isOnline));
 
-    this.contacts.forEach((user) => {
+    this.contacts?.forEach((user) => {
       sidebarHtml += `
             <li class="item">
                 <a href="/chat/${user.user_id}" data-link>

@@ -30,7 +30,8 @@ export default class extends AbstractView {
     const categories = await this.getCategories();
 
     return `
-        <div class="container">
+    <div class="creat_post">
+        <div class="container_c">
         <form id="form-createPost" class="form-createPost <text-center>" onsubmit="return false;">
         <div class="mb-3">
             <label for="TitleInput" class="form-label">Title</label>
@@ -57,6 +58,7 @@ export default class extends AbstractView {
         <button class="btn btn-primary">Post</button>
         <div id="showError" class="error-message"></div>
         </form>
+        </div>
         </div>
         `;
   }
