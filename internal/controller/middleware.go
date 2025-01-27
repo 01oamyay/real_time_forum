@@ -84,7 +84,7 @@ func (h *Handler) identify(role uint, next http.HandlerFunc) http.HandlerFunc {
 
 func (h *Handler) isAlreadyIdentified(next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		_, err := r.Cookie("Authorization")
+		_, err := r.Cookie("token")
 		if err == nil {
 			h.errorHandler(w, r, http.StatusForbidden, "already authorized")
 			return
