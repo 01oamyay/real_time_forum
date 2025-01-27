@@ -89,12 +89,9 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	h.webSocket.Unlock()
 
-	defer conn.Close()
-
 	// Message handling loop
 	go func() {
 		var typingTimer *time.Timer
-		// defer wg.Done()
 		for {
 
 			var event struct {
@@ -117,6 +114,7 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 						log.Printf("error unmarshaling message: %v", err)
 						continue
 					}
+
 					chat, err := h.service.Message.GetChatById(r.Context(), msg.ChatId)
 					if err != nil {
 						conn.WriteJSON(map[string]interface{}{
