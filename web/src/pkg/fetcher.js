@@ -54,7 +54,7 @@ const fetcher = {
   },
 };
 
-const makeRequest = async (path, body, method) => 
+const makeRequest = async (path, body, method) => {
   const url = `${path}`;
   const options = {
     mode: "cors",

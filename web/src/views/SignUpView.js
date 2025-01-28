@@ -343,7 +343,7 @@ export default class extends AbstractView {
         await signup({
           email: emailInput.value,
           nickname: nicknameInput.value,
-          firstName: firstNameInput.value,
+          firstName: firstNameInput.text,
           lastName: lastNameInput.value,
           gender: genderInput.value,
           age: Number(ageInput.value),
