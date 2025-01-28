@@ -2,6 +2,7 @@ package controller
 
 import (
 	"encoding/json"
+	"html"
 	"log"
 	"net/http"
 	"strconv"
@@ -131,6 +132,8 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 						})
 						continue
 					}
+
+					msg.Content = html.EscapeString(msg.Content)
 
 					var receiver_id uint
 					if chat.UserID == uint(userId) {

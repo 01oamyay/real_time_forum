@@ -2,6 +2,7 @@ package utils
 
 import (
 	"errors"
+	"html"
 	"net/mail"
 	"regexp"
 	"unicode"
@@ -17,6 +18,8 @@ func IsValidRegister(user *entity.User) error {
 		return err
 	} else if err := isValidUser(user); err != nil {
 		return err
+	} else if err = IsValidName(user); err != nil {
+		return err
 	} else if user.Password != user.ConfirmPass {
 		return errors.New("passwords are different")
 	} else if err := isValidPassword(user.Password); err != nil {
@@ -24,6 +27,17 @@ func IsValidRegister(user *entity.User) error {
 	}
 	if user.Password, err = generateHashPassword(user.Password); err != nil {
 		return err
+	}
+	return nil
+}
+
+func IsValidName(user *entity.User) error {
+	if len(user.FirstName) < 3 || html.EscapeString(user.FirstName) != user.FirstName {
+		return errors.New("invalid first name")
+	}
+
+	if len(user.LastName) < 3 || html.EscapeString(user.LastName) != user.LastName {
+		return errors.New("invalid last name")
 	}
 	return nil
 }
@@ -41,6 +55,10 @@ func CompareHashAndPassword(hash, password string) error {
 }
 
 func isValidEmail(user *entity.User) error {
+	if html.EscapeString(user.Email) != user.Email {
+		return errors.New("invalid email")
+	}
+
 	if _, err := mail.ParseAddress(user.Email); err != nil {
 		return err
 	}
@@ -48,6 +66,10 @@ func isValidEmail(user *entity.User) error {
 }
 
 func isValidUser(user *entity.User) error {
+	if html.EscapeString(user.NickName) != user.NickName {
+		return errors.New("invalid nickname")
+	}
+
 	if ok, _ := regexp.MatchString("^[a-zA-Z0-9]{4,16}$", user.NickName); !ok {
 		return errors.New("invalid nickname")
 	}
@@ -55,6 +77,10 @@ func isValidUser(user *entity.User) error {
 }
 
 func isValidPassword(password string) error {
+	if html.EscapeString(password) != password {
+		return errors.New("invalid password")
+	}
+
 	if len(password) < 8 {
 		return errors.New("invalid password")
 	}

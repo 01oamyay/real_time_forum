@@ -137,11 +137,6 @@ export default class extends AbstractView {
     }
 
     if (Array.isArray(message)) {
-      if (message.length == 0 && offset == 0) {
-        chatContainer.innerHTML = `<p class="noMsg">No Messages</p>`;
-        return;
-      }
-
       if (!pre) {
         chatContainer.innerHTML = "";
       }
@@ -255,9 +250,8 @@ export default class extends AbstractView {
 
     if (status.chat_id != chatID) return;
 
-    if (status?.is_typing && !loadingElem) {
-      let chatContainer = document.querySelector(".chat__conversation-board");
-
+    let chatContainer = document.querySelector(".chat__conversation-board");
+    if (chatContainer && status?.is_typing && !loadingElem) {
       const loadignFragement = document.createRange()
         .createContextualFragment(`<div id="loading" class="chat__conversation-board__message-container">
 <div class="chat__conversation-board__message__person">
@@ -347,8 +341,7 @@ export default class extends AbstractView {
         if (!messages || messages?.length === 0) {
           return;
         }
-
-        this.insertMsg(messages, sender_id, true);
+        this.insertMsg(messages.messages, sender_id, true);
 
         const newHeight = container.scrollHeight;
         const diff = newHeight - height;
