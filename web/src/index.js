@@ -11,6 +11,8 @@ import UsersListView from "./views/UsersListView.js";
 import WS from "./pkg/WS.js";
 import ChatView from "./views/ِChatView.js";
 
+let chatInstance = null;
+
 const pathToRegex = (path) =>
   new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
@@ -97,8 +99,16 @@ const router = async () => {
     return;
   }
 
-  // Check if the current view is HomeView
   const view = new match.route.view(getParams(match), user);
+
+  if (match.route.view == ChatView) {
+    if (chatInstance) {
+      chatInstance.destroy();
+    }
+
+    chatInstance = view;
+  }
+
   // Remove previous view-specific styles
   view.removeStyles();
 

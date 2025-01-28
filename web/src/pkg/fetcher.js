@@ -9,7 +9,6 @@ const fetcher = {
     return makeRequest(path, body, "POST");
   },
   checkToken: async () => {
-    //http://${API_HOST_NAME}
     const url = `/api/is-valid`;
     const options = {
       mode: "cors",
@@ -55,8 +54,7 @@ const fetcher = {
   },
 };
 
-const makeRequest = async (path, body, method) => {
-  //http://${API_HOST_NAME}
+const makeRequest = async (path, body, method) => 
   const url = `${path}`;
   const options = {
     mode: "cors",

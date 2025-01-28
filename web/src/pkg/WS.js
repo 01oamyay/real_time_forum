@@ -3,10 +3,35 @@ import Utils from "../pkg/Utils.js";
 export default class {
   constructor() {
     this.ws = null;
+    this.listeners = false;
+  }
+
+  setupListeners() {
+    if (this.listeners) return;
+    // Handle clean disconnection
+    window.addEventListener("beforeunload", () => {
+      if (this.ws) this.ws.close();
+    });
+
+    document.addEventListener("send-msg", (e) => {
+      this?.ws?.send(JSON.stringify(e.detail));
+    });
+
+    document.addEventListener("typing", (e) => {
+      this?.ws?.send(JSON.stringify(e.detail));
+    });
+
+    this.listeners = true;
   }
 
   init() {
+    if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+      console.log("WebSocket already connected");
+      return;
+    }
     this.ws = new WebSocket("/ws");
+
+    this.setupListeners();
 
     console.log("ws enabled");
 
@@ -50,7 +75,6 @@ export default class {
           document.dispatchEvent(typingEvent);
           break;
         case "user-online":
-          console.log(data);
           let userOnlineEvent = new CustomEvent("user-online", {
             detail: data.data,
           });
@@ -69,28 +93,5 @@ export default class {
           console.log("Unknown event:", data.event);
       }
     };
-
-    // Handle clean disconnection
-    window.addEventListener("beforeunload", () => {
-      if (this.ws) this.ws.close();
-    });
-
-    document.addEventListener("send-msg", (e) => {
-      // if (this?.ws?.CLOSED || !this?.ws?.CLOSING) {
-      //   console.log("connection wlosed or closing");
-      //   const errEv = new CustomEvent("ws-closing");
-      //   document.dispatchEvent(errEv);
-      // }
-      this?.ws?.send(JSON.stringify(e.detail));
-    });
-
-    document.addEventListener("typing", (e) => {
-      // if (this?.ws?.CLOSED || !this?.ws?.CLOSING) {
-      //   console.log("connection wlosed or closing");
-      //   const errEv = new CustomEvent("ws-closing");
-      //   document.dispatchEvent(errEv);
-      // }
-      this?.ws?.send(JSON.stringify(e.detail));
-    });
   }
 }
