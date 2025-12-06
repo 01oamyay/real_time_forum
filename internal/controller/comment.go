@@ -7,6 +7,7 @@ import (
 	"rlf/internal/entity"
 )
 
+// createComment stores a comment for the active post via the comment service.
 func (h *Handler) createComment(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		h.errorHandler(w, r, http.StatusMethodNotAllowed, "not allowed method")
@@ -30,6 +31,7 @@ func (h *Handler) createComment(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 }
 
+// voteComment mirrors votePost but for comment likes/dislikes.
 func (h *Handler) voteComment(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost && r.Method != http.MethodPut {
 		h.errorHandler(w, r, http.StatusMethodNotAllowed, "not allowed method")

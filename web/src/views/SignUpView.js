@@ -1,3 +1,4 @@
+// SignUpView contains the registration form and client-side validation.
 import AbstractView from "./AbstractView.js";
 import redirect from "../index.js";
 import fetcher from "../pkg/fetcher.js";

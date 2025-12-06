@@ -1,3 +1,4 @@
+// PostView displays a single post, its reactions, and inline comments.
 import fetcher from "../pkg/fetcher.js";
 import Utils from "../pkg/Utils.js";
 import AbstractView from "./AbstractView.js";

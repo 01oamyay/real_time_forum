@@ -8,6 +8,7 @@ import (
 	"rlf/internal/entity"
 )
 
+// UserRepository provides CRUD access to the users table.
 type UserRepository struct {
 	db *sql.DB
 }
@@ -16,6 +17,7 @@ func newUserRepository(db *sql.DB) *UserRepository {
 	return &UserRepository{db: db}
 }
 
+// Create persists a new user and enforces unique constraints at the database layer.
 func (r *UserRepository) Create(ctx context.Context, user entity.User) (int, error) {
 	query := `INSERT INTO users(nickname, email, age, gender, firstName, lastName, password)
 	VALUES(?, ?, ?, ?, ?, ?, ?) RETURNING id;`

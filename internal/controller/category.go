@@ -6,6 +6,7 @@ import (
 	"net/http"
 )
 
+// getAllCategories exposes the list of categories to the SPA sidebar.
 func (h Handler) getAllCategories(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
 		h.errorHandler(w, r, http.StatusMethodNotAllowed, "not allowed method")

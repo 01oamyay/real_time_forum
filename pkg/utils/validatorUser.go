@@ -12,6 +12,7 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
+// IsValidRegister validates incoming registration data before storage.
 func IsValidRegister(user *entity.User) error {
 	var err error
 	if err := isValidEmail(user); err != nil {
@@ -31,6 +32,7 @@ func IsValidRegister(user *entity.User) error {
 	return nil
 }
 
+// IsValidName ensures the first and last names meet the minimum requirements.
 func IsValidName(user *entity.User) error {
 	if len(user.FirstName) < 3 || html.EscapeString(user.FirstName) != user.FirstName {
 		return errors.New("invalid first name")
@@ -42,11 +44,13 @@ func IsValidName(user *entity.User) error {
 	return nil
 }
 
+// generateHashPassword wraps bcrypt hashing to keep helpers small.
 func generateHashPassword(password string) (string, error) {
 	hash, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
 	return string(hash), err
 }
 
+// CompareHashAndPassword checks whether the provided password matches the stored hash.
 func CompareHashAndPassword(hash, password string) error {
 	if err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(password)); err != nil {
 		return err

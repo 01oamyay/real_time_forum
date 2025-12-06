@@ -10,6 +10,7 @@ import (
 	"rlf/internal/entity"
 )
 
+// MessagesRepository wraps chat/message oriented SQL queries.
 type MessagesRepository struct {
 	db   *sql.DB
 	Keys Keys
@@ -22,6 +23,7 @@ func newMessagesRepo(db *sql.DB, keys Keys) *MessagesRepository {
 	}
 }
 
+// GetMessagesByChat retrieves a paged chronological slice for a chat.
 func (r *MessagesRepository) GetMessagesByChat(ctx context.Context, chatId uint, limit, offset int) ([]entity.Message, int, error) {
 	query := `
 		SELECT id, chat_id, sender_id, content, created_at FROM message

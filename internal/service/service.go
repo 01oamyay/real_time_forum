@@ -46,6 +46,7 @@ type Message interface {
 	GetContacts(ctx context.Context) ([]entity.Contact, int, error)
 }
 
+// Service groups the domain services and exposes the repository keys.
 type Service struct {
 	User
 	Session
@@ -56,6 +57,7 @@ type Service struct {
 	repository.Keys
 }
 
+// NewService builds every domain service with the repositories they depend on.
 func NewService(repo *repository.Repository, secret string) *Service {
 	return &Service{
 		User:     newUserService(repo.User, repo.Session, secret),

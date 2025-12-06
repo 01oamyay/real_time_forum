@@ -14,6 +14,7 @@ import (
 	"rlf/pkg/config"
 )
 
+// Handler glues the HTTP layer with the services and shared middleware.
 type Handler struct {
 	service   *service.Service
 	secret    string
@@ -27,6 +28,7 @@ type Route struct {
 	Role    uint
 }
 
+// NewHandler bundles controllers together with the dependencies they need.
 func NewHandler(service *service.Service, secret string) *Handler {
 	return &Handler{
 		service:     service,
@@ -36,6 +38,7 @@ func NewHandler(service *service.Service, secret string) *Handler {
 	}
 }
 
+// InitRoutes registers HTTP routes and static asset handlers.
 func (h *Handler) InitRoutes(conf *config.Conf) *http.ServeMux {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/src/", func(w http.ResponseWriter, r *http.Request) {

@@ -7,6 +7,7 @@ import (
 	"time"
 )
 
+// RateLimiter throttles requests per client IP.
 type RateLimiter struct {
 	Requests   int           // Maximum number of requests allowed
 	Interval   time.Duration // Time frame for the rate limit
@@ -28,6 +29,7 @@ func NewRateLimiter(requests int, interval time.Duration) *RateLimiter {
 	}
 }
 
+// Limiter wraps an http.Handler with the rate limiting logic.
 func (rl *RateLimiter) Limiter(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		clientIP := r.RemoteAddr // You can also use user ID if available

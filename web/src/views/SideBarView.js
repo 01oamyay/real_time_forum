@@ -1,3 +1,4 @@
+// SideBarView renders the category filter and personal feed shortcuts.
 import AbstractView from "./AbstractView.js";
 import nav from "../index.js";
 

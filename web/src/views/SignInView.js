@@ -1,3 +1,4 @@
+// SignInView renders the login form and calls the auth API.
 import AbstractView from "./AbstractView.js";
 import redirect from "../index.js";
 import fetcher from "../pkg/fetcher.js";

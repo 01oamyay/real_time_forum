@@ -11,6 +11,7 @@ import (
 	"rlf/pkg/utils"
 )
 
+// UserService contains business logic related to user accounts and sessions.
 type UserService struct {
 	userRepo    repository.User
 	sessionRepo repository.Session
@@ -19,6 +20,7 @@ type UserService struct {
 
 var UserS UserService
 
+// newUserService wires repositories together for the user use cases.
 func newUserService(userRepo repository.User, sessionRepo repository.Session, secret string) *UserService {
 	return &UserService{
 		userRepo:    userRepo,
@@ -27,6 +29,7 @@ func newUserService(userRepo repository.User, sessionRepo repository.Session, se
 	}
 }
 
+// Create validates and persists a new user record.
 func (s *UserService) Create(ctx context.Context, user entity.User) (int, error) {
 	if err := utils.IsValidRegister(&user); err != nil {
 		return http.StatusBadRequest, err
@@ -47,6 +50,7 @@ func (s *UserService) GetUserById(ctx context.Context, id int) (entity.User, err
 	return s.userRepo.GetUserById(ctx, id)
 }
 
+// SignIn validates credentials, creates a session and returns a signed JWT.
 func (s *UserService) SignIn(ctx context.Context, user entity.UserInput) (string, int, error) {
 	if user.Login == "" {
 		return "", http.StatusBadRequest, errors.New("invalid credentials")

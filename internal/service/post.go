@@ -11,6 +11,7 @@ import (
 	"rlf/internal/repository"
 )
 
+// PostService contains the business logic around posts, categories and votes.
 type PostService struct {
 	postRepo     repository.Post
 	categoryRepo repository.Category
@@ -23,6 +24,7 @@ func newPostService(postRepo repository.Post, categoryRepo repository.Category) 
 	}
 }
 
+// CreatePost validates the payload, persists the post and wires the categories.
 func (s *PostService) CreatePost(ctx context.Context, input entity.Post) (uint, int, error) {
 	if input.Data == "" || len(input.Data) > 10000 {
 		return 0, http.StatusBadRequest, errors.New("size of text must be beyween 1 and 10000")

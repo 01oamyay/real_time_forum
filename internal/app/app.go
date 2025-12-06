@@ -13,8 +13,10 @@ import (
 	"rlf/pkg/database"
 )
 
+// secret is the shared key used when generating JWT tokens.
 const secret string = "Forum01Oujda"
 
+// Run wires the repositories, services, controllers, and starts the HTTP server.
 func Run(cfg *config.Conf) {
 	// Prepare logger
 	file, err := os.OpenFile("logfile.log", os.O_APPEND|os.O_RDWR|os.O_CREATE, 0o644)

@@ -1,3 +1,4 @@
+// NavBarView manages the auth aware navigation area at the top.
 import AbstractView from "./AbstractView.js";
 import Utils from "../pkg/Utils.js";
 import fetcher from "../pkg/fetcher.js";

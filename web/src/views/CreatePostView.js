@@ -1,3 +1,4 @@
+// CreatePostView lets authors compose a new thread with categories.
 import AbstractView from "./AbstractView.js";
 import fetcher from "../pkg/fetcher.js";
 import redirect from "../index.js";

@@ -8,6 +8,7 @@ import (
 	"rlf/internal/entity"
 )
 
+// CommentRepository updates the comments table and associated votes.
 type CommentRepository struct {
 	db *sql.DB
 }
@@ -16,6 +17,7 @@ func newCommentRepository(db *sql.DB) *CommentRepository {
 	return &CommentRepository{db: db}
 }
 
+// CreateComment stores a new comment for a post.
 func (r *CommentRepository) CreateComment(ctx context.Context, input entity.Comment) (int, error) {
 	query := `INSERT INTO comment(user_id, post_id, data) VALUES($1, $2, $3)`
 	prep, err := r.db.PrepareContext(ctx, query)

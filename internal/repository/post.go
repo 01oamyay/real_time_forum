@@ -9,6 +9,7 @@ import (
 	"rlf/internal/entity"
 )
 
+// PostRepository runs SQL queries for posts, categories and votes.
 type PostRepository struct {
 	db   *sql.DB
 	keys Keys
@@ -18,6 +19,7 @@ func newPostRepository(db *sql.DB, keys Keys) *PostRepository {
 	return &PostRepository{db: db, keys: keys}
 }
 
+// GetAllByCategory returns the posts that belong to a given category along with vote metadata.
 func (r *PostRepository) GetAllByCategory(ctx context.Context, categoryName string, limit, offset int) ([]entity.Post, int, error) {
 	userId := ctx.Value(r.keys.IDKey).(int)
 

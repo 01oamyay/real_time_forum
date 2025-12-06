@@ -8,6 +8,7 @@ import (
 	"rlf/internal/entity"
 )
 
+// SessionRepository stores active authentication tokens.
 type SessionRepository struct {
 	db *sql.DB
 }
@@ -16,6 +17,7 @@ func newSessionRepository(db *sql.DB) *SessionRepository {
 	return &SessionRepository{db: db}
 }
 
+// IsTokenExist verifies whether the provided token still exists in the sessions table.
 func (r *SessionRepository) IsTokenExist(ctx context.Context, token string) (bool, error) {
 	var exists bool
 	query := `SELECT EXISTS(SELECT 1 FROM sessions WHERE token = $1);`

@@ -57,11 +57,13 @@ type Message interface {
 
 type key string
 
+// Keys holds context keys used across repositories and services.
 type Keys struct {
 	IDKey    key
 	TokenKey key
 }
 
+// Repository aggregates the concrete implementations for dependency injection.
 type Repository struct {
 	Post
 	User
@@ -72,6 +74,7 @@ type Repository struct {
 	Keys
 }
 
+// NewRepository instantiates every repository that relies on the shared database handle.
 func NewRepository(db *sql.DB) *Repository {
 	Keys := Keys{
 		IDKey:    "id",

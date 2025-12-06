@@ -1,3 +1,4 @@
+// Entry point that drives the SPA router and view composition.
 import Home from "./views/HomeView.js";
 import SignIn from "./views/SignInView.js";
 import SignUp from "./views/SignUpView.js";

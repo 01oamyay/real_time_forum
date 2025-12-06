@@ -8,13 +8,19 @@ import (
 )
 
 var (
-	ErrEmptyUUID    = errors.New("empty user id")
-	ErrEmptyExp     = errors.New("empty expired time of token")
+	// ErrEmptyUUID indicates the token does not contain a user identifier.
+	ErrEmptyUUID = errors.New("empty user id")
+	// ErrEmptyExp indicates the token is missing an expiration timestamp.
+	ErrEmptyExp = errors.New("empty expired time of token")
+	// ErrExpiredToken is returned when the token expiration is in the past.
 	ErrExpiredToken = errors.New("token is expired")
-	ErrSecret       = errors.New("secret key for token is empty")
-	ErrInvalidID    = errors.New("invalid id")
+	// ErrSecret is returned when we try to parse or create a token without a secret key.
+	ErrSecret = errors.New("secret key for token is empty")
+	// ErrInvalidID indicates that the provided id could not be parsed.
+	ErrInvalidID = errors.New("invalid id")
 )
 
+// ParseToken validates, verifies and extracts the user id from a token.
 func ParseToken(token string, secret string) (int, error) {
 	if secret == "" {
 		return -1, ErrSecret
@@ -49,6 +55,7 @@ func ParseToken(token string, secret string) (int, error) {
 	return id, nil
 }
 
+// NewJWT creates a new signed token for the provided user id.
 func NewJWT(id uint, secret string) (string, error) {
 	if secret == "" {
 		return "", ErrSecret

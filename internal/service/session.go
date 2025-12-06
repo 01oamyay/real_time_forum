@@ -6,6 +6,7 @@ import (
 	"rlf/internal/repository"
 )
 
+// SessionService coordinates persistence for session tokens.
 type SessionService struct {
 	sessionRepo repository.Session
 }
@@ -14,6 +15,7 @@ func newSessionService(sessionRepo repository.Session) *SessionService {
 	return &SessionService{sessionRepo: sessionRepo}
 }
 
+// IsTokenExist checks whether the provided token is still active in storage.
 func (s *SessionService) IsTokenExist(ctx context.Context, token string) (bool, error) {
 	return s.sessionRepo.IsTokenExist(ctx, token)
 }

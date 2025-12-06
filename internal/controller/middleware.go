@@ -8,6 +8,7 @@ import (
 	smpljwt "rlf/pkg/smplJwt"
 )
 
+// corsMiddleWare applies the CORS and preflight headers required by the SPA.
 func (h *Handler) corsMiddleWare(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Access-Control-Allow-Origin", "http//localhost:8081/")
@@ -22,6 +23,7 @@ func (h *Handler) corsMiddleWare(next http.Handler) http.Handler {
 	})
 }
 
+// identify validates the auth cookie and injects the user id into the context.
 func (h *Handler) identify(role uint, next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if role > entity.Roles.Guest {

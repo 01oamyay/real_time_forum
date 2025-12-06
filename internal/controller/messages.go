@@ -20,11 +20,13 @@ var upgrader = websocket.Upgrader{
 	},
 }
 
+// WebSocket keeps track of live WebSocket connections per user.
 type WebSocket struct {
 	sync.Mutex
 	connections map[*websocket.Conn]int
 }
 
+// newWS initializes the WebSocket hub.
 func newWS() *WebSocket {
 	return &WebSocket{
 		connections: make(map[*websocket.Conn]int),
@@ -32,6 +34,7 @@ func newWS() *WebSocket {
 	}
 }
 
+// WebSocketHandler upgrades HTTP requests and streams chat events.
 func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 	conn, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
@@ -278,6 +281,7 @@ func (h *Handler) WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 	wg.Wait()
 }
 
+// GetContacts returns the full contacts list enriched with online flags.
 func (h *Handler) GetContacts(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
 		h.errorHandler(w, r, http.StatusMethodNotAllowed, "method not allowed")
@@ -314,6 +318,7 @@ func (h *Handler) GetContacts(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// GetMessages exposes a paginated slice of messages for REST consumers.
 func (h *Handler) GetMessages(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
 		h.errorHandler(w, r, http.StatusMethodNotAllowed, "method not allowed")

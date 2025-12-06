@@ -1,3 +1,4 @@
+// HomeView renders the feed, infinite scroll, and interactions around posts.
 import AbstractView from "./AbstractView.js";
 import fetcher from "../pkg/fetcher.js";
 import Utils from "../pkg/Utils.js";

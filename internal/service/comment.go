@@ -10,6 +10,7 @@ import (
 	"rlf/internal/repository"
 )
 
+// CommentService manages comment creation and reactions.
 type CommentService struct {
 	commentRepo repository.Comment
 }
@@ -18,6 +19,7 @@ func newCommentService(commentRepo repository.Comment) *CommentService {
 	return &CommentService{commentRepo: commentRepo}
 }
 
+// CreateComment validates the payload before persisting it.
 func (s *CommentService) CreateComment(ctx context.Context, input entity.Comment) (int, error) {
 	if strings.TrimSpace(input.Data) == "" {
 		return http.StatusBadRequest, errors.New("invalid data")

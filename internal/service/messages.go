@@ -10,6 +10,7 @@ import (
 	"rlf/internal/repository"
 )
 
+// MessagesService encapsulates the chat and WebSocket specific business rules.
 type MessagesService struct {
 	messagesRepo repository.Message
 	usersRepo    repository.User
@@ -22,6 +23,7 @@ func newMessagesService(msgRepo repository.Message, userRepo repository.User) *M
 	}
 }
 
+// GetMessagesByChat finds an existing chat or creates one and returns the messages window.
 func (s *MessagesService) GetMessagesByChat(ctx context.Context, second_user uint, limit, offset int) (entity.Chat, []entity.Message, int, error) {
 	exists, status, err := s.usersRepo.Exists(ctx, second_user)
 	if err != nil {

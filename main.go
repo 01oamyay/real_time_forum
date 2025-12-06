@@ -7,6 +7,7 @@ import (
 	"rlf/pkg/config"
 )
 
+// main loads the configuration and starts the HTTP server.
 func main() {
 	cfg, err := config.NewConfig()
 	if err != nil {

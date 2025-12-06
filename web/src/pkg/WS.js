@@ -1,3 +1,4 @@
+// Thin wrapper around the chat WebSocket connection and its events.
 import Utils from "../pkg/Utils.js";
 
 export default class {

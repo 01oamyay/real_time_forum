@@ -8,6 +8,7 @@ import (
 	"rlf/internal/entity"
 )
 
+// getALLPosts returns posts for the requested category with pagination.
 func (h *Handler) getALLPosts(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
 		h.errorHandler(w, r, http.StatusMethodNotAllowed, "not allowed method")
@@ -60,6 +61,7 @@ func (h *Handler) getPostbyID(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// createPost accepts the JSON payload from the SPA and forwards it to the service.
 func (h *Handler) createPost(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		h.errorHandler(w, r, http.StatusMethodNotAllowed, "not allowed method")
@@ -89,6 +91,7 @@ func (h *Handler) createPost(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// votePost toggles a like/dislike pair for the active user.
 func (h *Handler) votePost(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost && r.Method != http.MethodPut {
 		h.errorHandler(w, r, http.StatusMethodNotAllowed, "not allowed method")

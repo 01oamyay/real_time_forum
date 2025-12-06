@@ -11,6 +11,7 @@ import (
 	"rlf/internal/entity"
 )
 
+// CategoryRepository maintains category data and the post/category relation.
 type CategoryRepository struct {
 	db *sql.DB
 }
@@ -19,6 +20,7 @@ func newCategoryRepository(db *sql.DB) *CategoryRepository {
 	return &CategoryRepository{db: db}
 }
 
+// GetAllCategories fetches every existing category for the discovery sidebar.
 func (r *CategoryRepository) GetAllCategories(ctx context.Context) ([]entity.Category, int, error) {
 	query := "SELECT id, name, description FROM category;"
 

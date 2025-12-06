@@ -1,3 +1,4 @@
+// Utility helpers shared across views (toasts, storage helpers, etc.).
 const showError = (status, message) => {
   const app = document.querySelector("#app");
 

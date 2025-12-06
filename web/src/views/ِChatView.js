@@ -1,3 +1,4 @@
+// ChatView is responsible for rendering live DM threads via WebSockets.
 import Utils from "../pkg/Utils.js";
 import AbstractView from "./AbstractView.js";
 

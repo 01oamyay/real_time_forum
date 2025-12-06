@@ -1,3 +1,4 @@
+// AbstractView is a small base class that each view extends.
 import fetcher from "../pkg/fetcher.js";
 
 

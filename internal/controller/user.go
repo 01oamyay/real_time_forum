@@ -11,6 +11,7 @@ import (
 	smpljwt "rlf/pkg/smplJwt"
 )
 
+// signUp validates the payload and delegates to the user service.
 func (h *Handler) signUp(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		h.errorHandler(w, r, http.StatusMethodNotAllowed, "not allowed method")
@@ -42,6 +43,7 @@ func (h *Handler) signUp(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(status)
 }
 
+// signIn authenticates the user credentials and issues the session cookie.
 func (h *Handler) signIn(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		h.errorHandler(w, r, http.StatusMethodNotAllowed, "not allowed method")
@@ -75,6 +77,7 @@ func (h *Handler) signIn(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// isValidToken is polled by the SPA to keep the auth state in sync.
 func (h *Handler) isValidToken(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
 		h.errorHandler(w, r, http.StatusMethodNotAllowed, "not allowed method")
@@ -133,6 +136,7 @@ func (h *Handler) isValidToken(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// signOut removes the server session and clears the browser cookie.
 func (h *Handler) signOut(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		h.errorHandler(w, r, http.StatusMethodNotAllowed, "not allowed method")

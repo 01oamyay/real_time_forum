@@ -1,3 +1,4 @@
+// UsersListView shows the chat contacts and their online status.
 import fetcher from "../pkg/fetcher.js";
 import AbstractView from "./AbstractView.js";
 

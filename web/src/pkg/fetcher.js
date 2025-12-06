@@ -1,3 +1,4 @@
+// fetcher centralizes HTTP calls and consistent error handling for the SPA.
 import Utils from "./Utils.js";
 import redirect from "../index.js";
 
